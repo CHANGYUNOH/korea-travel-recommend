@@ -1,0 +1,118 @@
+html, body {
+  height: 100%;
+  font-family:  "EliceNeolli", "Nanum Gothic", "dotum", sans-serif;
+  font-weight: 400;
+  background: #222;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.025em;
+
+  &:has([data-main-theme="light"]) {
+    background: #fff;
+    color: #333;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:after, &:before {
+    box-sizing: border-box;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:focus, &:focus-visible, &:active, &:hover {
+    outline: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1em;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  caption {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* 컬러 */
+:root {
+  --font-xxl: 22px;
+  --font-xl: 20px;
+  --font-lg: 18px;
+  --font-base: 16px;
+  --font-sm: 14px;
+
+  --colorPoint1: #fd8788;
+
+  --colorWheel1: #ea6bd6;
+  --colorWheel2: #7685d7;
+  --colorWheel3: #a072eb;
+  --colorWheel4: #47a1e6;
+  --colorWheel5: #1eb7b9;
+  --colorWheel6: #3da68c;
+  --colorWheel7: #72be48;
+  --colorWheel8: #ffa800;
+  --colorWheel9: #ff8919;
+  --colorWheel10: #fc696a;
+
+  --colorBg1: #f8f8f8;
+  --colorBg2: #d7d7d7;
+  --colorBg3: #eee;
+
+  --colorText1: #333;
+  --colorText2: #666;
+  --colorText3: #777;
+  --colorText4: #888;
+  --colorText5: #999;
+  --colorText6: #ccc;
+
+  --colorBorder1: #c2c2c2;
+  --colorBorder2: #d7d7d7;
+  --colorBorder3: #eaeaea;
+
+}

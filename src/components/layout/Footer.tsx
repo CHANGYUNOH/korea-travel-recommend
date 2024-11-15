@@ -1,3 +1,7 @@
 export default function Footer() {
-    return <footer>푸터</footer>;
+    return <footer className='footer'>
+        <div className='footer-wrapper'>
+            ⓒ 2024 All rights reserved.
+        </div>
+    </footer>;
 }

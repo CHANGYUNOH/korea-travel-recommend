@@ -1,11 +1,12 @@
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Main from "@/components/layout/Main";
 
 export default function Home() {
-	return <>
+	return <div className='wrapper'>
 		<Header/>
-			메인
+		<Main/>
 		<Footer/>
-	</>;
+	</div>;
 }
