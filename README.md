@@ -1,10 +1,10 @@
-# KOREA-TRAVEL-RECOMMENT
+# KOREA-TRAVEL-RECOMMEND
 팀 프로젝트를 위해 생성된 국내 여행지 추천 사이트 프로젝트입니다.
 
-## 👩‍🏫프로젝트 소개
+## 👩‍🏫 프로젝트 소개
 국내 여행지 정보 플랫폼에 기반한 랜덤으로 여행지 추천 기능을 포함한 사이트입니다.
 
-## 📆개발 기간
+## 📆 개발 기간
 - 2024.11.04 ~
 
 ## 👨‍👩‍👧‍👦개발자 소개
@@ -14,21 +14,21 @@
 - **노찬규** : 프론트
 - **이채연** : 기획 + 프론트
 
-## 🖥개발 환경
+## 🖥 개발 환경
 - **Version** : Node **v20.0.0** / Next.js **v15.0.3**
 - **IDE** : IntelliJ
 - **Framework** : Next.js + Typescript
 - **Front** : Bootstrap, scss
 
-## Setup
+## ⚙ Setup
 Make sure to install the dependencies
 - npm install
 
-## Development Server
+## 🚀 Development Server
 Start the development server on http://localhost:3000
 - npm run dev
 
-## 🚀디렉토리
+## 🌍 디렉토리
 ├📁.idea #  
 ├📁.next #  
 ├📁node_modules #node 모듈  
@@ -62,7 +62,7 @@ Start the development server on http://localhost:3000
 └📄tsconfig.json  
 
 
-## ⚙기술 스택
+## ⛏기술 스택
 - **기획** : [Figma](https://www.figma.com/design/6jrcqWHvTY61XUGPoMgvCO/(%EA%B8%B0%ED%9A%8D)%ED%99%94%EB%A9%B4%EC%84%A4%EA%B3%84%EC%84%9C-%ED%85%9C%ED%94%8C%EB%A6%BF-UX%2FUI-Wireframe-Template(KOR)-UX%2FUI-(Community)?node-id=1-9&node-type=canvas)
 - **일정 관리** : [Monday](https://huuui614s-team.monday.com/auth/login_monday/email_password)
 - **내용 정리** : [Notion](https://www.notion.so/13415f78d77b800dba0ae9b9fd060baf)
