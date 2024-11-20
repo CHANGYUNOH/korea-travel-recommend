@@ -1,4 +1,18 @@
+"use client"
+
+import React, {useEffect} from "react";
+
 export default function Main() {
+
+    useEffect(() => {
+        console.log("useEffect")
+        const fetchData = async () => {
+            const result = await fetch('/api/v1/sample');
+            console.log(await result.json());
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className='container'>
             <main className="pt-20 mt-5">
