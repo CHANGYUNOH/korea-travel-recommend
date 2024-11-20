@@ -18,7 +18,7 @@
 - **Version** : Node **v20.0.0** / Next.js **v15.0.3**
 - **IDE** : IntelliJ
 - **Framework** : Next.js + Typescript
-- **Front** : Bootstrap, scss
+- **Front** : Tailwind, scss
 
 ## ⚙ Setup
 Make sure to install the dependencies
@@ -62,7 +62,7 @@ Start the development server on http://localhost:3000
 └📄tsconfig.json  
 
 
-## ⛏기술 스택
+## ⛏ 기술 스택
 - **기획** : [Figma](https://www.figma.com/design/6jrcqWHvTY61XUGPoMgvCO/(%EA%B8%B0%ED%9A%8D)%ED%99%94%EB%A9%B4%EC%84%A4%EA%B3%84%EC%84%9C-%ED%85%9C%ED%94%8C%EB%A6%BF-UX%2FUI-Wireframe-Template(KOR)-UX%2FUI-(Community)?node-id=1-9&node-type=canvas)
 - **일정 관리** : [Monday](https://huuui614s-team.monday.com/auth/login_monday/email_password)
 - **내용 정리** : [Notion](https://www.notion.so/13415f78d77b800dba0ae9b9fd060baf)

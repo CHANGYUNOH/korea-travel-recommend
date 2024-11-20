@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     "baseUrl": ".",
     "paths": {
         "@/*": ["./*"]
-    }
+    },
 };
 
 export default nextConfig;
