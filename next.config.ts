@@ -1,13 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-    /* proxy */
     async rewrites() {
         return [
             {
-                source: "/:path*",
-                destination: `http://localhost:8181/:path*`,
+                source: "/api/:path*", // API 요청만 프록시
+                destination: "http://localhost:8181/api/:path*", // 서버 주소
             },
         ];
     },
