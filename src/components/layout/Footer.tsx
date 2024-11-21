@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
     return (
         <footer className="bg-gray-800 text-gray-300 py-10">
@@ -14,14 +16,15 @@ export default function Footer() {
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
                     <ul className="space-y-2">
-                        {["지역별 여행지", "테마별 여행지", "근처 여행지 찾기", "지역 축제"].map((link) => (
-                            <li key={link}>
-                                <a
-                                    href='/sub'
+                        {["지역별 여행지", "테마별 여행지", "근처 여행지 찾기", "지역 축제"].map((item, index) => (
+                            <li key={item}>
+                                <Link
+                                    key={item}
+                                    href={`/sub/${index + 1}`}
                                     className="hover:text-blue-400 transition-colors"
                                 >
-                                    {link}
-                                </a>
+                                    {item}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -38,7 +41,7 @@ export default function Footer() {
                             { platform: "GitHub", href: "https://github.com", icon: "github" },
                         ].map(({ platform, href, icon }) => (
                             <li key={platform}>
-                                <a
+                                <Link
                                     href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -46,7 +49,7 @@ export default function Footer() {
                                     aria-label={platform}
                                 >
                                     <i className={`fab fa-${icon} text-xl`}></i>
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

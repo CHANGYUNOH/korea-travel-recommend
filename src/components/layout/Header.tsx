@@ -1,6 +1,25 @@
 import Link from 'next/link';
 
 export default function Header() {
+    const menuList = [
+        {
+            name: '지역별 여행지',
+            route: 'regions'
+        },
+        {
+            name: '테마별 여행지',
+            route: 'themes'
+        },
+        {
+            name: '근처 여행지 찾기',
+            route: 'nearby'
+        },
+        {
+            name: '지역 축제',
+            route: 'festivals'
+        }
+    ]
+
     return (
         <header className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-md shadow-md z-50 dark:bg-gray-900/70">
             <div className="container mx-auto flex items-center justify-between px-6 py-4">
@@ -14,13 +33,13 @@ export default function Header() {
 
                 {/* 네비게이션 */}
                 <nav className="hidden md:flex space-x-8">
-                    {["지역별 여행지", "테마별 여행지", "근처 여행지 찾기", "지역 축제"].map((item, index) => (
+                    {menuList.map((item, index) => (
                         <Link
-                            key={item}
-                            href={`/sub/${index + 1}`}
+                            key={index}
+                            href={`/travel/${item.route}`}
                             className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium"
                         >
-                            {item}
+                            {item.name}
                         </Link>
                     ))}
                 </nav>
