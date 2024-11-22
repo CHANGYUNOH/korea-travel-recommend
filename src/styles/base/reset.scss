@@ -1,15 +1,14 @@
 html, body {
   height: 100%;
-  font-family:  "EliceNeolli", "Nanum Gothic", "dotum", sans-serif;
   font-weight: 400;
-  background: #222;
-  color: #fff;
+  background: #fff;
+  color: #333;
   line-height: 1;
   letter-spacing: -0.025em;
 
-  &:has([data-main-theme="light"]) {
-    background: #fff;
-    color: #333;
+  &:has([data-main-theme="dark"]) {
+    background: #222;
+    color: #fff;
   }
 }
 

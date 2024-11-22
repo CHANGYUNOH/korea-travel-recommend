@@ -1,7 +1,7 @@
 'use client'; // 클라이언트에서 처리할 경우 사용
 
 import React from 'react';
-import styles from '@/styles/dashboard.module.scss';
+import styles from '@/styles/pages/dashboard.module.scss';
 
 // 가상의 업무 리스트 (업무가 분류되어 있음)
 const tasks = [

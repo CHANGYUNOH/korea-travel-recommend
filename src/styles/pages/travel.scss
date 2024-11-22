@@ -1,0 +1,205 @@
+.container {
+
+  /* 테마별 여행지 */
+  .area {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
+
+    .region {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      &-list {
+        &-item {
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          transition: all ease .2s;
+          min-width: 124px;
+
+          &.is-active {
+            font-size: 20px;
+            font-weight: 600;
+
+            img {
+              border: 2px solid #333;
+              width: 80px;
+              min-width: 80px;
+              height: 80px;
+            }
+          }
+
+          img {
+            width: 65px;
+            min-width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #eaeaea;
+          }
+
+          span {
+
+          }
+        }
+      }
+    }
+  }
+  /* EOD : 테마별 여행지 */
+
+  /* 리스트 */
+  .list {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 20px 27px 20px;
+
+    &-head {
+      font-size: 25px;
+      letter-spacing: -2px;
+      line-height: 1.2;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+
+      &-text {
+        font-size: 25px;
+        letter-spacing: -2px;
+        color: #666;
+        line-height: 2;
+
+        select {
+          margin: 0 16px 0 5px;
+          padding: 0 20px 0 5px;
+          font-weight: 600;
+          letter-spacing: -2.5px;
+          color: #333;
+          font-size: 30px;
+        }
+      }
+
+      .tooltip {
+        position: relative;
+
+        &-btn {
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+          border: 1px solid #666;
+          border-radius: 50%;
+
+          i {
+            font-style: normal;
+          }
+        }
+
+        &-icon {
+          font-size: 13px;
+        }
+
+        &-wrap {
+          display: none;
+          position: absolute;
+          top: 30px;
+          left: 0;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+          background: #fff;
+          padding: 20px;
+          width: 322px;
+
+          .btn-close {
+            color: #666;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 14px;
+          }
+        }
+
+        &-cont {
+          line-height: 1.2;
+          color: #666;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-card {
+      margin-top: 30px;
+
+      &-item {
+        display: block;
+        background: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+
+        &-link {
+          .img {
+            height: 220px;
+            border-color: initial;
+            background: #eaeaea;
+
+            img {
+              object-fit: cover;
+            }
+          }
+
+          .info {
+            height: 100px;
+            padding: 13px 15px 0;
+            text-align: center;
+
+            &-title {
+              font-size: 18px;
+              font-weight: 700;
+              letter-spacing: -0.6px;
+              line-height: 20px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            &-locale {
+              margin: 5px 0 16px;
+              font-size: 15px;
+              color: #666;
+              line-height: 17px;
+              letter-spacing: -0.5px;
+            }
+
+            &-tag {
+              display: flex;
+              justify-content: center;
+              font-size: 14px;
+              font-weight: 300;
+              color: #666;
+              line-height: 16px;
+
+              &-list {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /* EOD : 리스트 */
+
+  /* 배너 */
+  /* EOD : 배너 */
+
+  /* 일정 */
+  /* EOD : 일정 */
+
+  /* 슬라이더 */
+  /* EOD : 슬라이더 */
+
+  /* 우리 지역 이야기 */
+  /* EOD : 우리 지역 이야기 */
+}
