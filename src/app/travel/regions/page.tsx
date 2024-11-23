@@ -1,4 +1,10 @@
+'use client';
+
 import '@/styles/pages/travel.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 
 // 지역별 여행지
 export default function Regions() {
@@ -11,16 +17,28 @@ export default function Regions() {
         <>
             {/* 테마별 여행지 */}
             <div className='area'>
-                <ul className='region'>
+                <Swiper
+                    slidesPerView={3}
+                    grid={{
+                        rows: 2,
+                    }}
+                    spaceBetween={30}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    className="region"
+                >
                     {region.map((item, index) => (
-                        <li key={index} className='region-list'>
-                            <a href='javascript:void(0)' className='region-list-item'>
-                                <img/>
-                                <span>{item}</span>
-                            </a>
-                        </li>
+                        <SwiperSlide key={index}>
+                            <li className="region-list">
+                                <a href="#" className="region-list-item">
+                                    <img />
+                                    <span>{item}</span>
+                                </a>
+                            </li>
+                        </SwiperSlide>
                     ))}
-                </ul>
+                </Swiper>
             </div>
             {/* EOD : 테마별 여행지 */}
 
@@ -28,7 +46,7 @@ export default function Regions() {
             <div className='list'>
                 <h2 className='list-head'>대한민국 구석구석,</h2>
                 <div className='list-title'>
-                    <div className='list-title-text'>
+                <div className='list-title-text'>
                         <span>인기</span>
                         <select>
                             <option>여행지</option>
