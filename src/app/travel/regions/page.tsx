@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
+import { Grid, Pagination } from 'swiper/modules';
 
 // 지역별 여행지
 export default function Regions() {
@@ -18,14 +19,8 @@ export default function Regions() {
             {/* 테마별 여행지 */}
             <div className='area'>
                 <Swiper
-                    slidesPerView={3}
-                    grid={{
-                        rows: 2,
-                    }}
-                    spaceBetween={30}
-                    pagination={{
-                        clickable: true,
-                    }}
+                    slidesPerView={4}
+                        spaceBetween={30}
                     className="region"
                 >
                     {region.map((item, index) => (
@@ -70,28 +65,40 @@ export default function Regions() {
                     </div>
 
                 </div>
-                <ul className='list-card'>
+                <Swiper slidesPerView={4}
+                        grid={{
+                            rows: 2, // 그리드 행(Row) 수
+                            fill: "row" // 슬라이드 채우기 방식 (row 또는 column)
+                        }}
+                        spaceBetween={20}
+                        modules={[Grid, Pagination]}
+                        pagination={{
+                            type: "fraction",
+                        }}
+                        className='list-card'>
                     {swiperList.map((item, index) => (
-                        <li className='list-card-item' key={index}>
-                            <a href="" className='list-card-item-link'>
-                                <div className='img'>
-                                    <img/>
-                                </div>
-                                <div className='info'>
-                                    <div className='info-title'>고성 통일전망타워</div>
-                                    <p className='info-locale'>강원 고성군</p>
-                                    <ul className='info-tag'>
-                                        <li className='info-tag-list'>#역사공부</li>
-                                        <li className='info-tag-list'>#전쟁역사</li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <button className='btn-like'>
-                                <i className='icon'/>
-                            </button>
-                        </li>
+                        <SwiperSlide key={index}>
+                            <li className='list-card-item'>
+                                <a href="" className='list-card-item-link'>
+                                    <div className='img'>
+                                        <img/>
+                                    </div>
+                                    <div className='info'>
+                                        <div className='info-title'>고성 통일전망타워</div>
+                                        <p className='info-locale'>{item}</p>
+                                        <ul className='info-tag'>
+                                            <li className='info-tag-list'>#역사공부</li>
+                                            <li className='info-tag-list'>#전쟁역사</li>
+                                        </ul>
+                                    </div>
+                                </a>
+                                <button className='btn-like'>
+                                    <i className='icon'/>
+                                </button>
+                            </li>
+                        </SwiperSlide>
                     ))}
-                </ul>
+                </Swiper>
             </div>
             {/* EOD : 리스트 */}
 

@@ -56,6 +56,10 @@
     margin: 0 auto;
     padding: 50px 20px 27px 20px;
 
+    .swiper {
+      overflow: inherit;
+    }
+
     &-head {
       font-size: 25px;
       letter-spacing: -2px;
