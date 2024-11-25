@@ -5,14 +5,23 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
-import { Grid, Pagination } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { Grid, Pagination, Navigation } from 'swiper/modules';
 
 // 지역별 여행지
 export default function Regions() {
+    
+    const locate = ['전국', '서울', '인천', '대전', '대구', '광주', '부산', '울산', '경기', '강원', '세종', '제주', '충북', '충남', '경북', '경남', '전북', '전남']
 
     const region = ['반려동물 동반 여행','친환경 관광','캠핑장','레저여행']
 
-    const swiperList = ['속초', '합천', '용산', '여수', '담양', '고성', '서산']
+    const swiperList = ['속초', '합천', '용산', '여수', '담양', '고성', '서산', '속초']
+
+    const setBtnLike = () => {
+        alert('좋아요를 누르셨습니다.')
+    }
+
+    const cardList = ['서울 종로구','서울 종로구','서울 종로구','서울 종로구','서울 종로구']
 
     return (
         <>
@@ -20,14 +29,14 @@ export default function Regions() {
             <div className='area'>
                 <Swiper
                     slidesPerView={4}
-                        spaceBetween={30}
+                    spaceBetween={30}
                     className="region"
                 >
                     {region.map((item, index) => (
                         <SwiperSlide key={index}>
                             <li className="region-list">
                                 <a href="#" className="region-list-item">
-                                    <img />
+                                    <img/>
                                     <span>{item}</span>
                                 </a>
                             </li>
@@ -36,6 +45,32 @@ export default function Regions() {
                 </Swiper>
             </div>
             {/* EOD : 테마별 여행지 */}
+
+            {/* 지도 */}
+            <div className='title'>
+                지도로 찾아보는 <strong>지역별 여행지</strong>
+            </div>
+            <div className='map'>
+
+                <div className='map-view'>
+                    지도 영역
+                </div>
+                <div className='map-list'>
+                    {locate.map((item, index) => (
+                        <div className='map-list-item' key={index}>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="options"
+                                    value="option1"
+                                />
+                                {item}
+                            </label>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            {/* 지도 */}
 
             {/* 리스트 */}
             <div className='list'>
@@ -63,60 +98,146 @@ export default function Regions() {
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <Swiper slidesPerView={4}
-                        grid={{
-                            rows: 2, // 그리드 행(Row) 수
-                            fill: "row" // 슬라이드 채우기 방식 (row 또는 column)
-                        }}
-                        spaceBetween={20}
-                        modules={[Grid, Pagination]}
-                        pagination={{
-                            type: "fraction",
-                        }}
-                        className='list-card'>
-                    {swiperList.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <li className='list-card-item'>
-                                <a href="" className='list-card-item-link'>
-                                    <div className='img'>
-                                        <img/>
-                                    </div>
-                                    <div className='info'>
-                                        <div className='info-title'>고성 통일전망타워</div>
-                                        <p className='info-locale'>{item}</p>
-                                        <ul className='info-tag'>
-                                            <li className='info-tag-list'>#역사공부</li>
-                                            <li className='info-tag-list'>#전쟁역사</li>
-                                        </ul>
-                                    </div>
-                                </a>
-                                <button className='btn-like'>
-                                    <i className='icon'/>
-                                </button>
-                            </li>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <div className='list-nationwide'>
+                    <Swiper slidesPerView={4}
+                            grid={{
+                                rows: 2, // 그리드 행(Row) 수
+                                fill: "row" // 슬라이드 채우기 방식 (row 또는 column)
+                            }}
+                            spaceBetween={20}
+                            modules={[Grid, Pagination]}
+                            pagination={{
+                                type: "fraction",
+                            }}
+                            className='list-card'>
+                        {swiperList.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <li className='list-card-item'>
+                                    <a href="" className='list-card-item-link'>
+                                        <div className='img'>
+                                            <img/>
+                                        </div>
+                                        <div className='info'>
+                                            <div className='info-title'>고성 통일전망타워</div>
+                                            <p className='info-locale'>{item}</p>
+                                            <ul className='info-tag'>
+                                                <li className='info-tag-list'>#역사공부</li>
+                                                <li className='info-tag-list'>#전쟁역사</li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                    <button className='btn-like' onClick={setBtnLike}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
+                                        </svg>
+                                        {/*<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                         fill="currentColor"
+                                         className="size-6">
+                                        <path
+                                            d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"/>
+                                    </svg>*/}
+                                    </button>
+                                </li>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+                <button className='btn-more'>
+                    <a href="">
+                        <span>더 많은 <strong>여행지</strong> 보러가기</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                             stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                        </svg>
+                    </a>
+                </button>
             </div>
             {/* EOD : 리스트 */}
 
-            {/* 배너 */}
-            <div className='banner'>
-                배너
+            <div className='title'>
+                현재 <strong>지역명</strong>에서 진행하는 주변 축제·행사는?
             </div>
-            {/* EOD : 배너 */}
-
-            {/* 일정 */}
-            <div className='schedule'>
-                일정
-            </div>
-            {/* EOD : 일정 */}
 
             {/* 슬라이더 */}
-            <div className='slider'>
-                슬라이더
+            <div className='card-slider'>
+                <Swiper slidesPerView={2.5}
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        navigation={{
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        }}
+                        pagination={{
+                            el: '.custom-pagination',
+                            clickable: true,
+                            bulletClass: 'custom-pagination-bullet', // 사용자 정의 클래스 지정
+                            bulletActiveClass: 'custom-pagination-bullet-active', // 활성화 클래스 지정
+                        }}
+                        modules={[Pagination, Navigation]}>
+                    {cardList.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <div className='card'>
+                                <div className='img'>
+                                    <img/>
+                                </div>
+                                <div className='info'>
+                                    <div className='info-title'>포르테피아니시모</div>
+                                    <p className='info-locate'>{item}</p>
+                                    <div className='info-content'>
+                                        <div className='info-content-period'>
+                                            <p className='tit'>기간</p>
+                                            <div className='cont'>2024.10.4 ~ 2024.12.1</div>
+                                        </div>
+                                        <div className='info-content-place'>
+                                            <p className='tit'>장소</p>
+                                            <div className='cont'>서울특별시 종로구 대학로 12길 15(동승동)</div>
+                                        </div>
+
+                                    </div>
+                                    <div className='info-btn'>
+                                        <a href="" className='btn-fill'>바로가기</a>
+                                        <a href="" className='btn-line'>길찾기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+
+                <div className='page-btn'>
+                    <div className='page-btn-inner'>
+                        {/* 커스텀 내비게이션 버튼 */}
+                        <div className="swiper-button-next custom-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                                 stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                      d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                            </svg>
+                        </div>
+                        <div className="swiper-button-prev custom-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                                 stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                      d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                            </svg>
+                        </div>
+
+                        {/* 커스텀 페이지네이션 */}
+                        <div className="swiper-pagination custom-pagination"></div>
+                    </div>
+                    <a href="" className='page-btn-more'>
+                        <strong>축제 · 행사달력</strong>
+                        <span>보러가기</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                             stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
             {/* EOD : 슬라이더 */}
 

@@ -40,8 +40,8 @@ img {
 }
 
 a {
-  text-decoration: none!important;
-  color: #222!important;
+  text-decoration: none;
+  color: #222;
 
   &:focus, &:focus-visible, &:active, &:hover {
     outline: 0;

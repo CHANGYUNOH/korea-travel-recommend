@@ -1,11 +1,13 @@
 .container {
+  max-width: 100%;
+  padding: 0;
 
   /* 테마별 여행지 */
   .area {
     max-width: 980px;
     margin: 0 auto;
     text-align: center;
-    padding-top: 50px;
+    padding: 50px 0;
 
     .region {
       display: flex;
@@ -50,11 +52,27 @@
   }
   /* EOD : 테마별 여행지 */
 
+  /* 지도 */
+  .map {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+
+    &-view {
+      flex: 1;
+    }
+
+    &-list {
+      flex: 1;
+    }
+  }
+  /* EOD : 지도 */
+
   /* 리스트 */
   .list {
     max-width: 980px;
     margin: 0 auto;
-    padding: 50px 20px 27px 20px;
+    padding: 50px 0;
 
     .swiper {
       overflow: inherit;
@@ -190,19 +208,310 @@
             }
           }
         }
+
+        .btn-like {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: #fff;
+        }
+      }
+    }
+
+    .btn-more {
+      width: 100%;
+      margin: 30px 0 0 0;
+
+      a {
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: -0.5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        width: 260px;
+        height: 45px;
+        border: 1px solid #333;
+        border-radius: 50px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          margin-top: -1px;
+        }
       }
     }
   }
   /* EOD : 리스트 */
 
-  /* 배너 */
-  /* EOD : 배너 */
+  .title {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 0 40px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+    color: #000;
+  }
 
-  /* 일정 */
-  /* EOD : 일정 */
+  /* 카드 슬라이더 */
+  .card-slider {
+    background: #333;
+    height: 496px;
+    padding: 50px 0 0;
 
-  /* 슬라이더 */
-  /* EOD : 슬라이더 */
+    .card {
+      display: flex;
+      height: 100%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      overflow: hidden;
+
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        background: #333;
+        position: absolute;
+        left: 252px;
+        top: -8px;
+      }
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        background: #333;
+        position: absolute;
+        left: 252px;
+        bottom: -8px;
+      }
+
+      .img {
+        min-width: 200px;
+        width: 200px;
+        height: 280px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+          background: #ccc;
+        }
+      }
+
+      .info {
+        margin-left: 30px;
+        padding: 0 0 0 30px;
+        min-width: 390px;
+        width: 390px;
+        position: relative;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 1px;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          border: 1px dashed #999;
+        }
+
+        &-title {
+          margin: 18px 0 5px;
+          font-size: 24px;
+          font-weight: 800;
+          letter-spacing: -1.5px;
+          color: #333;
+          line-height: 26px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        &-locate {
+          display: block;
+          font-size: 16px;
+          line-height: 18px;
+          color: #333;
+          letter-spacing: -0.5px;
+        }
+
+        &-content {
+          display: flex;
+          justify-content: space-between;
+          margin: 85px 0 0;
+
+          &-period {
+            width: 100px;
+
+            .tit {
+              display: block;
+              padding: 0 0 10px;
+              font-size: 13px;
+              font-weight: 400;
+              line-height: 15px;
+            }
+
+            .cont {
+              display: block;
+              height: 74px;
+              font-size: 16px;
+              line-height: 18px;
+              color: #333;
+              letter-spacing: -0.5px;
+            }
+          }
+
+          &-place {
+            width: 200px;
+
+            .tit {
+              display: block;
+              padding: 0 0 10px;
+              font-size: 13px;
+              font-weight: 400;
+              line-height: 15px;
+            }
+
+            .cont {
+              display: block;
+              height: 74px;
+              font-size: 16px;
+              line-height: 18px;
+              color: #333;
+              letter-spacing: -0.5px;
+            }
+          }
+        }
+
+        &-btn {
+          display: flex;
+
+          a {
+            width: 120px;
+            height: 30px;
+            font-size: 14px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+          }
+
+          .btn-fill {
+            border: 1px solid #333;
+            background: #333;
+            color: #fff;
+          }
+
+          .btn-line {
+            border: 1px solid #333;
+            background: #fff;
+            color: #333;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .page-btn {
+      width: 940px;
+      height: 26px;
+      margin: 30px auto 0;
+      position: relative;
+      text-align: center;
+
+      &-inner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        position: relative;
+        padding: 0 70px;
+      }
+
+      .swiper-button {
+        &-prev {
+          &:after {
+            content: '';
+          }
+        }
+
+        &-next {
+          &:after {
+            content: '';
+          }
+        }
+      }
+
+      .custom-pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        position: absolute;
+        bottom: 0;
+        top: -28px;
+
+        .custom-pagination-bullet {
+          width: 16px;
+          height: 16px;
+          background-color: #ccc;
+          border-radius: 50%;
+          margin: 0 5px;
+          cursor: pointer;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: #888;
+          }
+        }
+
+        .custom-pagination-bullet-active {
+          background-color: #0070f3;
+          transform: scale(1.2);
+        }
+      }
+
+      &-more {
+        display: inline-flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 3px;
+        color: #fff;
+        font-size: 16px;
+        line-height: 18px;
+
+        span {
+          margin-left: 4px;
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+  /* EOD : 카드 슬라이더 */
 
   /* 우리 지역 이야기 */
   /* EOD : 우리 지역 이야기 */
