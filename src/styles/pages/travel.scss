@@ -60,10 +60,223 @@
 
     &-view {
       flex: 1;
+      position: relative;
+
+      &-all {
+        width: 268px;
+        height: 370px;
+        margin: 0 auto;
+        position: relative;
+
+        .map-all {
+          width: 268px;
+          height: 370px;
+        }
+
+        .map-section {
+          height: 370px;
+          position: absolute;
+          width: 268px;
+          top: 0;
+          left: 0;
+
+          &-item {
+            height: 370px;
+
+            input[type=radio] {
+              height: 0;
+              opacity: 0;
+              position: absolute;
+              width: 0;
+
+              & + label {
+                cursor: pointer;
+              }
+
+              &:checked {
+                & + label {
+                  img {
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+
+          img {
+            position: absolute;
+            display: none;
+
+            &.map-1 {
+              display: block;
+            }
+          }
+
+          .map-2 {
+            width: 27px;
+            height: 22px;
+            top: 61px;
+            left: 64px;
+          }
+
+          .map-3 {
+            width: 13px;
+            height: 20px;
+            top: 63px;
+            left: 53px;
+          }
+
+          .map-4 {
+            width: 21px;
+            height: 24px;
+            top: 151px;
+            left: 85px;
+          }
+
+          .map-5 {
+            width: 28px;
+            height: 30px;
+            top: 193px;
+            left: 152px;
+          }
+
+          .map-6 {
+            width: 25px;
+            height: 16px;
+            top: 241px;
+            left: 40px;
+          }
+
+          .map-7 {
+            width: 35px;
+            height: 28px;
+            top: 241px;
+            left: 177px;
+          }
+
+          .map-8 {
+            width: 34px;
+            height: 33px;
+            top: 217px;
+            left: 191px;
+          }
+
+          .map-9 {
+            width: 89px;
+            height: 104px;
+            top: 18px;
+            left: 42px;
+          }
+
+          .map-10 {
+            width: 136px;
+            height: 121px;
+            top: 0;
+            left: 88px;
+          }
+
+          .map-11 {
+            width: 18px;
+            height: 23px;
+            top: 134px;
+            left: 80px;
+          }
+
+          .map-12 {
+            width: 50px;
+            height: 25px;
+            left: 1px;
+            top: 344px;
+          }
+
+          .map-13 {
+            width: 90px;
+            height: 92px;
+            top: 98px;
+            left: 91px;
+          }
+
+          .map-14 {
+            width: 92px;
+            height: 86px;
+            top: 105px;
+            left: 18px;
+          }
+
+          .map-15 {
+            width: 111px;
+            height: 116px;
+            top: 112px;
+            left: 122px;
+          }
+
+          .map-16 {
+            width: 107px;
+            height: 83px;
+            top: 197px;
+            left: 100px;
+          }
+
+          .map-17 {
+            width: 97px;
+            height: 67px;
+            top: 175px;
+            left: 29px;
+          }
+
+          .map-18 {
+            width: 112px;
+            height: 88px;
+            top: 223px;
+            left: 2px;
+          }
+
+          .map-19 {
+            width: 14px;
+            height: 16px;
+            top: 84px;
+            left: 255px;
+          }
+        }
+      }
     }
 
     &-list {
       flex: 1;
+      align-self: center;
+
+      &-item {
+        display: inline-flex;
+        margin: 6px 5px 0 0;
+
+        input[type=radio] {
+          height: 0;
+          opacity: 0;
+          position: absolute;
+          width: 0;
+
+          &:checked {
+            & + label {
+              border: 1px solid #57667e;
+              background-color: #57667e;
+              color: #fff;
+            }
+          }
+
+          & + label {
+            align-items: center;
+            border: 1px solid;
+            border-radius: 20px;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            padding: 10px 20px;
+            transition: all .2s ease;
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
   /* EOD : 지도 */
@@ -124,7 +337,6 @@
         }
 
         &-wrap {
-          display: none;
           position: absolute;
           top: 30px;
           left: 0;
@@ -132,6 +344,7 @@
           background: #fff;
           padding: 20px;
           width: 322px;
+          z-index: 2;
 
           .btn-close {
             color: #666;
@@ -168,6 +381,8 @@
 
             img {
               object-fit: cover;
+              width: 100%;
+              height: 100%;
             }
           }
 
@@ -203,7 +418,10 @@
               line-height: 16px;
 
               &-list {
-
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
             }
           }
@@ -220,6 +438,12 @@
           height: 30px;
           border-radius: 50%;
           background: #fff;
+
+          &.is-active {
+            svg {
+              fill: red;
+            }
+          }
         }
       }
     }
@@ -445,16 +669,28 @@
         width: 250px;
         position: relative;
         padding: 0 70px;
+
+        svg > path {
+          stroke: white;
+        }
       }
 
       .swiper-button {
         &-prev {
+          &.swiper-button-disabled {
+            display: none;
+          }
+
           &:after {
             content: '';
           }
         }
 
         &-next {
+          &.swiper-button-disabled {
+            display: none;
+          }
+
           &:after {
             content: '';
           }
@@ -467,25 +703,24 @@
         margin-top: 20px;
         position: absolute;
         bottom: 0;
-        top: -28px;
+        top: -25px;
 
         .custom-pagination-bullet {
-          width: 16px;
-          height: 16px;
-          background-color: #ccc;
-          border-radius: 50%;
           margin: 0 5px;
-          cursor: pointer;
-          transition: all 0.3s;
-
-          &:hover {
-            background-color: #888;
-          }
+          width: 10px;
+          box-sizing: border-box;
+          height: 10px;
+          background: #333;
+          border: 1px solid #fff;
+          opacity: 1;
+          vertical-align: top;
+          border-radius: 50%;
         }
 
         .custom-pagination-bullet-active {
-          background-color: #0070f3;
-          transform: scale(1.2);
+          background: #fff;
+          width: 25px;
+          border-radius: 50px;
         }
       }
 
