@@ -81,9 +81,7 @@
           left: 0;
 
           &-item {
-            height: 370px;
-
-            input[type=radio] {
+            input[type=checkbox] {
               height: 0;
               opacity: 0;
               position: absolute;
@@ -91,151 +89,247 @@
 
               & + label {
                 cursor: pointer;
+
+                img {
+                  position: absolute;
+                  display: none;
+
+                  &.map-1 {
+                    display: block;
+                  }
+                }
+
+                svg {
+                  display: none;
+                }
               }
 
               &:checked {
                 & + label {
+                  cursor: pointer;
+
                   img {
                     display: block;
                   }
                 }
               }
             }
-          }
 
-          img {
-            position: absolute;
-            display: none;
-
-            &.map-1 {
-              display: block;
+            &.map-2 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 27px;
+                  height: 22px;
+                  top: 61px;
+                  left: 64px;
+                }
+              }
             }
-          }
 
-          .map-2 {
-            width: 27px;
-            height: 22px;
-            top: 61px;
-            left: 64px;
-          }
+            &.map-3 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 13px;
+                  height: 20px;
+                  top: 63px;
+                  left: 53px;
+                }
+              }
+            }
 
-          .map-3 {
-            width: 13px;
-            height: 20px;
-            top: 63px;
-            left: 53px;
-          }
+            &.map-4 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 21px;
+                  height: 24px;
+                  top: 151px;
+                  left: 85px;
+                }
+              }
+            }
 
-          .map-4 {
-            width: 21px;
-            height: 24px;
-            top: 151px;
-            left: 85px;
-          }
+            &.map-5 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 28px;
+                  height: 30px;
+                  top: 193px;
+                  left: 152px;
+                }
+              }
+            }
 
-          .map-5 {
-            width: 28px;
-            height: 30px;
-            top: 193px;
-            left: 152px;
-          }
+            &.map-6 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 25px;
+                  height: 16px;
+                  top: 241px;
+                  left: 40px;
+                }
+              }
+            }
 
-          .map-6 {
-            width: 25px;
-            height: 16px;
-            top: 241px;
-            left: 40px;
-          }
+            &.map-7 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 35px;
+                  height: 28px;
+                  top: 241px;
+                  left: 177px;
+                }
+              }
+            }
 
-          .map-7 {
-            width: 35px;
-            height: 28px;
-            top: 241px;
-            left: 177px;
-          }
+            &.map-8 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 34px;
+                  height: 33px;
+                  top: 217px;
+                  left: 191px;
+                }
+              }
+            }
 
-          .map-8 {
-            width: 34px;
-            height: 33px;
-            top: 217px;
-            left: 191px;
-          }
+            &.map-9 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 89px;
+                  height: 104px;
+                  top: 18px;
+                  left: 42px;
+                }
+              }
+            }
 
-          .map-9 {
-            width: 89px;
-            height: 104px;
-            top: 18px;
-            left: 42px;
-          }
+            &.map-10 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 136px;
+                  height: 121px;
+                  top: 0;
+                  left: 88px;
+                }
+              }
+            }
 
-          .map-10 {
-            width: 136px;
-            height: 121px;
-            top: 0;
-            left: 88px;
-          }
+            &.map-11 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 18px;
+                  height: 23px;
+                  top: 134px;
+                  left: 80px;
+                }
+              }
+            }
 
-          .map-11 {
-            width: 18px;
-            height: 23px;
-            top: 134px;
-            left: 80px;
-          }
+            &.map-12 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 50px;
+                  height: 25px;
+                  left: 1px;
+                  top: 344px;
+                }
+              }
+            }
 
-          .map-12 {
-            width: 50px;
-            height: 25px;
-            left: 1px;
-            top: 344px;
-          }
+            &.map-13 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 90px;
+                  height: 92px;
+                  top: 98px;
+                  left: 91px;
+                }
+              }
+            }
 
-          .map-13 {
-            width: 90px;
-            height: 92px;
-            top: 98px;
-            left: 91px;
-          }
+            &.map-14 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 92px;
+                  height: 86px;
+                  top: 105px;
+                  left: 18px;
+                }
+              }
+            }
 
-          .map-14 {
-            width: 92px;
-            height: 86px;
-            top: 105px;
-            left: 18px;
-          }
+            &.map-15 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 111px;
+                  height: 116px;
+                  top: 112px;
+                  left: 122px;
+                }
+              }
+            }
 
-          .map-15 {
-            width: 111px;
-            height: 116px;
-            top: 112px;
-            left: 122px;
-          }
+            &.map-16 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 107px;
+                  height: 83px;
+                  top: 197px;
+                  left: 100px;
+                }
+              }
+            }
 
-          .map-16 {
-            width: 107px;
-            height: 83px;
-            top: 197px;
-            left: 100px;
-          }
+            &.map-17 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 97px;
+                  height: 67px;
+                  top: 175px;
+                  left: 29px;
+                }
+              }
+            }
 
-          .map-17 {
-            width: 97px;
-            height: 67px;
-            top: 175px;
-            left: 29px;
-          }
+            &.map-18 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 112px;
+                  height: 88px;
+                  top: 223px;
+                  left: 2px;
+                }
+              }
+            }
 
-          .map-18 {
-            width: 112px;
-            height: 88px;
-            top: 223px;
-            left: 2px;
-          }
-
-          .map-19 {
-            width: 14px;
-            height: 16px;
-            top: 84px;
-            left: 255px;
+            &.map-19 {
+              input[type=checkbox] {
+                & + label {
+                  position: absolute;
+                  width: 14px;
+                  height: 16px;
+                  top: 84px;
+                  left: 255px;
+                }
+              }
+            }
           }
         }
       }
@@ -249,7 +343,7 @@
         display: inline-flex;
         margin: 6px 5px 0 0;
 
-        input[type=radio] {
+        input[type=checkbox] {
           height: 0;
           opacity: 0;
           position: absolute;
