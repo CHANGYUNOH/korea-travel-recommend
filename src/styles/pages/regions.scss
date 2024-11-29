@@ -154,9 +154,10 @@
               & + label {
                 svg {
                   position: absolute;
+                  z-index: -1;
+                  pointer-events: none;
 
                   path {
-                    display: none;
                     cursor: pointer;
                     pointer-events: visibleFill;
                   }
