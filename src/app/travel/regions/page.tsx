@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Grid, Pagination, Navigation } from 'swiper/modules';
 import {useEffect, useState, useRef} from "react";
+import Link from 'next/link';
 
 // 지역별 여행지
 export default function Regions() {
@@ -185,7 +186,7 @@ export default function Regions() {
     };
 
     return (
-        <>
+        <div className='region-list'>
             {/* 지도 */}
             <div className='title'>
                 지도로 찾아보는 <strong>지역별 여행지</strong>
@@ -569,7 +570,7 @@ export default function Regions() {
                         {swiperList.map((item, index) => (
                             <SwiperSlide key={index}>
                                 <li className='list-card-item'>
-                                    <a href="" className='list-card-item-link'>
+                                    <Link href={`/travel/regions/${index}`} className='list-card-item-link'>
                                         <div className='img'>
                                             <img src={`/images/list_sample_0${index + 1}.png`} alt={item.title}/>
                                         </div>
@@ -582,7 +583,7 @@ export default function Regions() {
                                                 ))}
                                             </ul>
                                         </div>
-                                    </a>
+                                    </Link>
                                     <button className={`btn-like ${likedItems[index] ? 'is-active' : ''}`}
                                             onClick={() => handleBtnLike(index)}>
                                         {likedItems[index] ? (
@@ -616,12 +617,12 @@ export default function Regions() {
             {/* EOD : 리스트 */}
 
             <div className='title'>
-                현재 <strong>{selectedItems}</strong>에서 진행하는 주변 축제·행사는?
+                현재 <strong>{selectedItems.join(', ')}</strong>에서 진행하는 주변 축제·행사는?
             </div>
 
             {/* 슬라이더 */}
             <div className='card-slider'>
-                <Swiper slidesPerView={2.5}
+                <Swiper slidesPerView={1.9}
                         spaceBetween={30}
                         centeredSlides={true}
                         navigation={{
@@ -698,6 +699,6 @@ export default function Regions() {
                 </div>
             </div>
             {/* EOD : 슬라이더 */}
-        </>
+        </div>
     );
 }

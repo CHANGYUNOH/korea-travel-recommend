@@ -2,884 +2,945 @@
   max-width: 100%;
   padding: 50px 0 0 0;
 
-  /* 지도 */
-  .map {
-    max-width: 980px;
-    margin: 0 auto;
-    display: flex;
+  .region-list {
 
-    &-view {
-      flex: 1;
-      position: relative;
+    /* 지도 */
+    .map {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
 
-      &-all {
-        width: 268px;
-        height: 370px;
-        margin: 0 auto;
+      &-view {
+        flex: 1;
         position: relative;
 
-        .map-all {
+        &-all {
           width: 268px;
           height: 370px;
-        }
+          margin: 0 auto;
+          position: relative;
 
-        .map-section {
-          height: 370px;
-          position: absolute;
-          width: 268px;
-          top: 0;
-          left: 0;
+          .map-all {
+            width: 268px;
+            height: 370px;
+          }
 
-          &-item {
-            input[type=checkbox] {
-              height: 0;
-              opacity: 0;
-              position: absolute;
-              width: 0;
+          .map-section {
+            height: 370px;
+            position: absolute;
+            width: 268px;
+            top: 0;
+            left: 0;
 
-              &:checked {
+            &-item {
+              input[type=checkbox] {
+                height: 0;
+                opacity: 0;
+                position: absolute;
+                width: 0;
+
+                &:checked {
+                  & + label {
+                    svg {
+                      &.seoul {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.incheon {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.daejeon {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.daegu {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.gwangju {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.busan {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.ulsan {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.gyeonggi {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.gangwon {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.sejong {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.jeju {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.chungbook {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.chungnam {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.gyeongbook {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.gyeongnam {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.jyeonbook {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.jyeonnam {
+                        path {
+                          display: block;
+                        }
+                      }
+
+                      &.dokdo {
+                        path {
+                          display: block;
+                        }
+                      }
+                    }
+                  }
+                }
+
                 & + label {
                   svg {
-                    &.seoul {
+                    position: absolute;
+                    z-index: -1;
+                    pointer-events: none;
+
+                    path {
+                      cursor: pointer;
+                      pointer-events: visibleFill;
+                    }
+
+                    &.all {
                       path {
                         display: block;
+                      }
+                    }
+
+                    &.seoul {
+                      top: 61px;
+                      left: 64px;
+                      z-index: 2;
+
+                      path {
+                        width: 27px;
+                        height: 22px;
                       }
                     }
 
                     &.incheon {
+                      top: 63px;
+                      left: 53px;
+                      z-index: 2;
+
                       path {
-                        display: block;
+                        width: 13px;
+                        height: 20px;
                       }
                     }
 
                     &.daejeon {
+                      top: 151px;
+                      left: 85px;
+                      z-index: 2;
+
                       path {
-                        display: block;
+                        width: 21px;
+                        height: 24px;
                       }
                     }
 
                     &.daegu {
+                      top: 193px;
+                      left: 152px;
+                      z-index: 2;
+
                       path {
-                        display: block;
+                        width: 28px;
+                        height: 30px;
                       }
                     }
 
                     &.gwangju {
+                      top: 241px;
+                      left: 40px;
+                      z-index: 2;
+
                       path {
-                        display: block;
+                        width: 25px;
+                        height: 16px;
                       }
                     }
 
                     &.busan {
+                      top: 241px;
+                      left: 177px;
+                      z-index: 2;
+
                       path {
-                        display: block;
+                        width: 35px;
+                        height: 28px;
                       }
                     }
 
                     &.ulsan {
+                      top: 217px;
+                      left: 191px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 34px;
+                        height: 33px;
                       }
                     }
 
                     &.gyeonggi {
+                      top: 18px;
+                      left: 42px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 89px;
+                        height: 104px;
                       }
                     }
 
                     &.gangwon {
+                      top: 0;
+                      left: 88px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 136px;
+                        height: 121px;
                       }
                     }
 
                     &.sejong {
+                      top: 134px;
+                      left: 80px;
+                      z-index: 2;
+
                       path {
-                        display: block;
+                        width: 18px;
+                        height: 23px;
                       }
                     }
 
                     &.jeju {
+                      left: 1px;
+                      top: 344px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 50px;
+                        height: 25px;
                       }
                     }
 
                     &.chungbook {
+                      top: 98px;
+                      left: 91px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 90px;
+                        height: 92px;
                       }
                     }
 
                     &.chungnam {
+                      top: 105px;
+                      left: 18px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 92px;
+                        height: 86px;
                       }
                     }
 
                     &.gyeongbook {
+                      top: 112px;
+                      left: 122px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 111px;
+                        height: 116px;
                       }
                     }
 
                     &.gyeongnam {
+                      top: 197px;
+                      left: 100px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 107px;
+                        height: 83px;
                       }
                     }
 
                     &.jyeonbook {
+                      top: 175px;
+                      left: 29px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 97px;
+                        height: 67px;
                       }
                     }
 
                     &.jyeonnam {
+                      top: 223px;
+                      left: 2px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 112px;
+                        height: 88px;
                       }
                     }
 
                     &.dokdo {
+                      top: 84px;
+                      left: 255px;
+                      z-index: 1;
+
                       path {
-                        display: block;
+                        width: 14px;
+                        height: 16px;
                       }
                     }
                   }
                 }
               }
+            }
+          }
+        }
+      }
 
+      &-list {
+        flex: 1;
+        align-self: center;
+
+        &-item {
+          display: inline-flex;
+          margin: 6px 5px 0 0;
+
+          input[type=checkbox] {
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            width: 0;
+
+            &:checked {
               & + label {
-                svg {
-                  position: absolute;
-                  z-index: -1;
-                  pointer-events: none;
+                border: 1px solid #57667e;
+                background-color: #57667e;
+                color: #fff;
+              }
+            }
 
-                  path {
-                    cursor: pointer;
-                    pointer-events: visibleFill;
-                  }
+            & + label {
+              align-items: center;
+              border: 1px solid;
+              border-radius: 20px;
+              display: flex;
+              height: 100%;
+              justify-content: center;
+              padding: 10px 20px;
+              transition: all .2s ease;
+              width: 100%;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    /* EOD : 지도 */
 
-                  &.all {
-                    path {
-                      display: block;
-                    }
-                  }
+    /* 리스트 */
+    .list {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 50px 0;
 
-                  &.seoul {
-                    top: 61px;
-                    left: 64px;
-                    z-index: 2;
+      .swiper {
+        overflow: inherit;
+      }
 
-                    path {
-                      width: 27px;
-                      height: 22px;
-                    }
-                  }
+      &-head {
+        font-size: 25px;
+        letter-spacing: -2px;
+        line-height: 1.2;
+      }
 
-                  &.incheon {
-                    top: 63px;
-                    left: 53px;
-                    z-index: 2;
+      &-title {
+        display: flex;
+        align-items: center;
 
-                    path {
-                      width: 13px;
-                      height: 20px;
-                    }
-                  }
+        &-text {
+          font-size: 25px;
+          letter-spacing: -2px;
+          color: #666;
+          line-height: 2;
 
-                  &.daejeon {
-                    top: 151px;
-                    left: 85px;
-                    z-index: 2;
+          select {
+            margin: 0 16px 0 5px;
+            padding: 0 20px 0 5px;
+            font-weight: 600;
+            letter-spacing: -2.5px;
+            color: #333;
+            font-size: 30px;
+          }
+        }
 
-                    path {
-                      width: 21px;
-                      height: 24px;
-                    }
-                  }
+        .tooltip {
+          position: relative;
 
-                  &.daegu {
-                    top: 193px;
-                    left: 152px;
-                    z-index: 2;
+          &-btn {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            border: 1px solid #666;
+            border-radius: 50%;
 
-                    path {
-                      width: 28px;
-                      height: 30px;
-                    }
-                  }
+            i {
+              font-style: normal;
+            }
+          }
 
-                  &.gwangju {
-                    top: 241px;
-                    left: 40px;
-                    z-index: 2;
+          &-icon {
+            font-size: 13px;
+          }
 
-                    path {
-                      width: 25px;
-                      height: 16px;
-                    }
-                  }
+          &-wrap {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+            background: #fff;
+            padding: 20px;
+            width: 322px;
+            z-index: 2;
 
-                  &.busan {
-                    top: 241px;
-                    left: 177px;
-                    z-index: 2;
+            .btn-close {
+              color: #666;
+              position: absolute;
+              right: 10px;
+              top: 10px;
+              font-size: 14px;
+            }
+          }
 
-                    path {
-                      width: 35px;
-                      height: 28px;
-                    }
-                  }
+          &-cont {
+            line-height: 1.2;
+            color: #666;
+            font-size: 14px;
+          }
+        }
+      }
 
-                  &.ulsan {
-                    top: 217px;
-                    left: 191px;
-                    z-index: 1;
+      &-card {
+        margin-top: 30px;
 
-                    path {
-                      width: 34px;
-                      height: 33px;
-                    }
-                  }
+        &-item {
+          display: block;
+          background: #fff;
+          border-radius: 5px;
+          overflow: hidden;
+          box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
 
-                  &.gyeonggi {
-                    top: 18px;
-                    left: 42px;
-                    z-index: 1;
+          &-link {
+            .img {
+              height: 220px;
+              border-color: initial;
+              background: #eaeaea;
 
-                    path {
-                      width: 89px;
-                      height: 104px;
-                    }
-                  }
+              img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+              }
+            }
 
-                  &.gangwon {
-                    top: 0;
-                    left: 88px;
-                    z-index: 1;
+            .info {
+              height: 100px;
+              padding: 13px 15px 0;
+              text-align: center;
 
-                    path {
-                      width: 136px;
-                      height: 121px;
-                    }
-                  }
+              &-title {
+                font-size: 18px;
+                font-weight: 700;
+                letter-spacing: -0.6px;
+                line-height: 20px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+              }
 
-                  &.sejong {
-                    top: 134px;
-                    left: 80px;
-                    z-index: 2;
+              &-locale {
+                margin: 5px 0 16px;
+                font-size: 15px;
+                color: #666;
+                line-height: 17px;
+                letter-spacing: -0.5px;
+              }
 
-                    path {
-                      width: 18px;
-                      height: 23px;
-                    }
-                  }
+              &-tag {
+                display: flex;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 300;
+                color: #666;
+                line-height: 16px;
 
-                  &.jeju {
-                    left: 1px;
-                    top: 344px;
-                    z-index: 1;
-
-                    path {
-                      width: 50px;
-                      height: 25px;
-                    }
-                  }
-
-                  &.chungbook {
-                    top: 98px;
-                    left: 91px;
-                    z-index: 1;
-
-                    path {
-                      width: 90px;
-                      height: 92px;
-                    }
-                  }
-
-                  &.chungnam {
-                    top: 105px;
-                    left: 18px;
-                    z-index: 1;
-
-                    path {
-                      width: 92px;
-                      height: 86px;
-                    }
-                  }
-
-                  &.gyeongbook {
-                    top: 112px;
-                    left: 122px;
-                    z-index: 1;
-
-                    path {
-                      width: 111px;
-                      height: 116px;
-                    }
-                  }
-
-                  &.gyeongnam {
-                    top: 197px;
-                    left: 100px;
-                    z-index: 1;
-
-                    path {
-                      width: 107px;
-                      height: 83px;
-                    }
-                  }
-
-                  &.jyeonbook {
-                    top: 175px;
-                    left: 29px;
-                    z-index: 1;
-
-                    path {
-                      width: 97px;
-                      height: 67px;
-                    }
-                  }
-
-                  &.jyeonnam {
-                    top: 223px;
-                    left: 2px;
-                    z-index: 1;
-
-                    path {
-                      width: 112px;
-                      height: 88px;
-                    }
-                  }
-
-                  &.dokdo {
-                    top: 84px;
-                    left: 255px;
-                    z-index: 1;
-
-                    path {
-                      width: 14px;
-                      height: 16px;
-                    }
-                  }
+                &-list {
+                  display: block;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
               }
             }
           }
-        }
-      }
-    }
 
-    &-list {
-      flex: 1;
-      align-self: center;
-
-      &-item {
-        display: inline-flex;
-        margin: 6px 5px 0 0;
-
-        input[type=checkbox] {
-          height: 0;
-          opacity: 0;
-          position: absolute;
-          width: 0;
-
-          &:checked {
-            & + label {
-              border: 1px solid #57667e;
-              background-color: #57667e;
-              color: #fff;
-            }
-          }
-
-          & + label {
+          .btn-like {
+            display: inline-flex;
             align-items: center;
-            border: 1px solid;
-            border-radius: 20px;
-            display: flex;
-            height: 100%;
             justify-content: center;
-            padding: 10px 20px;
-            transition: all .2s ease;
-            width: 100%;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  }
-  /* EOD : 지도 */
-
-  /* 리스트 */
-  .list {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 50px 0;
-
-    .swiper {
-      overflow: inherit;
-    }
-
-    &-head {
-      font-size: 25px;
-      letter-spacing: -2px;
-      line-height: 1.2;
-    }
-
-    &-title {
-      display: flex;
-      align-items: center;
-
-      &-text {
-        font-size: 25px;
-        letter-spacing: -2px;
-        color: #666;
-        line-height: 2;
-
-        select {
-          margin: 0 16px 0 5px;
-          padding: 0 20px 0 5px;
-          font-weight: 600;
-          letter-spacing: -2.5px;
-          color: #333;
-          font-size: 30px;
-        }
-      }
-
-      .tooltip {
-        position: relative;
-
-        &-btn {
-          width: 20px;
-          height: 20px;
-          margin-left: 10px;
-          border: 1px solid #666;
-          border-radius: 50%;
-
-          i {
-            font-style: normal;
-          }
-        }
-
-        &-icon {
-          font-size: 13px;
-        }
-
-        &-wrap {
-          position: absolute;
-          top: 30px;
-          left: 0;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-          background: #fff;
-          padding: 20px;
-          width: 322px;
-          z-index: 2;
-
-          .btn-close {
-            color: #666;
             position: absolute;
-            right: 10px;
-            top: 10px;
-            font-size: 14px;
-          }
-        }
+            right: 15px;
+            top: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
 
-        &-cont {
-          line-height: 1.2;
-          color: #666;
-          font-size: 14px;
-        }
-      }
-    }
-
-    &-card {
-      margin-top: 30px;
-
-      &-item {
-        display: block;
-        background: #fff;
-        border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
-
-        &-link {
-          .img {
-            height: 220px;
-            border-color: initial;
-            background: #eaeaea;
-
-            img {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
-            }
-          }
-
-          .info {
-            height: 100px;
-            padding: 13px 15px 0;
-            text-align: center;
-
-            &-title {
-              font-size: 18px;
-              font-weight: 700;
-              letter-spacing: -0.6px;
-              line-height: 20px;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
-            }
-
-            &-locale {
-              margin: 5px 0 16px;
-              font-size: 15px;
-              color: #666;
-              line-height: 17px;
-              letter-spacing: -0.5px;
-            }
-
-            &-tag {
-              display: flex;
-              justify-content: center;
-              font-size: 14px;
-              font-weight: 300;
-              color: #666;
-              line-height: 16px;
-
-              &-list {
-                display: block;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            &.is-active {
+              svg {
+                fill: red;
               }
             }
           }
         }
+      }
 
-        .btn-like {
-          display: inline-flex;
-          align-items: center;
+      .btn-more {
+        width: 100%;
+        margin: 30px 0 0 0;
+
+        a {
+          display: flex;
+          margin: 0 auto;
           justify-content: center;
-          position: absolute;
-          right: 15px;
-          top: 15px;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          background: #fff;
+          align-items: center;
+          letter-spacing: -0.5px;
+          box-sizing: border-box;
+          font-size: 16px;
+          width: 260px;
+          height: 45px;
+          border: 1px solid #333;
+          border-radius: 50px;
 
-          &.is-active {
-            svg {
-              fill: red;
-            }
+          svg {
+            width: 20px;
+            height: 20px;
+            margin-top: -1px;
           }
         }
       }
     }
+    /* EOD : 리스트 */
 
-    .btn-more {
-      width: 100%;
-      margin: 30px 0 0 0;
-
-      a {
-        display: flex;
-        margin: 0 auto;
-        justify-content: center;
-        align-items: center;
-        letter-spacing: -0.5px;
-        box-sizing: border-box;
-        font-size: 16px;
-        width: 260px;
-        height: 45px;
-        border: 1px solid #333;
-        border-radius: 50px;
-
-        svg {
-          width: 20px;
-          height: 20px;
-          margin-top: -1px;
-        }
-      }
+    .title {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 0 40px;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 24px;
+      letter-spacing: -0.8px;
+      color: #000;
     }
-  }
-  /* EOD : 리스트 */
 
-  .title {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 0 40px;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: -0.8px;
-    color: #000;
-  }
+    /* 카드 슬라이더 */
+    .card-slider {
+      background: #333;
+      height: 496px;
+      padding: 50px 0 0;
 
-  /* 카드 슬라이더 */
-  .card-slider {
-    background: #333;
-    height: 496px;
-    padding: 50px 0 0;
+      .card {
+        display: flex;
+        height: 100%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 5px;
+        overflow: hidden;
 
-    .card {
-      display: flex;
-      height: 100%;
-      background: #fff;
-      padding: 30px;
-      border-radius: 5px;
-      overflow: hidden;
-
-
-      &:before {
-        content: '';
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 100%;
-        background: #333;
-        position: absolute;
-        left: 252px;
-        top: -8px;
-      }
-
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 100%;
-        background: #333;
-        position: absolute;
-        left: 252px;
-        bottom: -8px;
-      }
-
-      .img {
-        min-width: 200px;
-        width: 200px;
-        height: 280px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 5px;
-          background: #ccc;
-        }
-      }
-
-      .info {
-        margin-left: 30px;
-        padding: 0 0 0 30px;
-        min-width: 390px;
-        width: 390px;
-        position: relative;
 
         &:before {
           content: '';
           display: inline-block;
-          width: 1px;
-          height: 100%;
+          width: 16px;
+          height: 16px;
+          border-radius: 100%;
+          background: #333;
           position: absolute;
-          left: 0;
-          top: 0;
-          border: 1px dashed #999;
+          left: 252px;
+          top: -8px;
         }
 
-        &-title {
-          margin: 18px 0 5px;
-          font-size: 24px;
-          font-weight: 800;
-          letter-spacing: -1.5px;
-          color: #333;
-          line-height: 26px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          border-radius: 100%;
+          background: #333;
+          position: absolute;
+          left: 252px;
+          bottom: -8px;
         }
 
-        &-locate {
-          display: block;
+        .img {
+          min-width: 200px;
+          width: 200px;
+          height: 280px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            background: #ccc;
+          }
+        }
+
+        .info {
+          margin-left: 30px;
+          padding: 0 0 0 30px;
+          min-width: 390px;
+          width: 390px;
+          position: relative;
+
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border: 1px dashed #999;
+          }
+
+          &-title {
+            margin: 18px 0 5px;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: #333;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          &-locate {
+            display: block;
+            font-size: 16px;
+            line-height: 18px;
+            color: #333;
+            letter-spacing: -0.5px;
+          }
+
+          &-content {
+            display: flex;
+            justify-content: space-between;
+            margin: 85px 0 0;
+
+            &-period {
+              width: 100px;
+
+              .tit {
+                display: block;
+                padding: 0 0 10px;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 15px;
+              }
+
+              .cont {
+                display: block;
+                height: 74px;
+                font-size: 16px;
+                line-height: 18px;
+                color: #333;
+                letter-spacing: -0.5px;
+              }
+            }
+
+            &-place {
+              width: 200px;
+
+              .tit {
+                display: block;
+                padding: 0 0 10px;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 15px;
+              }
+
+              .cont {
+                display: block;
+                height: 74px;
+                font-size: 16px;
+                line-height: 18px;
+                color: #333;
+                letter-spacing: -0.5px;
+              }
+            }
+          }
+
+          &-btn {
+            display: flex;
+
+            a {
+              width: 120px;
+              height: 30px;
+              font-size: 14px;
+              border-radius: 5px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              box-sizing: border-box;
+            }
+
+            .btn-fill {
+              border: 1px solid #333;
+              background: #333;
+              color: #fff;
+            }
+
+            .btn-line {
+              border: 1px solid #333;
+              background: #fff;
+              color: #333;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+      .page-btn {
+        width: 940px;
+        height: 26px;
+        margin: 30px auto 0;
+        position: relative;
+        text-align: center;
+
+        &-inner {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 250px;
+          position: relative;
+          padding: 0 70px;
+
+          svg > path {
+            stroke: white;
+          }
+        }
+
+        .swiper-button {
+          &-prev {
+            &.swiper-button-disabled {
+              display: none;
+            }
+
+            &:after {
+              content: '';
+            }
+          }
+
+          &-next {
+            &.swiper-button-disabled {
+              display: none;
+            }
+
+            &:after {
+              content: '';
+            }
+          }
+        }
+
+        .custom-pagination {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+          position: absolute;
+          bottom: 0;
+          top: -25px;
+
+          .custom-pagination-bullet {
+            margin: 0 5px;
+            width: 10px;
+            box-sizing: border-box;
+            height: 10px;
+            background: #333;
+            border: 1px solid #fff;
+            opacity: 1;
+            vertical-align: top;
+            border-radius: 50%;
+          }
+
+          .custom-pagination-bullet-active {
+            background: #fff;
+            width: 25px;
+            border-radius: 50px;
+          }
+        }
+
+        &-more {
+          display: inline-flex;
+          align-items: center;
+          position: absolute;
+          right: 0;
+          top: 3px;
+          color: #fff;
           font-size: 16px;
           line-height: 18px;
-          color: #333;
-          letter-spacing: -0.5px;
-        }
 
-        &-content {
-          display: flex;
-          justify-content: space-between;
-          margin: 85px 0 0;
-
-          &-period {
-            width: 100px;
-
-            .tit {
-              display: block;
-              padding: 0 0 10px;
-              font-size: 13px;
-              font-weight: 400;
-              line-height: 15px;
-            }
-
-            .cont {
-              display: block;
-              height: 74px;
-              font-size: 16px;
-              line-height: 18px;
-              color: #333;
-              letter-spacing: -0.5px;
-            }
+          span {
+            margin-left: 4px;
           }
 
-          &-place {
-            width: 200px;
+          svg {
+            width: 20px;
+            height: 20px;
+            margin-top: -1px;
+          }
+        }
+      }
+    }
+    /* EOD : 카드 슬라이더 */
+  }
 
-            .tit {
-              display: block;
-              padding: 0 0 10px;
-              font-size: 13px;
-              font-weight: 400;
-              line-height: 15px;
-            }
+  .region-detail {
+    max-width: 980px;
+    margin: 0 auto;
 
-            .cont {
-              display: block;
-              height: 74px;
-              font-size: 16px;
-              line-height: 18px;
-              color: #333;
-              letter-spacing: -0.5px;
-            }
+    .title-area {
+      .tit {
+
+      }
+
+      .sub {
+
+      }
+
+      .title {
+
+      }
+
+      .top-area {
+        .btn {
+          &-like {
+
+          }
+
+          &-view {
+
           }
         }
 
-        &-btn {
-          display: flex;
+        .right-area {
+          &-list {
+            .btn {
+              &-bookmark {
 
-          a {
-            width: 120px;
-            height: 30px;
-            font-size: 14px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-          }
+              }
 
-          .btn-fill {
-            border: 1px solid #333;
-            background: #333;
-            color: #fff;
-          }
+              &-print {
 
-          .btn-line {
-            border: 1px solid #333;
-            background: #fff;
-            color: #333;
-            margin-left: 10px;
+              }
+
+              &-map {
+
+              }
+            }
           }
         }
       }
     }
 
-    .page-btn {
-      width: 940px;
-      height: 26px;
-      margin: 30px auto 0;
-      position: relative;
-      text-align: center;
+    .cont-area {
+      .tab {
+        &-list {
+          &-item {
+            .txt {
 
-      &-inner {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 250px;
-        position: relative;
-        padding: 0 70px;
-
-        svg > path {
-          stroke: white;
-        }
-      }
-
-      .swiper-button {
-        &-prev {
-          &.swiper-button-disabled {
-            display: none;
+            }
           }
-
-          &:after {
-            content: '';
-          }
-        }
-
-        &-next {
-          &.swiper-button-disabled {
-            display: none;
-          }
-
-          &:after {
-            content: '';
-          }
-        }
-      }
-
-      .custom-pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        position: absolute;
-        bottom: 0;
-        top: -25px;
-
-        .custom-pagination-bullet {
-          margin: 0 5px;
-          width: 10px;
-          box-sizing: border-box;
-          height: 10px;
-          background: #333;
-          border: 1px solid #fff;
-          opacity: 1;
-          vertical-align: top;
-          border-radius: 50%;
-        }
-
-        .custom-pagination-bullet-active {
-          background: #fff;
-          width: 25px;
-          border-radius: 50px;
-        }
-      }
-
-      &-more {
-        display: inline-flex;
-        align-items: center;
-        position: absolute;
-        right: 0;
-        top: 3px;
-        color: #fff;
-        font-size: 16px;
-        line-height: 18px;
-
-        span {
-          margin-left: 4px;
-        }
-
-        svg {
-          width: 20px;
-          height: 20px;
-          margin-top: -1px;
         }
       }
     }
   }
-  /* EOD : 카드 슬라이더 */
-
-  /* 우리 지역 이야기 */
-  /* EOD : 우리 지역 이야기 */
 }
