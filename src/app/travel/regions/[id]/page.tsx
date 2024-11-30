@@ -1,8 +1,45 @@
+'use client';
 import Link from 'next/link';
 import '@/styles/pages/regions.scss';
+import {useState} from "react";
 
 const RegionDetailPage = ({ params }: { params: { id: string } }) => {
-    const { id } = params;
+
+    const recommendList = [
+        {
+            title: '퍼블교'
+        },
+        {
+            title: '뚜벅이로 가뿐하게 즐기는 낭만도시 여수 여행 코스'
+        },
+        {
+            title: '대천해수욕장'
+        },
+        {
+            title: '갓바위 문화타운'
+        },
+        {
+            title: '봉선사(경기)'
+        },
+        {
+            title: '보은 법주사[유네스코 세계유산]'
+        }
+    ]
+
+    // 각 아이템에 대해 좋아요 상태를 저장할 배열을 생성
+    const [likedItems, setLikedItems] = useState(
+        recommendList.map(() => false) // 초기값은 모두 false (좋아요 하지 않음)
+    )
+
+    const handleBtnLike = (index: number) => {
+        // 해당 인덱스의 좋아요 상태를 토글
+        setLikedItems((prevLikedItems) => prevLikedItems.map((liked, i) =>
+            i === index ? !liked : liked // 현재 아이템만 상태를 변경
+        ));
+
+        // 좋아요 버튼을 클릭했을 때 alert 메시지 표시
+        alert(`좋아요가 ${likedItems[index] ? '취소' : '추가'}되었습니다.`);
+    }
 
     return (
         <div className='region-detail'>
@@ -140,16 +177,15 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                 관광객들에게 더욱 즐거운 추억을 선물하기 위해 버스킹, 여름 해변축제, 속초 수제맥주 축제를 즐길 수 있다. 여행시기에 맞추어 방문한다면 밴드 공연, 음악회
                                 등의 공연행사를 즐길 수 있다.
                             </div>
-                            <button className='btn-more'>
-                                <span className='txt'>내용 더보기</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div className='map-area'>
-                            지도영역
+                            <div className='btn-area'>
+                                <button className='btn-more'>
+                                    <span className='txt'>내용 더보기</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                         <ul className='info-area'>
                             <li className='info-area-list'>
@@ -158,7 +194,7 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                             </li>
                             <li className='info-area-list'>
                                 <span className='tit'>홈페이지</span>
-                                <span className='cont'>http://www.bongeunsa.org</span>
+                                <span className='cont'>https://www.bongeunsa.org</span>
                             </li>
                             <li className='info-area-list'>
                                 <span className='tit'>주소</span>
@@ -201,6 +237,39 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                 <span className='cont'>예약 신청 시 청각장애인 해설사 안내기능</span>
                             </li>
                         </ul>
+                        <div className='recommend-area'>
+                            <div className='title'>‘여수 해상케이...’ 와(과) 유사한 여행지 추천👍</div>
+                            <div className='cont'>
+                                <ul className='cont-wrap'>
+                                    {recommendList.map((item, index) => (
+                                        <li className='cont-wrap-list' key={index}>
+                                            <div className='img'>
+                                                <div className='img-wrap'>
+                                                    <div className='img-wrap-txt'>{item.title}</div>
+                                                </div>
+                                            </div>
+                                            <button onClick={() => handleBtnLike(index)} className={`btn-like ${likedItems[index] ? 'is-active' : ''}`}>
+                                                {likedItems[index] ? (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                         fill="currentColor" className="size-6">
+                                                        <path
+                                                            d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"/>
+                                                    </svg>
+                                                ) : (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                         viewBox="0 0 24 24"
+                                                         strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round"
+                                                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
+                                                    </svg>
+                                                )}
+
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
