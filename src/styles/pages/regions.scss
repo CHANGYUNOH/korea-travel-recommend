@@ -421,10 +421,6 @@
       margin: 0 auto;
       padding: 50px 0;
 
-      .swiper {
-        overflow: inherit;
-      }
-
       &-head {
         font-size: 25px;
         letter-spacing: -2px;
@@ -499,13 +495,16 @@
 
       &-card {
         margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); // 4개의 열
+        gap: 20px; // 각 항목 간의 간격 (조정 가능)
 
         &-item {
           display: block;
           background: #fff;
           border-radius: 5px;
-          overflow: hidden;
           box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+          position: relative;
 
           &-link {
             .img {
@@ -550,6 +549,10 @@
                 font-weight: 300;
                 color: #666;
                 line-height: 16px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 190px;
 
                 &-list {
                   display: block;
@@ -582,11 +585,11 @@
         }
       }
 
-      .btn-more {
+      .btn-area {
         width: 100%;
         margin: 30px 0 0 0;
 
-        a {
+        .btn-more {
           display: flex;
           margin: 0 auto;
           justify-content: center;
@@ -594,10 +597,11 @@
           letter-spacing: -0.5px;
           box-sizing: border-box;
           font-size: 16px;
-          width: 260px;
+          padding: 0 20px;
           height: 45px;
           border: 1px solid #333;
           border-radius: 50px;
+          cursor: pointer;
 
           svg {
             width: 20px;
@@ -626,6 +630,10 @@
       height: 496px;
       padding: 50px 0 0;
 
+      .swiper-slide-prev, .swiper-slide-next {
+        opacity: .5;
+      }
+
       .card {
         display: flex;
         height: 100%;
@@ -633,7 +641,6 @@
         padding: 30px;
         border-radius: 5px;
         overflow: hidden;
-
 
         &:before {
           content: '';
@@ -965,6 +972,18 @@
         border-bottom: 1px solid #e6e6e6;
         height: 65px;
 
+        &.is-fixed {
+          position: fixed;
+          width: 100%;
+          top: 76px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          background: #fff;
+          max-width: 980px;
+          margin-left: -7.5px;
+        }
+
         &-list {
           flex: 1;
 
@@ -984,6 +1003,7 @@
             justify-content: center;
             font-size: 18px;
             position: relative;
+            cursor: pointer;
 
             &.is-active {
               font-weight: 600;
@@ -1045,6 +1065,15 @@
           height: 500px;
           background: #eaeaea;
 
+          .swiper {
+            height: 100% ;
+          }
+
+          img {
+            width: auto;
+            height: 100%;
+            margin: 0 auto;
+          }
         }
 
         .detail-view {
@@ -1075,7 +1104,18 @@
 
             .text {
               font-size: 18px;
-              line-height: 1.7;
+              display: -webkit-box; /* Flexbox 대체 */
+              -webkit-box-orient: vertical; /* 텍스트 방향 설정 */
+              overflow: hidden; /* 초과 텍스트 숨기기 */
+              -webkit-line-clamp: 5; /* 5줄까지만 보이도록 설정 */
+              line-height: 1.7; /* 줄 간격 */
+              max-height: calc(1.7em * 5); /* 총 높이 = 줄 간격 x 줄 수 */
+
+              &.is-active {
+                display: block;
+                overflow: visible;
+                max-height: none;
+              }
             }
 
             .btn-area {
@@ -1159,9 +1199,12 @@
                   position: relative;
 
                   .img {
-                    background: #ccc;
+                    background-color: #ccc;
                     height: 100%;
                     position: relative;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
 
                     &-wrap {
                       position: absolute;
@@ -1181,6 +1224,7 @@
                         text-overflow: ellipsis;
                         overflow: hidden;
                         text-align: center;
+                        text-shadow: 1px 1px 1px #222;
                       }
                     }
                   }
@@ -1196,6 +1240,12 @@
                     height: 30px;
                     border-radius: 50%;
                     background: #fff;
+
+                    &.is-active {
+                      svg {
+                        fill: red;
+                      }
+                    }
                   }
                 }
               }

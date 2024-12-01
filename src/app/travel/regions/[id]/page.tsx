@@ -1,10 +1,13 @@
 'use client';
 import Link from 'next/link';
 import '@/styles/pages/regions.scss';
-import {useState} from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import {useState, useRef, useEffect} from "react";
 
 const RegionDetailPage = ({ params }: { params: { id: string } }) => {
 
+    // 추천 리스트
     const recommendList = [
         {
             title: '퍼블교'
@@ -40,6 +43,65 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
         // 좋아요 버튼을 클릭했을 때 alert 메시지 표시
         alert(`좋아요가 ${likedItems[index] ? '취소' : '추가'}되었습니다.`);
     }
+
+    // 갤러리 리스트
+    const galleryList = ['','','','',''];
+
+    // 탭 리스트
+    const tabList = [
+        {
+            name: '사진보기',
+            id: 'gallery'
+        },
+        {
+            name: '상세정보',
+            id: 'information'
+        },
+        {
+            name: '추천여행',
+            id: 'recommend'
+        }
+    ];
+
+    const [tabActive, setTabActive] = useState(0); // 현재 활성화된 탭의 인덱스
+
+    const handleTabClick = (index: number, id: string) => {
+        setTabActive(index); // 활성 탭 상태 업데이트
+        const target = document.getElementById(id);
+        if(target) {
+            target.scrollIntoView({behavior: 'smooth', block: 'start'})
+        }
+    }
+
+    const [showMore, setShowMore] = useState(false);
+
+    const handleBtnMore = () => {
+        setShowMore(prev => !prev); // 상태 토글
+    }
+
+    const tabRef = useRef(null) as React.RefObject<HTMLUListElement>;
+    const [isScrolledToTab, setIsScrolledToTab] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (tabRef.current) {
+                const tabPosition = tabRef.current.offsetTop; // tab 영역의 Y 좌표
+                const scrollPosition = window.scrollY; // 현재 스크롤 위치
+
+                if (scrollPosition >= tabPosition) {
+                    setIsScrolledToTab(true); // 탭에 도달하면 클래스 추가
+                } else {
+                    setIsScrolledToTab(false); // 탭 이전으로 돌아가면 클래스 제거
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <div className='region-detail'>
@@ -116,30 +178,18 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                 </ul>
             </div>
             <div className='cont-area'>
-                <ul className='tab'>
-                    <li className='tab-list'>
-                        <Link href="/" className='tab-list-item is-active'>
-                            <span className='txt'>사진보기</span>
-                        </Link>
-                    </li>
-                    <li className='tab-list'>
-                        <Link href="/" className='tab-list-item'>
-                            <span className='txt'>상세정보</span>
-                        </Link>
-                    </li>
-                    <li className='tab-list'>
-                        <Link href="/" className='tab-list-item'>
-                            <span className='txt'>여행톡</span>
-                        </Link>
-                    </li>
-                    <li className='tab-list'>
-                        <Link href="/" className='tab-list-item'>
-                            <span className='txt'>추천여행</span>
-                        </Link>
-                    </li>
+                <ul className={`tab ${isScrolledToTab ? 'active' : ''}`} ref={tabRef}>
+                    {tabList.map((item, index) => (
+                        <li className='tab-list' key={index}>
+                            <div onClick={() => handleTabClick(index, item.id)}
+                                  className={`tab-list-item ${tabActive === index ? 'is-active' : ''}`}>
+                                <span className='txt'>{item.name}</span>
+                            </div>
+                        </li>
+                    ))}
                 </ul>
                 <div className='gallery'>
-                    <div className='top-area'>
+                    <div className='top-area' id='gallery'>
                         <button className='btn-img'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                                  stroke="currentColor" className="size-6">
@@ -150,12 +200,18 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                         </button>
                     </div>
                     <div className='img-area'>
-                        <Link href='/'>
-                            <img/>
-                        </Link>
+                        <Swiper>
+                            {galleryList.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <Link href='/'>
+                                        <img src={`/images/card_sample_0${index + 1}.png`} alt={item} />
+                                    </Link>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
                     <div className='detail-view'>
-                        <div className='top-area'>
+                        <div className='top-area' id='information'>
                             <div className='title'>상세정보</div>
                             <button className='btn-modify'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -167,7 +223,7 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                             </button>
                         </div>
                         <div className='cont-area'>
-                            <div className='text'>
+                            <div className={`text ${showMore ? 'is-active' : ''}`}>
                                 1976년 처음 개장한 속초해수욕장은 국내 대표적인 해수욕장 가운데 하나다. 속초 시내와 가깝고 고속버스터미널이 도보 거리에 있어 교통이 편리한 것이
                                 장점이다. 속초해수욕장은 바닷물이 맑고 깨끗한 데다 수심이 얕고 경사가 완만해 매년 여름철이면 전국에서 모여든 피서객들로 북적 해진다. 특히 성수기인
                                 7~8월에는 너른 해변이 발 디딜 틈도 없이 사람들로 가득 찬다. 해수욕장 주변은 음식점과 편의 시설이 잘 갖춰져 있다. 해변 뒤편에는 소나무 숲이 우거져
@@ -178,12 +234,20 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                 등의 공연행사를 즐길 수 있다.
                             </div>
                             <div className='btn-area'>
-                                <button className='btn-more'>
-                                    <span className='txt'>내용 더보기</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
-                                    </svg>
+                                <button className='btn-more' onClick={handleBtnMore}>
+                                    <span className='txt'>{showMore ? '내용 닫기' : '내용 더보기'}</span>
+                                    {showMore ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                 strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14"/>
+                                            </svg>
+                                         ) : (
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                  d="M12 4.5v15m7.5-7.5h-15"/>
+                                        </svg>
+                                    )}
                                 </button>
                             </div>
                         </div>
@@ -237,13 +301,13 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                 <span className='cont'>예약 신청 시 청각장애인 해설사 안내기능</span>
                             </li>
                         </ul>
-                        <div className='recommend-area'>
+                        <div className='recommend-area' id='recommend'>
                             <div className='title'>‘여수 해상케이...’ 와(과) 유사한 여행지 추천👍</div>
                             <div className='cont'>
                                 <ul className='cont-wrap'>
                                     {recommendList.map((item, index) => (
                                         <li className='cont-wrap-list' key={index}>
-                                            <div className='img'>
+                                            <div className='img' style={{backgroundImage: `url('/images/list_sample_${index + 1}.png')`}}>
                                                 <div className='img-wrap'>
                                                     <div className='img-wrap-txt'>{item.title}</div>
                                                 </div>
@@ -263,7 +327,6 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                                               d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
                                                     </svg>
                                                 )}
-
                                             </button>
                                         </li>
                                     ))}

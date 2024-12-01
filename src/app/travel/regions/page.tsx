@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Grid, Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 import {useEffect, useState, useRef} from "react";
 import Link from 'next/link';
 
@@ -50,7 +50,7 @@ export default function Regions() {
     };
 
     // 여행지 리스트
-    const swiperList = [
+    const tourList = [
         {
             title: '고성 통일전망타워',
             locale: '강원 고성군',
@@ -90,7 +90,7 @@ export default function Regions() {
             title: '속초 외옹치 바다향기로',
             locale: '강원 속초시',
             tag: ['반려동물동반여행지', '해안산책']
-        }
+        },
     ];
 
     // 카드 리스트
@@ -154,7 +154,7 @@ export default function Regions() {
 
     // 각 아이템에 대해 좋아요 상태를 저장할 배열을 생성
     const [likedItems, setLikedItems] = useState(
-        swiperList.map(() => false) // 초기값은 모두 false (좋아요 하지 않음)
+        tourList.map(() => false) // 초기값은 모두 false (좋아요 하지 않음)
     );
 
     const handleBtnLike = (index: number) => {
@@ -555,64 +555,50 @@ export default function Regions() {
                         )}
                     </div>
                 </div>
-                <div className='list-nationwide'>
-                    <Swiper slidesPerView={4}
-                            grid={{
-                                rows: 2, // 그리드 행(Row) 수
-                                fill: "row" // 슬라이드 채우기 방식 (row 또는 column)
-                            }}
-                            spaceBetween={20}
-                            modules={[Grid, Pagination]}
-                            pagination={{
-                                type: "fraction",
-                            }}
-                            className='list-card'>
-                        {swiperList.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <li className='list-card-item'>
-                                    <Link href={`/travel/regions/${index}`} className='list-card-item-link'>
-                                        <div className='img'>
-                                            <img src={`/images/list_sample_0${index + 1}.png`} alt={item.title}/>
-                                        </div>
-                                        <div className='info'>
-                                            <div className='info-title'>{item.title}</div>
-                                            <p className='info-locale'>{item.locale}</p>
-                                            <ul className='info-tag'>
-                                                {item.tag.map((tagItem, indexDepth) => (
-                                                    <li className='info-tag-list' key={indexDepth}>#{tagItem}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </Link>
-                                    <button className={`btn-like ${likedItems[index] ? 'is-active' : ''}`}
-                                            onClick={() => handleBtnLike(index)}>
-                                        {likedItems[index] ? (
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                 fill="currentColor"
-                                                 className="size-6">
-                                                <path
-                                                    d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"/>
-                                            </svg>
-                                        ) : (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                  strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round"
-                                                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
-                                        </svg>)}
-                                    </button>
-                                </li>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                <div className='list-card'>
+                    {tourList.map((item, index) => (
+                        <li className='list-card-item' key={index}>
+                            <Link href={`/travel/regions/${index + 1}`} className='list-card-item-link'>
+                                <div className='img'>
+                                    <img src={`/images/list_sample_${index + 1}.png`} alt={item.title}/>
+                                </div>
+                                <div className='info'>
+                                    <div className='info-title'>{item.title}</div>
+                                    <p className='info-locale'>{item.locale}</p>
+                                    <ul className='info-tag'>
+                                        {item.tag.map((tagItem, indexDepth) => (
+                                            <li className='info-tag-list' key={indexDepth}>#{tagItem}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </Link>
+                            <button className={`btn-like ${likedItems[index] ? 'is-active' : ''}`}
+                                    onClick={() => handleBtnLike(index)}>
+                                {likedItems[index] ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                         fill="currentColor"
+                                         className="size-6">
+                                        <path
+                                            d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z"/>
+                                    </svg>
+                                ) : (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                          strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
+                                </svg>)}
+                            </button>
+                        </li>
+                    ))}
                 </div>
-                <button className='btn-more'>
-                    <a href="">
-                        <span>더 많은 <strong>여행지</strong> 보러가기</span>
+                <div className='btn-area'>
+                    <button className='btn-more'>
+                        <span>더보기</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                              stroke="currentColor" className="size-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
                         </svg>
-                    </a>
-                </button>
+                    </button>
+                </div>
             </div>
             {/* EOD : 리스트 */}
 
