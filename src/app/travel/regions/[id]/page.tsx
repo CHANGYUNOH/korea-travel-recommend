@@ -3,7 +3,7 @@ import Link from 'next/link';
 import '@/styles/pages/regions.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {useState, useRef, useEffect} from "react";
+import {useState} from "react";
 
 const RegionDetailPage = ({ params }: { params: { id: string } }) => {
 
@@ -47,61 +47,11 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
     // 갤러리 리스트
     const galleryList = ['','','','',''];
 
-    // 탭 리스트
-    const tabList = [
-        {
-            name: '사진보기',
-            id: 'gallery'
-        },
-        {
-            name: '상세정보',
-            id: 'information'
-        },
-        {
-            name: '추천여행',
-            id: 'recommend'
-        }
-    ];
-
-    const [tabActive, setTabActive] = useState(0); // 현재 활성화된 탭의 인덱스
-
-    const handleTabClick = (index: number, id: string) => {
-        setTabActive(index); // 활성 탭 상태 업데이트
-        const target = document.getElementById(id);
-        if(target) {
-            target.scrollIntoView({behavior: 'smooth', block: 'start'})
-        }
-    }
-
     const [showMore, setShowMore] = useState(false);
 
     const handleBtnMore = () => {
         setShowMore(prev => !prev); // 상태 토글
     }
-
-    const tabRef = useRef(null) as React.RefObject<HTMLUListElement>;
-    const [isScrolledToTab, setIsScrolledToTab] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (tabRef.current) {
-                const tabPosition = tabRef.current.offsetTop; // tab 영역의 Y 좌표
-                const scrollPosition = window.scrollY; // 현재 스크롤 위치
-
-                if (scrollPosition >= tabPosition) {
-                    setIsScrolledToTab(true); // 탭에 도달하면 클래스 추가
-                } else {
-                    setIsScrolledToTab(false); // 탭 이전으로 돌아가면 클래스 제거
-                }
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     return (
         <div className='region-detail'>
@@ -178,20 +128,11 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                 </ul>
             </div>
             <div className='cont-area'>
-                <ul className={`tab ${isScrolledToTab ? 'active' : ''}`} ref={tabRef}>
-                    {tabList.map((item, index) => (
-                        <li className='tab-list' key={index}>
-                            <div onClick={() => handleTabClick(index, item.id)}
-                                  className={`tab-list-item ${tabActive === index ? 'is-active' : ''}`}>
-                                <span className='txt'>{item.name}</span>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
                 <div className='gallery'>
-                    <div className='top-area' id='gallery'>
+                    <div className='top-area'>
                         <button className='btn-img'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                 strokeWidth={1.5}
                                  stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                       d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
@@ -204,14 +145,14 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                             {galleryList.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <Link href='/'>
-                                        <img src={`/images/card_sample_0${index + 1}.png`} alt={item} />
+                                        <img src={`/images/card_sample_0${index + 1}.png`} alt={item}/>
                                     </Link>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     </div>
                     <div className='detail-view'>
-                        <div className='top-area' id='information'>
+                        <div className='top-area'>
                             <div className='title'>상세정보</div>
                             <button className='btn-modify'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -226,22 +167,26 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                             <div className={`text ${showMore ? 'is-active' : ''}`}>
                                 1976년 처음 개장한 속초해수욕장은 국내 대표적인 해수욕장 가운데 하나다. 속초 시내와 가깝고 고속버스터미널이 도보 거리에 있어 교통이 편리한 것이
                                 장점이다. 속초해수욕장은 바닷물이 맑고 깨끗한 데다 수심이 얕고 경사가 완만해 매년 여름철이면 전국에서 모여든 피서객들로 북적 해진다. 특히 성수기인
-                                7~8월에는 너른 해변이 발 디딜 틈도 없이 사람들로 가득 찬다. 해수욕장 주변은 음식점과 편의 시설이 잘 갖춰져 있다. 해변 뒤편에는 소나무 숲이 우거져
-                                있으며 작은 공원과 산책로도 조성되어 있다. 휴가철이 지난 후에도 해수욕장에는 관광객들의 발길이 끊이지 않는다. 모래사장 곳곳에 설치된 조형물들이 계절에
-                                관계없이 다채로운 볼거리를 선사하기 때문이다. 속초를 형상화한 ‘ㅅㅊ’ 이니셜과 세계 각국의 방향을 표시한 커다란 나침반, 생동감 있는 돌고래 조각 등이
+                                7~8월에는 너른 해변이 발 디딜 틈도 없이 사람들로 가득 찬다. 해수욕장 주변은 음식점과 편의 시설이 잘 갖춰져 있다. 해변 뒤편에는 소나무 숲이
+                                우거져
+                                있으며 작은 공원과 산책로도 조성되어 있다. 휴가철이 지난 후에도 해수욕장에는 관광객들의 발길이 끊이지 않는다. 모래사장 곳곳에 설치된 조형물들이
+                                계절에
+                                관계없이 다채로운 볼거리를 선사하기 때문이다. 속초를 형상화한 ‘ㅅㅊ’ 이니셜과 세계 각국의 방향을 표시한 커다란 나침반, 생동감 있는 돌고래 조각
+                                등이
                                 눈길을 사로잡는다. 푸른 바다를 배경으로 한 대형 액자 프레임과 하늘을 향해 뻗은 천국의 계단은 이곳에서 가장 인기 있는 포토존이다. 매년 이곳에서는
-                                관광객들에게 더욱 즐거운 추억을 선물하기 위해 버스킹, 여름 해변축제, 속초 수제맥주 축제를 즐길 수 있다. 여행시기에 맞추어 방문한다면 밴드 공연, 음악회
+                                관광객들에게 더욱 즐거운 추억을 선물하기 위해 버스킹, 여름 해변축제, 속초 수제맥주 축제를 즐길 수 있다. 여행시기에 맞추어 방문한다면 밴드 공연,
+                                음악회
                                 등의 공연행사를 즐길 수 있다.
                             </div>
                             <div className='btn-area'>
                                 <button className='btn-more' onClick={handleBtnMore}>
                                     <span className='txt'>{showMore ? '내용 닫기' : '내용 더보기'}</span>
                                     {showMore ? (
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                 strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14"/>
-                                            </svg>
-                                         ) : (
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14"/>
+                                        </svg>
+                                    ) : (
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round"
@@ -301,18 +246,20 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                 <span className='cont'>예약 신청 시 청각장애인 해설사 안내기능</span>
                             </li>
                         </ul>
-                        <div className='recommend-area' id='recommend'>
+                        <div className='recommend-area'>
                             <div className='title'>‘여수 해상케이...’ 와(과) 유사한 여행지 추천👍</div>
                             <div className='cont'>
                                 <ul className='cont-wrap'>
                                     {recommendList.map((item, index) => (
                                         <li className='cont-wrap-list' key={index}>
-                                            <div className='img' style={{backgroundImage: `url('/images/list_sample_${index + 1}.png')`}}>
+                                            <div className='img'
+                                                 style={{backgroundImage: `url('/images/list_sample_${index + 1}.png')`}}>
                                                 <div className='img-wrap'>
                                                     <div className='img-wrap-txt'>{item.title}</div>
                                                 </div>
                                             </div>
-                                            <button onClick={() => handleBtnLike(index)} className={`btn-like ${likedItems[index] ? 'is-active' : ''}`}>
+                                            <button onClick={() => handleBtnLike(index)}
+                                                    className={`btn-like ${likedItems[index] ? 'is-active' : ''}`}>
                                                 {likedItems[index] ? (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                          fill="currentColor" className="size-6">
