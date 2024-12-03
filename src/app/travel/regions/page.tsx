@@ -558,7 +558,9 @@ export default function Regions() {
                 <div className='list-card'>
                     {tourList.map((item, index) => (
                         <li className='list-card-item' key={index}>
-                            <Link href={`/travel/regions/${index + 1}`} className='list-card-item-link'>
+                            <Link
+                                href={`/travel/regions/${index + 1}`}
+                                className='list-card-item-link'>
                                 <div className='img'>
                                     <img src={`/images/list_sample_${index + 1}.png`} alt={item.title}/>
                                 </div>

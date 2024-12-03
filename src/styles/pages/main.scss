@@ -1,0 +1,619 @@
+.container {
+  padding: 50px 0 0 0;
+  max-width: 980px;
+  margin: 0 auto;
+
+  .title {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 0 40px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+  }
+
+  .locate {
+    position: relative;
+
+    &-list {
+      &-item {
+        display: inline-flex;
+        margin: 6px 5px 0 0;
+
+        input[type=checkbox] {
+          height: 0;
+          opacity: 0;
+          position: absolute;
+          width: 0;
+
+          &:checked {
+            & + label {
+              border: 1px solid #57667e;
+              background-color: #57667e;
+              color: #fff;
+            }
+          }
+
+          & + label {
+            align-items: center;
+            border: 1px solid;
+            border-radius: 20px;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            padding: 10px 20px;
+            transition: all .2s ease;
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .swiper-button {
+      &-prev, &-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.swiper-button-disabled {
+          display: none;
+        }
+
+        svg {
+          path {
+            color: #333;
+          }
+        }
+
+        &:after {
+          content: '';
+        }
+      }
+
+      &-prev {
+        left: -30px;
+      }
+
+      &-next {
+        right: -30px;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .swiper {
+      padding: 0 30px;
+
+      &-list {
+        position: relative;
+
+        &-item {
+          height: 200px;
+          border-radius: 30px;
+          overflow: hidden;
+
+          .img {
+            background-color: #ccc;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            &-wrap {
+              position: absolute;
+              bottom: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+
+              &-txt {
+                color: #fff;
+                font-size: 18px;
+                line-height: 1.2;
+                width: 200px;
+                display: -webkit-box;
+                word-wrap: break-word;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align: center;
+                text-shadow: 1px 1px 1px #222;
+              }
+            }
+          }
+        }
+
+        .swiper-btn {
+          &-prev, &-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+
+            &.swiper-button-disabled {
+              display: none;
+            }
+
+            svg {
+              width: 40px;
+              height: 40px;
+
+              path {
+                color: #333;
+              }
+            }
+
+            &:after {
+              content: '';
+            }
+          }
+
+          &-prev {
+            left: -15px;
+          }
+
+          &-next {
+            right: -15px;
+          }
+        }
+      }
+    }
+
+    .map {
+      position: relative;
+
+      &-section {
+        height: 370px;
+        width: 268px;
+
+        &-item {
+          input[type=checkbox] {
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            width: 0;
+
+            &:checked {
+              & + label {
+                svg {
+                  &.seoul {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.incheon {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.daejeon {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.daegu {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.gwangju {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.busan {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.ulsan {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.gyeonggi {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.gangwon {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.sejong {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.jeju {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.chungbook {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.chungnam {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.gyeongbook {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.gyeongnam {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.jyeonbook {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.jyeonnam {
+                    path {
+                      display: block;
+                    }
+                  }
+
+                  &.dokdo {
+                    path {
+                      display: block;
+                    }
+                  }
+                }
+              }
+            }
+
+            & + label {
+              svg {
+                position: absolute;
+                z-index: -1;
+                pointer-events: none;
+
+                path {
+                  cursor: pointer;
+                  pointer-events: visibleFill;
+                }
+
+                &.all {
+                  path {
+                    display: block;
+                  }
+                }
+
+                &.seoul {
+                  top: 61px;
+                  left: 64px;
+                  z-index: 2;
+
+                  path {
+                    width: 27px;
+                    height: 22px;
+                  }
+                }
+
+                &.incheon {
+                  top: 63px;
+                  left: 53px;
+                  z-index: 2;
+
+                  path {
+                    width: 13px;
+                    height: 20px;
+                  }
+                }
+
+                &.daejeon {
+                  top: 151px;
+                  left: 85px;
+                  z-index: 2;
+
+                  path {
+                    width: 21px;
+                    height: 24px;
+                  }
+                }
+
+                &.daegu {
+                  top: 193px;
+                  left: 152px;
+                  z-index: 2;
+
+                  path {
+                    width: 28px;
+                    height: 30px;
+                  }
+                }
+
+                &.gwangju {
+                  top: 241px;
+                  left: 40px;
+                  z-index: 2;
+
+                  path {
+                    width: 25px;
+                    height: 16px;
+                  }
+                }
+
+                &.busan {
+                  top: 241px;
+                  left: 177px;
+                  z-index: 2;
+
+                  path {
+                    width: 35px;
+                    height: 28px;
+                  }
+                }
+
+                &.ulsan {
+                  top: 217px;
+                  left: 191px;
+                  z-index: 1;
+
+                  path {
+                    width: 34px;
+                    height: 33px;
+                  }
+                }
+
+                &.gyeonggi {
+                  top: 18px;
+                  left: 42px;
+                  z-index: 1;
+
+                  path {
+                    width: 89px;
+                    height: 104px;
+                  }
+                }
+
+                &.gangwon {
+                  top: 0;
+                  left: 88px;
+                  z-index: 1;
+
+                  path {
+                    width: 136px;
+                    height: 121px;
+                  }
+                }
+
+                &.sejong {
+                  top: 134px;
+                  left: 80px;
+                  z-index: 2;
+
+                  path {
+                    width: 18px;
+                    height: 23px;
+                  }
+                }
+
+                &.jeju {
+                  left: 1px;
+                  top: 344px;
+                  z-index: 1;
+
+                  path {
+                    width: 50px;
+                    height: 25px;
+                  }
+                }
+
+                &.chungbook {
+                  top: 98px;
+                  left: 91px;
+                  z-index: 1;
+
+                  path {
+                    width: 90px;
+                    height: 92px;
+                  }
+                }
+
+                &.chungnam {
+                  top: 105px;
+                  left: 18px;
+                  z-index: 1;
+
+                  path {
+                    width: 92px;
+                    height: 86px;
+                  }
+                }
+
+                &.gyeongbook {
+                  top: 112px;
+                  left: 122px;
+                  z-index: 1;
+
+                  path {
+                    width: 111px;
+                    height: 116px;
+                  }
+                }
+
+                &.gyeongnam {
+                  top: 197px;
+                  left: 100px;
+                  z-index: 1;
+
+                  path {
+                    width: 107px;
+                    height: 83px;
+                  }
+                }
+
+                &.jyeonbook {
+                  top: 175px;
+                  left: 29px;
+                  z-index: 1;
+
+                  path {
+                    width: 97px;
+                    height: 67px;
+                  }
+                }
+
+                &.jyeonnam {
+                  top: 223px;
+                  left: 2px;
+                  z-index: 1;
+
+                  path {
+                    width: 112px;
+                    height: 88px;
+                  }
+                }
+
+                &.dokdo {
+                  top: 84px;
+                  left: 255px;
+                  z-index: 1;
+
+                  path {
+                    width: 14px;
+                    height: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .theme {
+    margin-top: 50px;
+
+    &-title {
+      font-weight: 600;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    &-cont {
+      overflow: hidden;
+
+      &-list {
+        float: left;
+        width: 50%;
+        height: 234px;
+
+        &-item {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 30px;
+          padding: 0 50px;
+          color: #fff;
+
+          &.animal {
+            background: #5295F1;
+          }
+
+          &.natural {
+            background: #5BB6C3;
+
+            .svg {
+              svg {
+                margin-left: 3px;
+              }
+            }
+          }
+
+          &.camping {
+            background: #325ABA;
+          }
+
+          &.leisure {
+            background: #5068CE;
+          }
+
+          .info {
+            .title {
+              font-weight: 600;
+              font-size: 24px;
+              margin-bottom: 15px;
+            }
+
+            .sub {
+              margin-bottom: 30px;
+            }
+
+            .btn-more {
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              border-radius: 30px;
+              padding: 10px 15px;
+              background: rgba(0,0,0,0.5);
+              transition: all ease .2s;
+
+              &:hover {
+                background: rgba(0,0,0,0.7);
+              }
+
+              svg {
+                width: 15px;
+                height: 15px;
+                margin-top: -2px;
+              }
+            }
+          }
+
+          .svg {
+            display: block;
+            width: 150px;
+            height: 150px;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+
+            svg {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,9 +3,9 @@ import Link from 'next/link';
 import '@/styles/pages/regions.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {useState} from "react";
+import { useState } from "react";
 
-const RegionDetailPage = ({ params }: { params: { id: string } }) => {
+const RegionDetailPage = () => {
 
     // 추천 리스트
     const recommendList = [
@@ -255,7 +255,7 @@ const RegionDetailPage = ({ params }: { params: { id: string } }) => {
                                             <div className='img'
                                                  style={{backgroundImage: `url('/images/list_sample_${index + 1}.png')`}}>
                                                 <div className='img-wrap'>
-                                                    <div className='img-wrap-txt'>{item.title}</div>
+                                                    <span className='img-wrap-txt'>{item.title}</span>
                                                 </div>
                                             </div>
                                             <button onClick={() => handleBtnLike(index)}
