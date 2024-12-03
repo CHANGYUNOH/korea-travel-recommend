@@ -109,7 +109,7 @@ export default function Main() {
                 지도로 찾아보는 <strong>지역별 여행지</strong>
             </div>
             <ul className='locate'>
-                <Swiper slidesPerView={13}
+                <Swiper slidesPerView={"auto"}
                         navigation={{
                             nextEl: '.swiper-button-next',
                             prevEl: '.swiper-button-prev',
@@ -180,20 +180,22 @@ export default function Main() {
                         <div className='swiper-btn'>
                             {/* 커스텀 내비게이션 버튼 */}
                             <div className="swiper-btn-next custom-next">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5}
-                                     stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                     className="size-6">
+                                    <path fillRule="evenodd"
+                                          d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+                                          clipRule="evenodd"/>
                                 </svg>
+
                             </div>
                             <div className="swiper-btn-prev custom-prev">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5}
-                                     stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                     className="size-6">
+                                    <path fill-rule="evenodd"
+                                          d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
+                                          clip-rule="evenodd"/>
                                 </svg>
+
                             </div>
                         </div>
                     </div>

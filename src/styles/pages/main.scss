@@ -6,7 +6,7 @@
   .title {
     max-width: 980px;
     margin: 0 auto;
-    padding: 0 0 40px;
+    padding: 0 0 20px;
     font-weight: 400;
     font-size: 22px;
     line-height: 24px;
@@ -51,11 +51,14 @@
       }
     }
 
+    .swiper-slide {
+      width: auto;
+    }
+
     .swiper-button {
       &-prev, &-next {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
 
         &.swiper-button-disabled {
           display: none;
@@ -86,6 +89,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
 
     .swiper {
       padding: 0 30px;
