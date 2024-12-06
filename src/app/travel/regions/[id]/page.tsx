@@ -153,7 +153,7 @@ const RegionDetailPage = () => {
                     </div>
                     <div className='detail-view'>
                         <div className='top-area'>
-                            <div className='title'>상세정보</div>
+                            <div className='tit'>상세정보</div>
                             <button className='btn-modify'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                      strokeWidth={1.5} stroke="currentColor" className="size-6">

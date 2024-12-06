@@ -1,5 +1,4 @@
 .container {
-  max-width: 100%;
   padding: 50px 0 0 0;
 
   // 리스트
@@ -174,7 +173,7 @@
                     &.seoul {
                       top: 61px;
                       left: 64px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 27px;
@@ -185,7 +184,7 @@
                     &.incheon {
                       top: 63px;
                       left: 53px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 13px;
@@ -196,7 +195,7 @@
                     &.daejeon {
                       top: 151px;
                       left: 85px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 21px;
@@ -207,7 +206,7 @@
                     &.daegu {
                       top: 193px;
                       left: 152px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 28px;
@@ -218,7 +217,7 @@
                     &.gwangju {
                       top: 241px;
                       left: 40px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 25px;
@@ -229,7 +228,7 @@
                     &.busan {
                       top: 241px;
                       left: 177px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 35px;
@@ -240,7 +239,7 @@
                     &.ulsan {
                       top: 217px;
                       left: 191px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 34px;
@@ -251,7 +250,7 @@
                     &.gyeonggi {
                       top: 18px;
                       left: 42px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 89px;
@@ -262,7 +261,7 @@
                     &.gangwon {
                       top: 0;
                       left: 88px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 136px;
@@ -273,7 +272,7 @@
                     &.sejong {
                       top: 134px;
                       left: 80px;
-                      z-index: 2;
+                      z-index: 0;
 
                       path {
                         width: 18px;
@@ -284,7 +283,7 @@
                     &.jeju {
                       left: 1px;
                       top: 344px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 50px;
@@ -317,7 +316,7 @@
                     &.gyeongbook {
                       top: 112px;
                       left: 122px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 111px;
@@ -350,7 +349,7 @@
                     &.jyeonnam {
                       top: 223px;
                       left: 2px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 112px;
@@ -361,7 +360,7 @@
                     &.dokdo {
                       top: 84px;
                       left: 255px;
-                      z-index: 1;
+                      z-index: 0;
 
                       path {
                         width: 14px;
@@ -1000,7 +999,7 @@
             border-bottom: 2px solid #333;
             padding: 0 0 10px 0;
 
-            .title {
+            .tit {
               font-size: 24px;
               font-weight: 600;
             }
