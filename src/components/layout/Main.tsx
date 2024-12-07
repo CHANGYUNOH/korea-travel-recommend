@@ -51,14 +51,10 @@ export default function Main() {
 
         setSelectedItems((prevSelectedItems) => {
             if (isChecked) {
-                // 선택된 항목이 3개 이하일 경우에만 추가
-                if (prevSelectedItems.length < 3) {
-                    return [...prevSelectedItems, item];
-                }
-                alert('최대 3개 항목만 선택할 수 있습니다.');
-                return prevSelectedItems; // 3개 이상이면 아무것도 추가하지 않음
+                // 선택된 항목 추가
+                return [...prevSelectedItems, item];
             } else {
-                // 체크박스가 해제되면 항목을 제거
+                // 체크박스가 해제되면 항목 제거
                 return prevSelectedItems.filter((selectedItem) => selectedItem !== item);
             }
         });
@@ -66,11 +62,6 @@ export default function Main() {
 
     // toggleRegion 함수 - 지역을 선택하거나 해제하는 함수
     const toggleRegion = (region: string) => {
-        // 이미 3개 이상의 지역이 선택된 경우 선택을 차단
-        if (selectedItems.length >= 3 && !selectedItems.includes(region)) {
-            alert("최대 3개 항목만 선택할 수 있습니다.");
-            return;
-        }
 
         // 선택된 지역이 이미 있으면 제거, 없으면 추가
         setSelectedItems((prev: string[]) =>

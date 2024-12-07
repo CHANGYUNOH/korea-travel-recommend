@@ -1,7 +1,5 @@
 .container {
   padding: 50px 0 0 0;
-  max-width: 980px;
-  margin: 0 auto;
 
   .title {
     max-width: 980px;
@@ -15,6 +13,8 @@
 
   .locate {
     position: relative;
+    max-width: 980px;
+    margin: 0 auto;
 
     &-list {
       &-item {
@@ -89,7 +89,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    padding-top: 30px;
+    max-width: 980px;
+    margin: 0 auto;
 
     .swiper {
       padding: 0 30px;
@@ -521,7 +523,9 @@
   }
 
   .theme {
-    margin-top: 50px;
+    padding-top: 50px;
+    max-width: 980px;
+    margin: 0 auto;
 
     &-title {
       font-weight: 600;
