@@ -7,8 +7,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useState } from "react";
 import {Navigation, Pagination} from "swiper/modules";
+import { useSearchParams } from 'next/navigation';
 
-const RegionDetailPage = () => {
+export default function RegionDetailPage() {
+
+    const searchParams = useSearchParams(); // 리스트 페이지에서 데이터 전달 받음
+
+    const title = searchParams.get('title'); // 타이틀
+    const locale = searchParams.get('locale'); // 장소
+    const tag = JSON.parse(searchParams.get('tag') || '[]'); // 태그
 
     // 추천 리스트
     const recommendList = [
@@ -41,27 +48,26 @@ const RegionDetailPage = () => {
         setShowMore(prev => !prev); // 상태 토글
     }
 
+    const handleBtnMap = () => {
+        alert('추후 개발 예정입니다.')
+    }
+
+    const handleBtnShare = () => {
+        alert('링크가 복사되었습니다.');
+
+    }
+
     return (
         <div className='region-detail'>
             <div className='title-area'>
-                <div className='tit'>속초해수욕장</div>
-                <div className='sub'>강원 속초시</div>
+                <div className='tit'>{title}</div>
+                <div className='sub'>{locale}</div>
                 <div className='title'>
-                    <em>피서객들의 사랑을 한몸에 받는 속초해수욕장</em>
+                    <em>{tag}</em>
                 </div>
             </div>
             <div className='top-area'>
                 <ul className='top-area-left'>
-                    <li>
-                        <button className='btn-like'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                                 stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round"
-                                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
-                            </svg>
-                            <span className='num'>75</span>
-                        </button>
-                    </li>
                     <li>
                         <div className='btn-view'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
@@ -77,25 +83,7 @@ const RegionDetailPage = () => {
                 </ul>
                 <ul className='top-area-right'>
                     <li>
-                        <button className='btn-bookmark'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                                 stroke="currentColor" className="size-6">
-                            <path strokeLinecap="round" strokeLinejoin="round"
-                                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"/>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button className='btn-print'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                                 stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round"
-                                      d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z"/>
-                            </svg>
-                        </button>
-                    </li>
-                    <li>
-                        <button className='btn-map'>
+                        <button className='btn-map' onClick={handleBtnMap}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                                  stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round"
@@ -104,30 +92,18 @@ const RegionDetailPage = () => {
                         </button>
                     </li>
                     <li>
-                        <button className='btn-share'>
+                        <button className='btn-share' onClick={handleBtnShare}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                                  stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round"
-                                      d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"/>
+                                      d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"/>
                             </svg>
-                            <span className='num'>15</span>
                         </button>
                     </li>
                 </ul>
             </div>
             <div className='cont-area'>
                 <div className='gallery'>
-                    <div className='top-area'>
-                        <button className='btn-img'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 strokeWidth={1.5}
-                                 stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round"
-                                      d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
-                            </svg>
-                            <span className='txt'>사진등록하기</span>
-                        </button>
-                    </div>
                     <div className='img-area'>
                         <Swiper navigation={{
                             nextEl: '.swiper-button-next',
@@ -163,14 +139,6 @@ const RegionDetailPage = () => {
                     <div className='detail-view'>
                         <div className='top-area'>
                             <div className='tit'>상세정보</div>
-                            <button className='btn-modify'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"/>
-                                </svg>
-                                <span className='txt'>관광정보 수정요청</span>
-                            </button>
                         </div>
                         <div className='cont-area'>
                             <div className={`text ${showMore ? 'is-active' : ''}`}>
@@ -234,29 +202,9 @@ const RegionDetailPage = () => {
                                 <span className='tit'>체험 안내</span>
                                 <span className='cont'>탬플 스테이 / 불교대학 / 경전학교</span>
                             </li>
-                            <li className='info-area-list'>
-                                <span className='tit'>안내요원</span>
-                                <span className='cont'>예약 신청 시 시각장애해설사 안내가능(청각이용)</span>
-                            </li>
-                            <li className='info-area-list'>
-                                <span className='tit'>점자홍보 및 점자표지판</span>
-                                <span className='cont'>예약 신청 시 점자 안내도 제공</span>
-                            </li>
-                            <li className='info-area-list'>
-                                <span className='tit'>시각장애 기타상세</span>
-                                <span className='cont'>시각장애인 해설사의 인원은 요일별로 상이</span>
-                            </li>
-                            <li className='info-area-list'>
-                                <span className='tit'>청각장애 기타상세</span>
-                                <span className='cont'>청각장애인 안내사의 인원은 요일별로 상이</span>
-                            </li>
-                            <li className='info-area-list'>
-                                <span className='tit'>수화 안내</span>
-                                <span className='cont'>예약 신청 시 청각장애인 해설사 안내기능</span>
-                            </li>
                         </ul>
                         <div className='recommend-area'>
-                            <div className='title'>‘여수 해상케이...’ 와(과) 유사한 여행지 추천👍</div>
+                            <div className='title'>‘{title}’ 와(과) 유사한 여행지 추천👍</div>
                             <div className='cont'>
                                 <ul className='cont-wrap'>
                                     {recommendList.map((item, index) => (
@@ -278,6 +226,4 @@ const RegionDetailPage = () => {
 
         </div>
     );
-};
-
-export default RegionDetailPage;
+}

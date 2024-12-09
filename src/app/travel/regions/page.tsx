@@ -513,7 +513,14 @@ export default function Regions() {
                     {tourList.map((item, index) => (
                         <li className='list-card-item' key={index}>
                             <Link
-                                href={`/travel/regions/${index + 1}`}
+                                href={{
+                                    pathname: `/travel/regions/${index + 1}`,
+                                    query: {
+                                        title: item.title,
+                                        locale: item.locale,
+                                        tag: JSON.stringify(item.tag),
+                                    },
+                                }}
                                 className='list-card-item-link'>
                                 <div className='img'>
                                     <img src={`/images/list_sample_${index + 1}.png`} alt={item.title}/>

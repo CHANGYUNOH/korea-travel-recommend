@@ -10,7 +10,18 @@ export default function Themes() {
     return (
         <>
             <div className='themes'>
-                
+                 <ul className='themes-wrap'>
+                    <li className='themes-wrap-list'>
+                        {region.map((item, index) => (
+                            <a className='themes-wrap-list-item' key={index}>
+                                <p className='title'>{item}</p>
+                                <div className='img'>
+                                     
+                                </div>
+                            </a>
+                        ))}
+                    </li>
+                 </ul>
             </div>
         </>
     );
