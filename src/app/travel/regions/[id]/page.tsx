@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import '@/styles/pages/regions.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -16,6 +15,7 @@ export default function RegionDetailPage() {
     const title = searchParams.get('title'); // 타이틀
     const locale = searchParams.get('locale'); // 장소
     const tag = JSON.parse(searchParams.get('tag') || '[]'); // 태그
+    const image = searchParams.get('image'); // 장소
 
     // 추천 리스트
     const recommendList = [
@@ -38,9 +38,6 @@ export default function RegionDetailPage() {
             title: '보은 법주사[유네스코 세계유산]'
         }
     ]
-
-    // 갤러리 리스트
-    const galleryList = ['','','','',''];
 
     const [showMore, setShowMore] = useState(false);
 
@@ -116,13 +113,9 @@ export default function RegionDetailPage() {
                                     bulletActiveClass: 'custom-pagination-bullet-active', // 활성화 클래스 지정
                                 }}
                                 modules={[Pagination, Navigation]}>
-                            {galleryList.map((item, index) => (
-                                <SwiperSlide key={index}>
-                                    <Link href='/'>
-                                        <img src={`/images/card_sample_0${index + 1}.png`} alt={item}/>
-                                    </Link>
-                                </SwiperSlide>
-                            ))}
+                            <SwiperSlide>
+                                <img src={image ?? undefined} alt={image ?? ''}/>
+                            </SwiperSlide>
                         </Swiper>
                         <div className='page-btn'>
                             <div className='page-btn-inner'>
@@ -134,7 +127,7 @@ export default function RegionDetailPage() {
                             </div>
                         </div>
                         {/* 커스텀 페이지네이션 */}
-                        <div className="swiper-pagination custom-pagination"></div>
+                        <div className="swiper-pagination custom-pagination"/>
                     </div>
                     <div className='detail-view'>
                         <div className='top-area'>

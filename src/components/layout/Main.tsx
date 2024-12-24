@@ -6,14 +6,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {Navigation} from "swiper/modules";
+import axios from 'axios';
 
 export default function Main() {
 
     useEffect(() => {
-        console.log("useEffect")
+        console.log("useEffect");
         const fetchData = async () => {
-            const result = await fetch('/api/v1/sample');
-            console.log(await result.json());
+            try {
+                const response = await axios.get('/api/v1/sample');
+                console.log(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         };
         fetchData();
     }, []);

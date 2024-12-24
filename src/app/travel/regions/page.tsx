@@ -37,42 +37,50 @@ export default function Regions() {
         {
             title: '고성 통일전망타워',
             locale: '강원 고성군',
-            tag: ['역사공부', '전쟁역사']
+            tag: ['역사공부', '전쟁역사'],
+            image: '/images/list_sample_1.png'
         },
         {
             title: '해인사(합천)',
             locale: '경남 합천군',
-            tag: ['휴식하기좋은곳', '전통사찰']
+            tag: ['휴식하기좋은곳', '전통사찰'],
+            image: '/images/list_sample_2.png'
         },
         {
             title: '죽녹원',
             locale: '전남 담양군',
-            tag: ['2024_여행가는달과함께하는_발도장여행지', '반려동물동반여행지']
+            tag: ['2024_여행가는달과함께하는_발도장여행지', '반려동물동반여행지'],
+            image: '/images/list_sample_3.png'
         },
         {
             title: '속초해수욕장',
             locale: '강원 속초시',
-            tag: ['일출일몰명소', '속초해변']
+            tag: ['일출일몰명소', '속초해변'],
+            image: '/images/list_sample_4.png'
         },
         {
             title: '여수 해상케이블카',
             locale: '전남 여수시',
-            tag: ['2024_여행가는달과함께하는_발도장여행지', '반려동물동반여행지']
+            tag: ['2024_여행가는달과함께하는_발도장여행지', '반려동물동반여행지'],
+            image: '/images/list_sample_5.png'
         },
         {
             title: '간월암(서산)',
             locale: '충남 서산시',
-            tag: ['2024_여행가는달과함께하는_발도장여행지', '충청권']
+            tag: ['2024_여행가는달과함께하는_발도장여행지', '충청권'],
+            image: '/images/list_sample_6.png'
         },
         {
             title: '국립중앙박물관',
             locale: '서울 용산구',
-            tag: ['2024_여행가는달과함께하는_발도장여행지', 'RM']
+            tag: ['2024_여행가는달과함께하는_발도장여행지', 'RM'],
+            image: '/images/list_sample_7.png'
         },
         {
             title: '속초 외옹치 바다향기로',
             locale: '강원 속초시',
-            tag: ['반려동물동반여행지', '해안산책']
+            tag: ['반려동물동반여행지', '해안산책'],
+            image: '/images/list_sample_8.png'
         },
     ];
 
@@ -519,6 +527,7 @@ export default function Regions() {
                                         title: item.title,
                                         locale: item.locale,
                                         tag: JSON.stringify(item.tag),
+                                        image: item.image
                                     },
                                 }}
                                 className='list-card-item-link'>
