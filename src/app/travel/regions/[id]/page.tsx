@@ -50,7 +50,7 @@ export default function RegionDetailPage() {
     }
 
     const handleBtnShare = () => {
-        alert('링크가 복사되었습니다.');
+        alert('링크가 복사되었습니다..');
 
     }
 
