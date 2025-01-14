@@ -206,7 +206,7 @@ export default function Main() {
                                 <input
                                     type="checkbox"
                                     id={`map-${String(index)}`}
-                                    name="map-section"  // 동일한 name 속성
+                                    name="map-section"  // 동일한 name 속성..
                                     value={item}
                                 />
                                 <label htmlFor={`map-${String(index)}`}>
