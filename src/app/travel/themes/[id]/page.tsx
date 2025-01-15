@@ -9,7 +9,7 @@ export default function ThemesDetailPage() {
 
     const searchParams = useSearchParams(); // 리스트 페이지에서 데이터 전달 받음
 
-    const name = searchParams.get('name'); // 타이틀
+    const name = searchParams.get('name'); // name
 
     const navList = [
         {
@@ -66,55 +66,55 @@ export default function ThemesDetailPage() {
         },
         {
             title: '해파랑길 2코스',
-            locale: '부산 남구',
+            locale: '울산산 남구',
             info: [
                 {
-                    distance: '16.9km',
-                    time: '6시간 30분',
+                    distance: '15.9km',
+                    time: '5시간 30분',
                     difficulty: '보통'
                 }
             ]
         },
         {
             title: '해파랑길 3코스',
-            locale: '부산 남구',
+            locale: '마산산 남구',
             info: [
                 {
-                    distance: '16.9km',
-                    time: '6시간 30분',
+                    distance: '14.9km',
+                    time: '4시간 30분',
                     difficulty: '보통'
                 }
             ]
         },
         {
             title: '해파랑길 4코스',
-            locale: '부산 남구',
+            locale: '서울 남구',
             info: [
                 {
-                    distance: '16.9km',
-                    time: '6시간 30분',
+                    distance: '13.9km',
+                    time: '3시간 30분',
                     difficulty: '보통'
                 }
             ]
         },
         {
             title: '해파랑길 5코스',
-            locale: '부산 남구',
+            locale: '대구 남구',
             info: [
                 {
-                    distance: '16.9km',
-                    time: '6시간 30분',
+                    distance: '12.9km',
+                    time: '2시간 30분',
                     difficulty: '보통'
                 }
             ]
         },
         {
             title: '해파랑길 6코스',
-            locale: '부산 남구',
+            locale: '파주 남구',
             info: [
                 {
-                    distance: '16.9km',
-                    time: '6시간 30분',
+                    distance: '11.9km',
+                    time: '1시간 30분',
                     difficulty: '보통'
                 }
             ]
@@ -300,11 +300,22 @@ export default function ThemesDetailPage() {
                         <p className='title'>총 <strong>{detailList.length}</strong>건</p>
                         <div className='cont'>
                             <ul className='cont-wrap'>
-                                
                                 {detailList.map((item, index) => (
                                     <li className='cont-list' key={index}>
-                                        
-                                        <Link href="/" className='cont-list-item'>
+                                        <Link href={{
+                                pathname: `/travel/themes/${item.title}/sub`,
+                                query: {
+                                    title: item.title,
+                                    locale: item.locale,
+                                    info: [
+                                        {
+                                            distance: item.distance,
+                                            time: item.time,
+                                            difficulty: item.difficulty
+                                        }
+                                    ]
+                                },
+                            }} className='cont-list-item'>
                                             <div className='img'
                                                  style={{backgroundImage: `url(/images/list_sample_${index + 1}.png)`}}>
                                             </div>
