@@ -23,7 +23,7 @@ export default function ThemesDetailPage() {
                  <div className='themes-head'>
                     <div className='themes-head-top'>{locale}</div>
                     <div className='themes-head-title'>{title}</div>
-                    <div className='themes-head-sub'>길이 16.9km. 소요시간 6시간 30분. 난이도 보통</div>
+                    <div className='themes-head-sub'>길이 {distance}. 소요시간 {time}. 난이도 {difficulty}</div>
                  </div>
                  <ul className='themes-top'>
                     <li className='themes-top-list'>
