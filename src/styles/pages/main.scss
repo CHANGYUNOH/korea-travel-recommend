@@ -521,6 +521,103 @@
       }
     }
   }
+  // 리스트
+  .list {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 0;
+
+    .list-card {
+      .swiper {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .swiper-slide {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center; /* 슬라이드 중앙 정렬 */
+        align-items: center;
+
+        .list-card-item {
+          width: 100%; /* 슬라이드에 맞게 너비 설정 */
+          background: #fff;
+          border-radius: 5px;
+          box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          box-sizing: border-box;
+
+          .img {
+            height: 220px;
+            background: #eaeaea;
+
+            img {
+              object-fit: cover; /* 이미지 크기 조정 */
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .info {
+            height: auto;
+            padding: 15px;
+            text-align: center;
+
+            .info-title {
+              font-size: 18px;
+              font-weight: 700;
+              letter-spacing: -0.6px;
+              line-height: 20px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            .info-locale {
+              margin: 5px 0;
+              font-size: 15px;
+              color: #666;
+              line-height: 17px;
+            }
+          }
+        }
+      }
+
+      .swiper-pagination-bullet {
+        background: #666;
+
+        &-active {
+          background: #333;
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #333; /* 네비게이션 버튼 색상 */
+      }
+      .swiper-pagination {
+        padding-top: 10px;
+        position: absolute;
+        bottom: 0px; /* 페이지네이션 위치 */
+        width: 100%;
+        text-align: center;
+      }
+
+      .swiper-pagination-bullet {
+        background: #666;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #333;
+        opacity: 1;
+      }
+    }
+  }
+
 
   .theme {
     padding-top: 50px;
@@ -610,7 +707,7 @@
             width: 150px;
             height: 150px;
             background: #fff;
-            border-radius: 50%;
+            border-radius: 100%;
             position: relative;
 
             svg {
