@@ -1117,6 +1117,42 @@
             }
           }
 
+          .warn-area {
+            margin: 10px 0 30px 0;
+
+            &-top {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 15px;
+
+              .title {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+              }
+            }
+
+            &-wrap {
+
+            }
+
+            &-list {
+              font-weight: 600;
+              margin-bottom: 10px;
+
+              span {
+                text-decoration: underline;
+                color: #36A142;
+                cursor: pointer;
+              }
+
+              &:last-child {
+                margin: 0;
+              }
+            }
+          }
+
           .recommend-area {
             margin-top: 50px;
 
