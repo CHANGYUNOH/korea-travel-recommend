@@ -11,7 +11,6 @@ import { useSearchParams } from 'next/navigation';
 export default function ThemeDetailPage() {
 
     const searchParams = useSearchParams(); // 리스트 페이지에서 데이터 전달 받음
-
     const title = searchParams.get('title'); // 타이틀
     const locale = searchParams.get('locale'); // 장소
     const image = searchParams.get('image'); // 장소

@@ -209,6 +209,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_1.png'
     },
     {
       title: "해파랑길 2코스",
@@ -220,6 +221,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_2.png'
     },
     {
       title: "해파랑길 3코스",
@@ -231,6 +233,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_3.png'
     },
     {
       title: "해파랑길 4코스",
@@ -242,6 +245,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_4.png'
     },
     {
       title: "해파랑길 5코스",
@@ -253,6 +257,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_5.png'
     },
     {
       title: "해파랑길 6코스",
@@ -264,6 +269,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_6.png'
     },
   ];
 
@@ -279,6 +285,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_1.png'
     },
     {
       title: "해파랑길 2코스",
@@ -290,6 +297,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_2.png'
     },
     {
       title: "해파랑길 3코스",
@@ -301,6 +309,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_3.png'
     },
     {
       title: "해파랑길 4코스",
@@ -312,6 +321,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_4.png'
     },
     {
       title: "해파랑길 5코스",
@@ -323,6 +333,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_5.png'
     },
     {
       title: "해파랑길 6코스",
@@ -334,6 +345,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_6.png'
     },
   ];
 
@@ -605,6 +617,7 @@ export default function ThemesDetailPage() {
                               query: {
                                 title: item.title,
                                 locale: item.locale,
+                                image: item.image,
                                 info: JSON.stringify([
                                   {
                                     distance: item.distance,
@@ -612,7 +625,6 @@ export default function ThemesDetailPage() {
                                     difficulty: item.difficulty,
                                   },
                                 ]),
-                                image: item.image
                               },
                             }}
                             className="cont-list-item"
@@ -650,7 +662,7 @@ export default function ThemesDetailPage() {
 
                   {name === "친환경 관광" && (
                     <>
-                      {detailList03.map((item, index) => (
+                      {detailList03.map((item:any, index) => (
                         <li className="cont-list" key={index}>
                           <Link
                             href={{
@@ -658,13 +670,14 @@ export default function ThemesDetailPage() {
                               query: {
                                 title: item.title,
                                 locale: item.locale,
-                                info: [
+                                image: item.image,
+                                info: JSON.stringify([
                                   {
                                     distance: item.distance,
                                     time: item.time,
                                     difficulty: item.difficulty,
                                   },
-                                ],
+                                ]),
                               },
                             }}
                             className="cont-list-item"
@@ -702,21 +715,22 @@ export default function ThemesDetailPage() {
 
                   {name === "캠핑장" && (
                     <>
-                      {detailList04.map((item, index) => (
+                      {detailList04.map((item:any, index) => (
                         <li className="cont-list" key={index}>
                           <Link
                             href={{
-                              pathname: `/travel/themes/${item.title}/nature`,
+                              pathname: `/travel/themes/${item.title}/camping`,
                               query: {
                                 title: item.title,
                                 locale: item.locale,
-                                info: [
+                                image: item.image,
+                                info: JSON.stringify([
                                   {
                                     distance: item.distance,
                                     time: item.time,
                                     difficulty: item.difficulty,
                                   },
-                                ],
+                                ]),
                               },
                             }}
                             className="cont-list-item"

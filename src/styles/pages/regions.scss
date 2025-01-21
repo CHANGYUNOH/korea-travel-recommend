@@ -1076,6 +1076,42 @@
             }
           }
 
+          .desc-area {
+            margin-bottom: 30px;
+
+            dl {
+              display: flex;
+              gap: 6px;
+              margin-bottom: 15px;
+
+              &:last-child {
+                  margin: 0;
+              }
+
+              dd {
+                  flex: 1;
+              }
+            }
+          }
+
+          .list-area {
+            margin-bottom: 30px;
+
+            &-title {
+              margin-bottom: 10px;
+            }
+
+            ul {
+              li {
+                margin-bottom: 15px;
+
+                &:last-child {
+                    margin: 0;
+                }
+              }
+            }
+          }
+
           .info-area {
             overflow: hidden;
             margin-top: 20px;
