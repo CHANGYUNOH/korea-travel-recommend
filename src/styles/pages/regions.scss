@@ -1134,7 +1134,7 @@
             }
 
             &-wrap {
-
+              position: relative;
             }
 
             &-list {
@@ -1150,6 +1150,48 @@
               &:last-child {
                 margin: 0;
               }
+            }
+
+            .desc {
+              position: absolute;
+              left: 0;
+              top: 50px;
+              max-width: 500px;
+              background: #fff;
+              box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+              text-align: left;
+              border-radius: 20px;
+              overflow: hidden;
+              z-index: 1;
+    
+              &-wrap {
+                padding: 30px;
+              }
+    
+              &-list {
+                margin-bottom: 20px;
+    
+                &:last-child {
+                  margin: 0;
+                }
+    
+                &-title {
+                  font-size: 20px;
+                  font-weight: 600;
+                  margin-bottom: 10px;
+                }
+    
+                &-cont {
+                  line-height: 1.2;
+                }
+              }
+            }
+
+            .btn-close {
+              background: #36A142;
+              color: #fff;
+              width: 100%;
+              height: 40px;
             }
           }
 

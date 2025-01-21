@@ -463,7 +463,7 @@ export default function ThemesDetailPage() {
                     </div>
                   </li>
                 </ul>
-                <button className="btn-close">닫기</button>
+                <a className="btn-close">닫기</a>
               </div>
             )}
           </button>

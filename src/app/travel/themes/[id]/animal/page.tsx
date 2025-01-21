@@ -56,8 +56,13 @@ export default function ThemeDetailPage() {
 
     const handleBtnShare = () => {
         alert('링크가 복사되었습니다..');
-
     }
+
+    const [setTooltip, setSetTooltip] = useState(false);
+
+    const handleTooltip = () => {
+        setSetTooltip(!setTooltip);
+    };
 
     return (
         <div className='region-detail'>
@@ -224,7 +229,80 @@ export default function ThemeDetailPage() {
                             {showInfo ? (
                             <ul className='warn-area-wrap'>
                                 <li className='warn-area-list'>※ 반려동물 동반 여행정보는 현지 사정에 따라 변동될 수 있으므로 반드시 방문 전 문의 부탁드립니다.</li>
-                                <li className='warn-area-list'>※ <span>여행펫티켓</span>을 준수해주시고 안전 사고에 유의해주세요.</li>
+                                <li className='warn-area-list'>※ <span onClick={handleTooltip}>여행펫티켓</span>을 준수해주시고 안전 사고에 유의해주세요.</li>
+                                {setTooltip && (
+                                    <div className="desc">
+                                        <ul className="desc-wrap">
+                                        <li className="desc-list">
+                                            <div className="desc-list-title">
+                                            <img />
+                                            <span>해파랑길</span>
+                                            </div>
+                                            <div className="desc-list-cont">
+                                            <p className="sub">
+                                                부산에서부터 강원도 고성에 이르는 동해안을 따라 걷는 길
+                                            </p>
+                                            <div className="text">
+                                                '해파랑길'의 의미는 동해의 상징인 동해의 상징인
+                                                '떠오르는 해'와 푸르른 바다색인 '파랑', '~와 함께'라는
+                                                조사 '랑'을 조합한 합성어이며 떠오르는 해와 푸른 바다를
+                                                바라보며 파도소리를 벗삼아 함께 걷는 길"이라는 뜻입니다.
+                                            </div>
+                                            </div>
+                                        </li>
+                                        <li className="desc-list">
+                                            <div className="desc-list-title">
+                                            <img />
+                                            <span className="txt">남파랑길</span>
+                                            </div>
+                                            <div className="desc-list-cont">
+                                            <p className="sub">부남쪽의 쪽빛 바다와 함께 걷는 길</p>
+                                            <div className="text">
+                                                남파랑길'은 '남쪽의 쪽빛 바다와 함께 걷는 길'이라는
+                                                뜻으로,부산 오륙도 해맞이 공원에서 전남 해남
+                                                땅끝마을까지 남해안을 따라 연결된 총 90개 코스,
+                                                1,470km의 걷기 여행이다. 남해의 수려한 해안경관과
+                                                대도시의 화려함, 농촌어촌마을의 소박함을 모두 체험할 수
+                                                있는 길이다.
+                                            </div>
+                                            </div>
+                                        </li>
+                                        <li className="desc-list">
+                                            <div className="desc-list-title">
+                                            <img />
+                                            <span className="txt">서해랑길</span>
+                                            </div>
+                                            <div className="desc-list-cont">
+                                            <p className="sub">서쪽의 바다와 함께 걷는길</p>
+                                            <div className="text">
+                                                서해랑길은 전남 해남 땅끝탑에서 인천 강화를 연결하는
+                                                109개 코스, 1,800km의 걷기여행길로, 서쪽(西)의
+                                                바다(파도)와 함께(랑) 걷는 길을 의미합니다. 서해랑길 을
+                                                따라 천천히 걷다보면 유네스코 세계유산으로 지정된 드넓은
+                                                갯벌과 황홀한 일몰, 종교와 문물교류의 역사를 만나게
+                                                됩니다.
+                                            </div>
+                                            </div>
+                                        </li>
+                                        <li className="desc-list">
+                                            <div className="desc-list-title">
+                                            <img />
+                                            <span className="txt">물소리길</span>
+                                            </div>
+                                            <div className="desc-list-cont">
+                                            <p className="sub">남한강과 북한강을 아우르는 걷는 길</p>
+                                            <div className="text">
+                                                남한강과 북한강의 맑은 물소리와 자연의 소리를 느낄 수
+                                                있는 걷는 여행길이다. 산과 강과 마을길을 걸으며 아늑한
+                                                옛 고향의 따스함처럼 여유로운 삶의 행복을 느낄 수 있는
+                                                길이다
+                                            </div>
+                                            </div>
+                                        </li>
+                                        </ul>
+                                        <button className="btn-close">닫기</button>
+                                    </div>
+                                )}
                             </ul>
                             ) : ''}
                         </div>
