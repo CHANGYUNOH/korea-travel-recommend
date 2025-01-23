@@ -1,0 +1,148 @@
+.container {
+    .nearby {
+        padding: 50px 0 100px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .search-area {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+            border-radius: 30px;
+            padding: 30px;
+  
+            dl {
+              display: inline-flex;
+              align-items: center;
+              gap: 30px;
+  
+              dt {
+                font-weight: 600;
+                min-width: 70px;
+              }
+  
+              dd {
+                display: flex;
+                align-items: center;
+  
+                .radio-list {
+                  margin-right: 15px;
+  
+                  input[type=radio] {
+                    & + label {
+                      padding-left: 10px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &-cont {
+            margin-top: 50px;
+            display: flex;
+            gap: 30px;
+
+            &-list {
+                flex: 1;
+                max-height: 657px;
+                overflow: hidden;
+                overflow-y: auto;
+
+                .item {
+                    &-list {
+                        border: 1px solid;
+                        padding: 20px;
+                        margin-bottom: 20px;
+
+                        &:last-child {
+                            margin: 0;
+                        }
+
+                        &-top {
+                            display: flex;
+                            align-items: center;
+                            gap: 30px;
+                            border-bottom: 1px solid;
+                            padding-bottom: 20px;
+                            margin-bottom: 20px;
+
+                            img {
+                                height: 150px;
+                            }
+
+                            .cont {
+                                .title {
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
+                        &-content {
+                            .nearby-top {
+                                display: flex;
+                                align-items: center;
+                                justify-content: flex-end;
+                                gap: 10px;
+
+                                &-list {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    gap: 6px;
+                                }
+                            }
+                        }
+
+                        .detail-info {
+                            margin-top: 20px;
+
+                            .title {
+                                font-weight: 600;
+                            }
+
+                            .desc {
+                                line-height: 1.3;
+                                color: #777;
+                            }
+                 
+                            .btn-area {
+                                text-align: right;
+                                margin-top: 10px;
+
+                                .btn-more {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                    border: 0;
+                                    height: auto;
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .btn-area {
+                    text-align: center;
+                    margin-top: 30px;
+
+                    .btn-more {
+                        display: flex;
+                        margin: 0 auto;
+                        justify-content: center;
+                        align-items: center;
+                        letter-spacing: -0.5px;
+                        box-sizing: border-box;
+                        font-size: 16px;
+                        padding: 0 20px;
+                        height: 45px;
+                        border: 1px solid #333;
+                        border-radius: 50px;
+                        cursor: pointer;
+                    }
+                }
+            }
+          }
+    }
+}
