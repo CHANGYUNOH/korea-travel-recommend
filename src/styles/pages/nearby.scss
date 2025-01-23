@@ -55,6 +55,15 @@
                         border: 1px solid;
                         padding: 20px;
                         margin-bottom: 20px;
+                        cursor: pointer;
+
+                        &.is-active {
+                            background: #eaeaea;
+                        }
+
+                        &:hover {
+                            background: #eaeaea;
+                        }
 
                         &:last-child {
                             margin: 0;
