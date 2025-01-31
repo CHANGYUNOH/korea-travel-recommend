@@ -113,6 +113,7 @@
                             .desc {
                                 line-height: 1.3;
                                 color: #777;
+<<<<<<< HEAD
                                 font-size: 18px;
                                 display: -webkit-box;
                                 -webkit-box-orient: vertical;
@@ -120,6 +121,18 @@
                                 -webkit-line-clamp: 5;
                                 line-height: 1.7;
                                 max-height: 8.5em;
+=======
+                                display: -webkit-box;
+                                word-wrap: break-word;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+
+                                &.is-active {
+                                    display: block;
+                                }
+>>>>>>> 007a135d7394e4949d52b88d9459079e7ab2a00d
                             }
                  
                             .btn-area {

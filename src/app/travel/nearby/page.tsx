@@ -23,9 +23,18 @@ const itemList = [
     }
 ]
 
-
 // 근처 여행지 찾기
 export default function Nearby() {
+    const [showBtnMore, setShowBtnMore] = useState(-1);
+
+    const btnMoreHandle = (index: number) => {
+        if(showBtnMore !== index) {
+            setShowBtnMore(index);
+        } else {
+            setShowBtnMore(-1);
+        }
+    }
+
     const [showMore, setShowMore] = useState(-1);
 
     const handleBtnMore = (index: number) => {
@@ -44,7 +53,7 @@ export default function Nearby() {
 
     return (
         <div className='nearby'>
-            <h1 className="text-4xl font-bold mb-10 mt-10">근처 여행지 찾기</h1>
+            <h1 className="text-4xl font-bold mb-10">근처 여행지 찾기</h1>
             <div className='search-area'>
                 <dl>
                     <dt>거리반경</dt>
@@ -81,9 +90,8 @@ export default function Nearby() {
                      <ul className='item'>
                         {itemList.map((item, index) => (
                             <li className={`item-list ${showMore[index] ? 'is-active' : ''}`}
-                                key={index}
-                                onClick={() => handleBtnMore(index)}>
-                            <div className='item-list-top'>
+                                key={index}>
+                            <div className='item-list-top' onClick={() => handleBtnMore(index)}>
                                 <img src="/images/card_sample_02.png"/>
                                 <div className='cont'>
                                     <h2 className='title'>{item.title}</h2>
@@ -130,17 +138,36 @@ export default function Nearby() {
                                     </ul>
                                     <div className='detail-info'>
                                             <h3 className='title'>상세정보</h3>
+<<<<<<< HEAD
                                             <p className={`desc ${showMoreDetail ? 'is-active' : ''}`}>
                                                 봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.
                                             </p>
                                             <div className='btn-area'>
                                                 <button className='btn-more' onClick={handleBtnMoreDetail}>
+=======
+                                            <p className={`desc ${showBtnMore ? 'is-active' : ''}`}>
+                                                봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.
+                                            </p>
+                                            <div className='btn-area'>
+                                                <button onClick={() => btnMoreHandle(index)} className='btn-more'>
+>>>>>>> 007a135d7394e4949d52b88d9459079e7ab2a00d
                                                     <span className='txt'>자세히보기</span>
+                                                    {showBtnMore ? (
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                            strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14"/>
+                                                    </svg>
+
+                                                    ): (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                         <path strokeLinecap="round" strokeLinejoin="round"
                                                                 d="M12 4.5v15m7.5-7.5h-15"/>
                                                     </svg>
+<<<<<<< HEAD
+=======
+                                                    )}
+>>>>>>> 007a135d7394e4949d52b88d9459079e7ab2a00d
                                                 </button>
                                             </div>
                                         </div>
