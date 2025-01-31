@@ -36,6 +36,12 @@ export default function Nearby() {
         }
     };
 
+    const [showMoreDetail, setShowMoreDetail] = useState(false);
+
+    const handleBtnMoreDetail = () => {
+        setShowMoreDetail(prev => !prev);
+    }
+
     return (
         <div className='nearby'>
             <h1 className="text-4xl font-bold mb-10 mt-10">근처 여행지 찾기</h1>
@@ -124,18 +130,18 @@ export default function Nearby() {
                                     </ul>
                                     <div className='detail-info'>
                                             <h3 className='title'>상세정보</h3>
-                                            <p className='desc'>
+                                            <p className={`desc ${showMoreDetail ? 'is-active' : ''}`}>
                                                 봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.
                                             </p>
                                             <div className='btn-area'>
-                                                <Link href="/" className='btn-more'>
+                                                <button className='btn-more' onClick={handleBtnMoreDetail}>
                                                     <span className='txt'>자세히보기</span>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                             strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                         <path strokeLinecap="round" strokeLinejoin="round"
                                                                 d="M12 4.5v15m7.5-7.5h-15"/>
                                                     </svg>
-                                                </Link>
+                                                </button>
                                             </div>
                                         </div>
                                 </div>
