@@ -588,18 +588,18 @@ export default function ThemesDetailPage() {
                               <p className="info-tit">{item.title}</p>
                               <span className="info-sub">{item.locale}</span>
                               {item.info.map((depth, index) => (
-                                <ul className="info-wrap" key={index}>
-                                  <li className="info-wrap-list">
-                                    {depth.distance}
-                                  </li>
-                                  <li className="info-wrap-list">
-                                    {depth.time}
-                                  </li>
-                                  <li className="info-wrap-list">
-                                    {depth.difficulty}
-                                  </li>
-                                </ul>
-                              ))}
+                                  <ul className="info-wrap" key={index}>
+                                    <li className="info-wrap-list">
+                                      {depth.distance}
+                                    </li>
+                                    <li className="info-wrap-list">
+                                      {depth.time}
+                                    </li>
+                                    <li className="info-wrap-list">
+                                      {depth.difficulty}
+                                    </li>
+                                  </ul>
+                                ))}
                             </div>
                           </Link>
                         </li>

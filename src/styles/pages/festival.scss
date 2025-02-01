@@ -38,12 +38,8 @@
 
             &-wrap {
               display: grid;
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(4, 1fr);
               gap: 30px;
-
-              &.col-4 {
-                grid-template-columns: repeat(4, 1fr);
-              }
             }
 
             &-list {
@@ -186,6 +182,30 @@
                   }
                 }
               }
+            }
+
+            .btn-area {
+                margin-left: auto;
+
+                .btn-wrap {
+                    display: inline-flex;
+                    gap: 10px;
+
+                    button {
+                        border: 1px solid;
+                        padding: 10px;
+                        border-radius: 5px;
+
+                        &.btn-search {
+                            background: #36A142;
+                            color: #fff;
+                        }
+
+                        &.btn-reset {
+
+                        }
+                    }
+                }
             }
           }
 

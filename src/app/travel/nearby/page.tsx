@@ -6,20 +6,32 @@ import Link from 'next/link';
 
 const distance = ['10m이내', '100m', '500m', '1km', '5km', '10km', '20km'];
 
-const tourType = ['전체', '여행지', '숙박', '쇼핑', '음식점점'];
+const tourType = ['전체', '여행지', '숙박', '쇼핑', '음식점'];
 
 const itemList = [
     {
-        title: '봉은사'
+        title: '봉은사',
+        locale: '내 위치로부터 10m',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_1.png'
     },
     {
-        title: '해파랑길 3코스'
+        title: '해파랑길 3코스',
+        locale: '내 위치로부터 100m',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_2.png'
     },
     {
-        title: '해파랑길 2코스'
+        title: '해파랑길 2코스',
+        locale: '내 위치로부터 500m',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_3.png'
     },
     {
-        title: '해파랑길 1코스'
+        title: '해파랑길 1코스',
+        locale: '내 위치로부터 1km',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_4.png'
     }
 ]
 
@@ -44,12 +56,6 @@ export default function Nearby() {
             setShowMore(-1);
         }
     };
-
-    const [showMoreDetail, setShowMoreDetail] = useState(false);
-
-    const handleBtnMoreDetail = () => {
-        setShowMoreDetail(prev => !prev);
-    }
 
     return (
         <div className='nearby'>
@@ -92,10 +98,10 @@ export default function Nearby() {
                             <li className={`item-list ${showMore[index] ? 'is-active' : ''}`}
                                 key={index}>
                             <div className='item-list-top' onClick={() => handleBtnMore(index)}>
-                                <img src="/images/card_sample_02.png"/>
+                                <img src={item.image}/>
                                 <div className='cont'>
                                     <h2 className='title'>{item.title}</h2>
-                                    <p className='sub'>내 위치로부터 10m</p>
+                                    <p className='sub'>{item.locale}</p>
                                 </div>
                             </div>
                             {showMore === index && (
@@ -138,37 +144,26 @@ export default function Nearby() {
                                     </ul>
                                     <div className='detail-info'>
                                             <h3 className='title'>상세정보</h3>
-<<<<<<< HEAD
-                                            <p className={`desc ${showMoreDetail ? 'is-active' : ''}`}>
-                                                봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.
-                                            </p>
-                                            <div className='btn-area'>
-                                                <button className='btn-more' onClick={handleBtnMoreDetail}>
-=======
                                             <p className={`desc ${showBtnMore ? 'is-active' : ''}`}>
-                                                봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.
+                                                {item.desc}
                                             </p>
                                             <div className='btn-area'>
-                                                <button onClick={() => btnMoreHandle(index)} className='btn-more'>
->>>>>>> 007a135d7394e4949d52b88d9459079e7ab2a00d
+                                                <Link href={{
+                                                    pathname:`/travel/nearby/${index}`,
+                                                    query: {
+                                                        title: item.title,
+                                                        locale: item.locale,
+                                                        desc: item.desc,
+                                                        image: item.image
+                                                    }
+                                                }} className='btn-more'>
                                                     <span className='txt'>자세히보기</span>
-                                                    {showBtnMore ? (
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                        strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14"/>
-                                                    </svg>
-
-                                                    ): (
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                         strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                         <path strokeLinecap="round" strokeLinejoin="round"
                                                                 d="M12 4.5v15m7.5-7.5h-15"/>
                                                     </svg>
-<<<<<<< HEAD
-=======
-                                                    )}
->>>>>>> 007a135d7394e4949d52b88d9459079e7ab2a00d
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                 </div>
