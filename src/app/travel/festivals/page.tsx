@@ -3,6 +3,12 @@
 import "@/styles/pages/festival.scss";
 import Link from "next/link";
 import { useState } from "react";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const tabList = ["지역 축제", "축제 달력"];
 
@@ -75,6 +81,8 @@ const contList = [
 
 export default function FestivalPage() {
 
+  const [value, onChange] = useState<Value>(new Date());
+
   const [tabShow, setTabShow] = useState(0);
 
   const handleTabShow = (index: number) => {
@@ -83,6 +91,7 @@ export default function FestivalPage() {
 
   return (
     <div className="nearby">
+
       <ul className="tab">
         {tabList.map((item, index) => (
           <li key={index}>
@@ -178,6 +187,9 @@ export default function FestivalPage() {
 
       {tabShow === 1 && (
         <>
+          <div className="calendar">
+          <Calendar onChange={onChange} value={value} />
+          </div>
           <div className="search-area">
             <dl>
               <dt>지역</dt>

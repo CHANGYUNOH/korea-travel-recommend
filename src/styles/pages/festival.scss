@@ -23,6 +23,14 @@
             }
         }
 
+        .calendar {
+          padding: 0 0 50px;
+
+          .react-calendar {
+            margin: 0 auto;
+          }
+        }
+
         .search-box {
             border: 1px solid;
             max-width: 300px;
