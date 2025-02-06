@@ -3,6 +3,7 @@
 import '@/styles/pages/nearby.scss';
 import { useState } from 'react';
 import Link from 'next/link';
+import KakaoMap from "../../../components/KaKaoMap";
 
 const distance = ['10m이내', '100m', '500m', '1km', '5km', '10km', '20km'];
 
@@ -90,7 +91,8 @@ export default function Nearby() {
             </div>
             <div className='nearby-cont'>
                 <div className='nearby-cont-map'>
-                    <img src="/images/img_map.png"/>
+                    {/* <img src="/images/img_map.png"/> */}
+                    <KakaoMap />
                 </div>
                 <div className='nearby-cont-list'>
                      <ul className='item'>
