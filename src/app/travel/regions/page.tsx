@@ -13,6 +13,7 @@ import MapSVG from '@/assets/svg/korean_map.svg';
 export default function Regions() {
 
     const regions = [
+        { id: "All" , name : "전국"},
         { id: "Seoul", name: "서울", color: "#D0F4DE" }, // 기본 색상
         { id: "Busan", name: "부산", color: "#A2D2FF" },
         { id: "Daegu", name: "대구", color: "#D0F4DE" },
@@ -34,25 +35,58 @@ export default function Regions() {
 
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
-    // 지역 클릭 핸들러
     const handleRegionToggle = (regionId: string) => {
         setSelectedItems((prev) => {
-            const isSelected = prev.includes(regionId);
-            const updatedItems = isSelected
-                ? prev.filter((id) => id !== regionId) // 선택 해제
-                : [...prev, regionId]; // 선택 추가
+            if (regionId === "All") {
+                // "전국" 클릭 시 모든 지역 선택/해제
+                const allSelected = prev.length === regions.length; // 이미 모든 지역이 선택된 상태인지 확인
+                const updatedItems = allSelected ? [] : regions.map((region) => region.id);
 
-            // SVG에서 해당 경로의 색상을 업데이트
-            const targetPath = document.querySelector(`#korean_map_svg__${regionId}`);
-            const regionColor = regions.find((region) => region.id === regionId)?.color || "#fff";
+                // SVG 업데이트
+                regions.forEach((region) => {
+                    const targetPath = document.querySelector(`#korean_map_svg__${region.id}`);
+                    if (targetPath) {
+                        (targetPath as SVGElement).setAttribute(
+                            "fill",
+                            allSelected ? "#fff" : region.color || "#fff"
+                        );
+                    }
+                });
 
-            if (targetPath) {
-                (targetPath as SVGElement).setAttribute("fill", isSelected ? "#fff" : regionColor);
+                return updatedItems;
+            } else {
+                // 개별 지역 선택/해제
+                const isSelected = prev.includes(regionId);
+                const updatedItems = isSelected
+                    ? prev.filter((id) => id !== regionId) // 선택 해제
+                    : [...prev, regionId]; // 선택 추가
+
+                // "전국" 상태 업데이트
+                const allRegionsSelected = updatedItems.length === regions.length - 1; // "전국" 제외
+                if (allRegionsSelected && !updatedItems.includes("All")) {
+                    updatedItems.push("All");
+                } else if (!allRegionsSelected) {
+                    updatedItems.splice(updatedItems.indexOf("All"), 1);
+                }
+
+                // SVG 업데이트
+                const targetPath = document.querySelector(`#korean_map_svg__${regionId}`);
+                const regionColor = regions.find((region) => region.id === regionId)?.color || "#fff";
+
+                if (targetPath) {
+                    (targetPath as SVGElement).setAttribute(
+                        "fill",
+                        isSelected ? "#fff" : regionColor
+                    );
+                }
+
+                return updatedItems;
             }
-
-            return updatedItems;
         });
     };
+
+
+
 
     // 여행지 리스트
     const tourList = [
@@ -188,46 +222,46 @@ export default function Regions() {
             <div className="title">
                 지도로 찾아보는 <strong>지역별 여행지</strong>
             </div>
-            {/* 지도 */}
             <div className="map-container">
-                <MapSVG
-                    className="svg-map"
-                    onClick={(e: React.MouseEvent<SVGElement>) => {
-                        const target = e.target as SVGElement;
-                        if (target.tagName === "path" && target.id) {
-                            const regionId = target.id.replace("korean_map_svg__", "");
-                            handleRegionToggle(regionId);
-                        }
-                    }}
-                >
+                {/* 지도 */}
+                <div className="map-area">
+                    <MapSVG
+                        className="map-container-svg"
+                        onClick={(e: React.MouseEvent<SVGElement>) => {
+                            const target = e.target as SVGElement;
+                            if (target.tagName === "path" && target.id) {
+                                const regionId = target.id.replace("korean_map_svg__", "");
+                                handleRegionToggle(regionId);
+                            }
+                        }}
+                    />
+                </div>
 
-                </MapSVG>
-            </div>
-
-            {/* 지역 버튼 */}
-            <div className="button-container">
-                <ul>
-                    {regions.map((region) => (
-                        <li key={region.id} className="map-list-item">
-                            <input
-                                type="checkbox"
-                                id={`region-${region.id}`}
-                                value={region.id}
-                                checked={selectedItems.includes(region.id)}
-                                onChange={() => handleRegionToggle(region.id)}
-                            />
-                            <label htmlFor={`region-${region.id}`}>
-                    <span
-                        className={`map-list-txt ${
-                            selectedItems.includes(region.id) ? "selected" : ""
-                        }`}
-                    >
-                        {region.name}
-                    </span>
-                            </label>
-                        </li>
-                    ))}
-                </ul>
+                {/* 버튼 리스트 */}
+                <div className="map-container-button-list">
+                    <ul>
+                        {regions.map((region) => (
+                            <li key={region.id} className="map-container-button-list-item">
+                                <input
+                                    type="checkbox"
+                                    id={`region-${region.id}`}
+                                    value={region.id}
+                                    checked={selectedItems.includes(region.id)}
+                                    onChange={() => handleRegionToggle(region.id)}
+                                />
+                                <label htmlFor={`region-${region.id}`}>
+                                    <span
+                                        className={`map-list-txt ${
+                                            selectedItems.includes(region.id) ? "selected" : ""
+                                        }`}
+                                    >
+                                      {region.name}
+                                    </span>
+                                </label>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
 
 
