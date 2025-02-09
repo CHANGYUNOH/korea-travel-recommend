@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
             },
         ];
     },
+    webpack(config){
+        config.module.rules.push({
+            test : /\.svg$/, // 모든 .svg 파일 처리
+            use : ["@svgr/webpack"], // @svgr/webpack 로더 사용
+        });
+
+        return config;
+    }
 };
 
 export default nextConfig;
