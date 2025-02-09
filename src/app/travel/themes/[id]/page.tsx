@@ -487,7 +487,6 @@ export default function ThemesDetailPage() {
                 {navList.map((item, index) => (
                   <li key={index} className="themes-detail-nav-list">
                     <a
-                      href="javascript:void(0)"
                       className="themes-detail-nav-list-item"
                     >
                       <span>{item.name}</span>
