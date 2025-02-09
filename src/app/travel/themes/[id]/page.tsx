@@ -133,6 +133,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_1.png'
     },
     {
       title: "해파랑길 2코스",
@@ -144,6 +145,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_2.png'
     },
     {
       title: "해파랑길 3코스",
@@ -155,6 +157,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_3.png'
     },
     {
       title: "해파랑길 4코스",
@@ -166,6 +169,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_4.png'
     },
     {
       title: "해파랑길 5코스",
@@ -177,6 +181,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_5.png'
     },
     {
       title: "해파랑길 6코스",
@@ -188,10 +193,11 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_6.png'
     },
   ];
 
-  // 친환경 여행행
+  // 친환경 여행
   const detailList03 = [
     {
       title: "해파랑길 1코스",
@@ -203,6 +209,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_1.png'
     },
     {
       title: "해파랑길 2코스",
@@ -214,6 +221,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_2.png'
     },
     {
       title: "해파랑길 3코스",
@@ -225,6 +233,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_3.png'
     },
     {
       title: "해파랑길 4코스",
@@ -236,6 +245,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_4.png'
     },
     {
       title: "해파랑길 5코스",
@@ -247,6 +257,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_5.png'
     },
     {
       title: "해파랑길 6코스",
@@ -258,6 +269,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_6.png'
     },
   ];
 
@@ -273,6 +285,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_1.png'
     },
     {
       title: "해파랑길 2코스",
@@ -284,6 +297,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_2.png'
     },
     {
       title: "해파랑길 3코스",
@@ -295,6 +309,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_3.png'
     },
     {
       title: "해파랑길 4코스",
@@ -306,6 +321,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_4.png'
     },
     {
       title: "해파랑길 5코스",
@@ -317,6 +333,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_5.png'
     },
     {
       title: "해파랑길 6코스",
@@ -328,6 +345,7 @@ export default function ThemesDetailPage() {
           difficulty: "보통",
         },
       ],
+      image: '/images/list_sample_6.png'
     },
   ];
 
@@ -457,7 +475,7 @@ export default function ThemesDetailPage() {
                     </div>
                   </li>
                 </ul>
-                <button className="btn-close">닫기</button>
+                <a className="btn-close">닫기</a>
               </div>
             )}
           </button>
@@ -469,7 +487,6 @@ export default function ThemesDetailPage() {
                 {navList.map((item, index) => (
                   <li key={index} className="themes-detail-nav-list">
                     <a
-                      href="javascript:void(0)"
                       className="themes-detail-nav-list-item"
                     >
                       <span>{item.name}</span>
@@ -570,18 +587,18 @@ export default function ThemesDetailPage() {
                               <p className="info-tit">{item.title}</p>
                               <span className="info-sub">{item.locale}</span>
                               {item.info.map((depth, index) => (
-                                <ul className="info-wrap" key={index}>
-                                  <li className="info-wrap-list">
-                                    {depth.distance}
-                                  </li>
-                                  <li className="info-wrap-list">
-                                    {depth.time}
-                                  </li>
-                                  <li className="info-wrap-list">
-                                    {depth.difficulty}
-                                  </li>
-                                </ul>
-                              ))}
+                                  <ul className="info-wrap" key={index}>
+                                    <li className="info-wrap-list">
+                                      {depth.distance}
+                                    </li>
+                                    <li className="info-wrap-list">
+                                      {depth.time}
+                                    </li>
+                                    <li className="info-wrap-list">
+                                      {depth.difficulty}
+                                    </li>
+                                  </ul>
+                                ))}
                             </div>
                           </Link>
                         </li>
@@ -591,7 +608,7 @@ export default function ThemesDetailPage() {
 
                   {name === "반려동물 동반 여행" && (
                     <>
-                      {detailList01.map((item, index) => (
+                      {detailList02.map((item:any, index) => (
                         <li className="cont-list" key={index}>
                           <Link
                             href={{
@@ -599,13 +616,14 @@ export default function ThemesDetailPage() {
                               query: {
                                 title: item.title,
                                 locale: item.locale,
-                                info: [
+                                image: item.image,
+                                info: JSON.stringify([
                                   {
                                     distance: item.distance,
                                     time: item.time,
                                     difficulty: item.difficulty,
                                   },
-                                ],
+                                ]),
                               },
                             }}
                             className="cont-list-item"
@@ -643,7 +661,7 @@ export default function ThemesDetailPage() {
 
                   {name === "친환경 관광" && (
                     <>
-                      {detailList01.map((item, index) => (
+                      {detailList03.map((item:any, index) => (
                         <li className="cont-list" key={index}>
                           <Link
                             href={{
@@ -651,13 +669,14 @@ export default function ThemesDetailPage() {
                               query: {
                                 title: item.title,
                                 locale: item.locale,
-                                info: [
+                                image: item.image,
+                                info: JSON.stringify([
                                   {
                                     distance: item.distance,
                                     time: item.time,
                                     difficulty: item.difficulty,
                                   },
-                                ],
+                                ]),
                               },
                             }}
                             className="cont-list-item"
@@ -695,21 +714,22 @@ export default function ThemesDetailPage() {
 
                   {name === "캠핑장" && (
                     <>
-                      {detailList01.map((item, index) => (
+                      {detailList04.map((item:any, index) => (
                         <li className="cont-list" key={index}>
                           <Link
                             href={{
-                              pathname: `/travel/themes/${item.title}/nature`,
+                              pathname: `/travel/themes/${item.title}/camping`,
                               query: {
                                 title: item.title,
                                 locale: item.locale,
-                                info: [
+                                image: item.image,
+                                info: JSON.stringify([
                                   {
                                     distance: item.distance,
                                     time: item.time,
                                     difficulty: item.difficulty,
                                   },
-                                ],
+                                ]),
                               },
                             }}
                             className="cont-list-item"

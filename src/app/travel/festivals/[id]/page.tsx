@@ -8,11 +8,13 @@ import { useState } from "react";
 import {Navigation, Pagination} from "swiper/modules";
 import { useSearchParams } from 'next/navigation';
 
-export default function ThemeDetailPage() {
+export default function RegionDetailPage() {
 
     const searchParams = useSearchParams(); // 리스트 페이지에서 데이터 전달 받음
+
     const title = searchParams.get('title'); // 타이틀
     const locale = searchParams.get('locale'); // 장소
+    const desc = searchParams.get('desc'); // 상세정보
     const image = searchParams.get('image'); // 장소
 
     // 추천 리스트
@@ -49,6 +51,7 @@ export default function ThemeDetailPage() {
 
     const handleBtnShare = () => {
         alert('링크가 복사되었습니다..');
+
     }
 
     return (
@@ -129,18 +132,7 @@ export default function ThemeDetailPage() {
                         </div>
                         <div className='cont-area'>
                             <div className={`text ${showMore ? 'is-active' : ''}`}>
-                                1976년 처음 개장한 속초해수욕장은 국내 대표적인 해수욕장 가운데 하나다. 속초 시내와 가깝고 고속버스터미널이 도보 거리에 있어 교통이 편리한 것이
-                                장점이다. 속초해수욕장은 바닷물이 맑고 깨끗한 데다 수심이 얕고 경사가 완만해 매년 여름철이면 전국에서 모여든 피서객들로 북적 해진다. 특히 성수기인
-                                7~8월에는 너른 해변이 발 디딜 틈도 없이 사람들로 가득 찬다. 해수욕장 주변은 음식점과 편의 시설이 잘 갖춰져 있다. 해변 뒤편에는 소나무 숲이
-                                우거져
-                                있으며 작은 공원과 산책로도 조성되어 있다. 휴가철이 지난 후에도 해수욕장에는 관광객들의 발길이 끊이지 않는다. 모래사장 곳곳에 설치된 조형물들이
-                                계절에
-                                관계없이 다채로운 볼거리를 선사하기 때문이다. 속초를 형상화한 ‘ㅅㅊ’ 이니셜과 세계 각국의 방향을 표시한 커다란 나침반, 생동감 있는 돌고래 조각
-                                등이
-                                눈길을 사로잡는다. 푸른 바다를 배경으로 한 대형 액자 프레임과 하늘을 향해 뻗은 천국의 계단은 이곳에서 가장 인기 있는 포토존이다. 매년 이곳에서는
-                                관광객들에게 더욱 즐거운 추억을 선물하기 위해 버스킹, 여름 해변축제, 속초 수제맥주 축제를 즐길 수 있다. 여행시기에 맞추어 방문한다면 밴드 공연,
-                                음악회
-                                등의 공연행사를 즐길 수 있다.
+                                {desc}
                             </div>
                             <div className='btn-area'>
                                 <button className='btn-more' onClick={handleBtnMore}>
@@ -160,42 +152,22 @@ export default function ThemeDetailPage() {
                                 </button>
                             </div>
                         </div>
-                        <div className='desc-area'>
-                            <dl>
-                                <dt>*문의: </dt>
-                                <dd>033-581-3003</dd>
-                            </dl>
-                            <dl>
-                                <dt>*개장일: </dt>
-                                <dd>09:00 ~ 18:00 (17:00 매표마감)</dd>
-                            </dl>
-                            <dl>
-                                <dt>*휴무일: </dt>
-                                <dd>연중무휴</dd>
-                            </dl>
-                            <dl>
-                                <dt>*관련 홈페이지: </dt>
-                                <dd>\u003Ca href=“https://tour.taebaek.go.kr/tpmuseum“ target=“_blank” title=“새창 : 태백고생대자연사 박물관으로 이동”\u003Ehttps://tour.taebaek.go.kr\u003C/a\u003E</dd>
-                            </dl>
-                        </div>
-                        <div className='list-area'>
-                            <p className='list-area-title'>◎ 이용안내</p>
-                            <ul>
-                                <li>- 이용요금: 개인 – 어른 : 2,000원 / 청소년 : 1,500원 / 어린이 : 1,000원 
-                                단체 – 어른 : 1,500원 / 청소년 : 1,000원 / 어린이 : 700원</li>
-                                <li>- 화장실 : 있음(남녀구분)</li>
-                                <li>- 장애인 편의시설 : 장애인주차장 있음, 장애인화장실 있음(남녀구분)</li>
-                                <li>- 주차시설 : 가능</li>
-                            </ul>
-                        </div>
                         <ul className='info-area'>
-                            <li className='info-area-list'>
+                        <li className='info-area-list'>
                                 <span className='tit'>주소</span>
-                                <span className='cont'>강원특별자치도 태백시 태백로 2249</span>
+                                <span className='cont'>서울특별시 송파구 양재대로 932 (가락동) 가락몰</span>
                             </li>
                             <li className='info-area-list'>
                                 <span className='tit'>문의 및 안내</span>
-                                <span className='cont'>054-734-6220</span>
+                                <span className='cont'>서울시농수산식품공사 02-3435-0455</span>
+                            </li>
+                            <li className='info-area-list'>
+                                <span className='tit'>금액</span>
+                                <span className='cont'>무료료</span>
+                            </li>
+                            <li className='info-area-list'>
+                                <span className='tit'>공식홈페이지</span>
+                                <span className='cont'>https://www.garak.co.kr/bbs/selectBbs.do?bbs_code=B0004&bbs_seq=1567129401966\</span>
                             </li>
                         </ul>
                         <div className='recommend-area'>

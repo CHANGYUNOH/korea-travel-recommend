@@ -1,7 +1,13 @@
+"use client";
+
 import Link from 'next/link';
 import '@/styles/components/header.scss';
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+    const pathname = usePathname(); // 현재 경로 가져오기
+    const lastSegment = pathname.split("/").pop();
+
     const menuList = [
         {
             name: '지역별 여행지',
@@ -38,7 +44,7 @@ export default function Header() {
                         <Link
                             key={index}
                             href={`/travel/${item.route}`}
-                            className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium"
+                            className={`text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium ${lastSegment === item.route ? 'is-active' : ''}`}
                         >
                             {item.name}
                         </Link>
