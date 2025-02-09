@@ -234,12 +234,6 @@
             height: 30px;
             border-radius: 50%;
             background: #fff;
-
-            &.is-active {
-              svg {
-                fill: red;
-              }
-            }
           }
         }
       }
@@ -261,15 +255,10 @@
           border: 1px solid #333;
           border-radius: 50px;
           cursor: pointer;
-
-          svg {
-            width: 20px;
-            height: 20px;
-            margin-top: -1px;
-          }
         }
       }
     }
+
 
     // 타이틀
     .title {
@@ -454,6 +443,7 @@
         }
       }
 
+
       .page-btn {
         width: 940px;
         height: 26px;
@@ -543,6 +533,12 @@
             margin-top: -1px;
           }
         }
+      }
+    }
+
+    .swiper-button-prev {
+      img.flip-vertical {
+        transform: scaleX(-1) !important;
       }
     }
   }

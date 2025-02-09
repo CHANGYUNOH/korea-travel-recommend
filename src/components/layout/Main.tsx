@@ -152,7 +152,7 @@ export default function Main() {
                                     <p className='sub'>{item.sub}</p>
                                     <button className='btn-more'>
                                         <span className='txt'>자세히 보기</span>
-                                        <img src='/svg/chevronRight.svg' className="size-6" alt="자세히 보기"/>
+                                        <img src='/svg/chevron_right.svg' className="size-6" alt="자세히 보기"/>
                                     </button>
                                 </div>
                                 {item.id === 'animal' ? (<div className='svg'>
