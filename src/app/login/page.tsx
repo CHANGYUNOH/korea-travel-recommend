@@ -18,7 +18,7 @@ export default function LoginPage() {
             router.push("/");
         } else {
             // 로그인 실패 시 오류 메시지 설정
-            setError("잘못된 이메일 또는 비밀번호입니다.");
+            setError("잘못된!!! 이메일 또는 비밀번호입니다.");
         }
     };
 
