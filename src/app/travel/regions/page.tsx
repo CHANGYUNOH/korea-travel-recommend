@@ -37,54 +37,46 @@ export default function Regions() {
 
     const handleRegionToggle = (regionId: string) => {
         setSelectedItems((prev) => {
+            let updatedItems: string[] = [];
             if (regionId === "All") {
                 // "전국" 클릭 시 모든 지역 선택/해제
-                const allSelected = prev.length === regions.length; // 이미 모든 지역이 선택된 상태인지 확인
-                const updatedItems = allSelected ? [] : regions.map((region) => region.id);
-
-                // SVG 업데이트
-                regions.forEach((region) => {
-                    const targetPath = document.querySelector(`#korean_map_svg__${region.id}`);
-                    if (targetPath) {
-                        (targetPath as SVGElement).setAttribute(
-                            "fill",
-                            allSelected ? "#fff" : region.color || "#fff"
-                        );
-                    }
-                });
-
-                return updatedItems;
+                const allSelected = prev.includes("All"); // 현재 전국이 선택된 상태인지 확인
+                updatedItems = allSelected ? [] : regions.map((region) => region.id);
             } else {
                 // 개별 지역 선택/해제
                 const isSelected = prev.includes(regionId);
-                const updatedItems = isSelected
+                updatedItems = isSelected
                     ? prev.filter((id) => id !== regionId) // 선택 해제
                     : [...prev, regionId]; // 선택 추가
 
-                // "전국" 상태 업데이트
-                const allRegionsSelected = updatedItems.length === regions.length - 1; // "전국" 제외
+                // "전국"을 제외한 모든 지역 목록
+                const regionIdsWithoutAll = regions
+                    .map((region) => region.id)
+                    .filter((id) => id !== "All");
+
+                // "전국" 상태 자동 업데이트
+                const allRegionsSelected = regionIdsWithoutAll.every(id => updatedItems.includes(id));
                 if (allRegionsSelected && !updatedItems.includes("All")) {
-                    updatedItems.push("All");
+                    updatedItems.push("All"); // 모든 지역이 선택되었으면 "전국" 추가
                 } else if (!allRegionsSelected) {
-                    updatedItems.splice(updatedItems.indexOf("All"), 1);
+                    updatedItems = updatedItems.filter((id) => id !== "All"); // 하나라도 선택 해제되면 "전국" 제거
                 }
+            }
 
-                // SVG 업데이트
-                const targetPath = document.querySelector(`#korean_map_svg__${regionId}`);
-                const regionColor = regions.find((region) => region.id === regionId)?.color || "#fff";
-
+            // SVG 업데이트
+            regions.forEach((region) => {
+                const targetPath = document.querySelector(`#korean_map_svg__${region.id}`);
                 if (targetPath) {
                     (targetPath as SVGElement).setAttribute(
                         "fill",
-                        isSelected ? "#fff" : regionColor
+                        updatedItems.includes(region.id) ? region.color || "#fff" : "#fff"
                     );
                 }
+            });
 
-                return updatedItems;
-            }
+            return updatedItems;
         });
     };
-
 
 
 
