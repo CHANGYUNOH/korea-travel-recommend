@@ -4,6 +4,7 @@ import "@/styles/pages/theme.scss";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import React, { useState } from "react";
+import { INSTRUMENTATION_HOOK_FILENAME } from "next/dist/lib/constants";
 
 export default function ThemesDetailPage() {
   const searchParams = useSearchParams(); // 리스트 페이지에서 데이터 전달 받음
@@ -56,68 +57,44 @@ export default function ThemesDetailPage() {
     {
       title: "해파랑길 1코스",
       locale: "부산 남구",
-      info: [
-        {
-          distance: "16.9km",
-          time: "6시간 30분",
-          difficulty: "보통",
-        },
-      ],
+      distance: "16.9km",
+      time: "6시간 30분",
+      difficulty: "보통",
     },
     {
       title: "해파랑길 2코스",
       locale: "울산 남구",
-      info: [
-        {
-          distance: "15.9km",
-          time: "5시간 30분",
-          difficulty: "보통",
-        },
-      ],
+      distance: "15.9km",
+      time: "5시간 30분",
+      difficulty: "보통",
     },
     {
       title: "해파랑길 3코스",
       locale: "마산산 남구",
-      info: [
-        {
-          distance: "14.9km",
-          time: "4시간 30분",
-          difficulty: "보통",
-        },
-      ],
+      distance: "14.9km",
+      time: "4시간 30분",
+      difficulty: "보통",
     },
     {
       title: "해파랑길 4코스",
       locale: "서울 남구",
-      info: [
-        {
-          distance: "13.9km",
-          time: "3시간 30분",
-          difficulty: "보통",
-        },
-      ],
+      distance: "13.9km",
+      time: "3시간 30분",
+      difficulty: "보통",
     },
     {
       title: "해파랑길 5코스",
       locale: "대구 남구",
-      info: [
-        {
-          distance: "12.9km",
-          time: "2시간 30분",
-          difficulty: "보통",
-        },
-      ],
+      distance: "12.9km",
+      time: "2시간 30분",
+      difficulty: "보통",
     },
     {
       title: "해파랑길 6코스",
       locale: "파주 남구",
-      info: [
-        {
-          distance: "11.9km",
-          time: "1시간 30분",
-          difficulty: "보통",
-        },
-      ],
+      distance: "11.9km",
+      time: "1시간 30분",
+      difficulty: "보통",
     },
   ];
 
@@ -563,14 +540,9 @@ export default function ThemesDetailPage() {
                               pathname: `/travel/themes/${item.title}/walk`,
                               query: {
                                 title: item.title,
-                                locale: item.locale,
-                                info: JSON.stringify([
-                                    {
-                                      distance: item.distance,
-                                      time: item.time,
-                                      difficulty: item.difficulty,
-                                    },
-                                  ]),
+                                distance: item.distance,
+                                time: item.time,
+                                difficulty: item.difficulty,
                               },
                             }}
                             className="cont-list-item"
@@ -586,19 +558,17 @@ export default function ThemesDetailPage() {
                             <div className="info">
                               <p className="info-tit">{item.title}</p>
                               <span className="info-sub">{item.locale}</span>
-                              {item.info.map((depth, index) => (
-                                  <ul className="info-wrap" key={index}>
+                              <ul className="info-wrap">
                                     <li className="info-wrap-list">
-                                      {depth.distance}
+                                      {item.distance}
                                     </li>
                                     <li className="info-wrap-list">
-                                      {depth.time}
+                                      {item.time}
                                     </li>
                                     <li className="info-wrap-list">
-                                      {depth.difficulty}
+                                      {item.difficulty}
                                     </li>
                                   </ul>
-                                ))}
                             </div>
                           </Link>
                         </li>
