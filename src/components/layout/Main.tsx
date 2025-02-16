@@ -26,6 +26,22 @@ export default function Main() {
         };
         fetchData();
     }, []);
+
+    const banner_images = [
+        { id: "Seoul,Gyeonggi" , img : '/images/main_seoul.png' },
+        { id : "Gangwon" , img: '/images/main_gangwon.png' },
+        { id : "Busan,Ulsan,South_Gyeongsang", img: '/images/main_busan.png' },
+        { id : "Daegu,North_Gyeongsang", img: '/images/main_daegu.png' },
+        { id : "Jeju", img: '/images/main_jeju.png' },
+        { id : "North_Chungcheong,Sejong", img : '/images/main_north_Chungcheong.png' },
+        { id : "North_Jeolla",img: '/images/main_north_Jeolla.png' },
+        { id : "South_Chungcheong",img: '/images/main_south_chungcheong.png' },
+        { id : "South_Jeolla",img: '/images/main_south_Jeolla.png' },
+
+    ]
+
+
+
     const tourList = [
         {
             title: '고성 통일전망타워',
@@ -65,6 +81,8 @@ export default function Main() {
         },
     ];
 
+
+
     const themeList = [
         {
             title: '반려동물 동반여행',
@@ -90,13 +108,33 @@ export default function Main() {
 
     return (
         <div className='container'>
+            <div className="slider-container">
+                <Swiper
+                    modules={[Navigation, Pagination, Autoplay]}
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation
+                    pagination={{clickable: true}}
+                    autoplay={{delay: 3000}}
+                    loop={true}
+                >
+                    {banner_images.map((src, index) => (
+                        <SwiperSlide key={index}>
+                            <img src={src.img} alt={'Banner'} />
+                        </SwiperSlide>
+                    ))}
+
+                </Swiper>
+            </div>
+
+
             <div className="list">
                 <div className="list-card">
                     <Swiper
                         spaceBetween={20} // 각 슬라이드 간 간격
                         slidesPerView={3} // 한 번에 표시할 슬라이드 수
                         modules={[Pagination, Autoplay, Navigation]} // Pagination 모듈 추가
-                        pagination={{ clickable: true }} // 페이지네이션 활성화
+                        pagination={{clickable: true}} // 페이지네이션 활성화
                         navigation // 네비게이션 버튼 활성화
                         autoplay={{
                             delay: 3000,
