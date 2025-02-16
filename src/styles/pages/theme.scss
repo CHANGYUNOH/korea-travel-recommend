@@ -153,7 +153,7 @@
           }
         }
 
-        &:hover {
+        &:hover, &.is-active {
           border: 1px solid #fff;
 
           &.animal {

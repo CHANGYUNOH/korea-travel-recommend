@@ -4,7 +4,6 @@ import "@/styles/pages/theme.scss";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import React, { useState } from "react";
-import { INSTRUMENTATION_HOOK_FILENAME } from "next/dist/lib/constants";
 
 export default function ThemesDetailPage() {
   const searchParams = useSearchParams(); // 리스트 페이지에서 데이터 전달 받음
@@ -332,13 +331,34 @@ export default function ThemesDetailPage() {
     setSetTooltip(!setTooltip);
   };
 
+  const setTabChange = (data, e) => {
+    e.preventDefault(); // 기본 링크 이동 방지
+    
+    document.querySelectorAll('.themes-wrap-list').forEach((item) => {
+      item.classList.remove('is-active')
+    });
+
+    if(data === 'leisure') {
+      e.target.closest('.themes-wrap-list').classList.add('is-active')
+
+    } else if(data === 'animal') {
+      e.target.closest('.themes-wrap-list').classList.add('is-active')
+
+    } else if(data === 'nature') {
+      e.target.closest('.themes-wrap-list').classList.add('is-active')
+
+    } else if(data === 'camping') {
+      e.target.closest('.themes-wrap-list').classList.add('is-active')
+    }
+  }
+
   return (
     <>
       <div className="themes">
         <h1 className="themes-title">{name}</h1>
         <ul className="themes-wrap">
           {region.map((item, index) => (
-            <li className={`themes-wrap-list ${item.id}`} key={index}>
+            <li className={`themes-wrap-list ${item.id}`} key={index} onClick={(e) => setTabChange(item.id, e)}>
               <Link
                 href={{
                   pathname: `/travel/themes/${item.id}`,
