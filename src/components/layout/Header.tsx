@@ -44,7 +44,7 @@ export default function Header() {
                         <Link
                             key={index}
                             href={`/travel/${item.route}`}
-                            className={`text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium ${lastSegment === item.route ? 'is-active' : ''}`}
+                            className={`text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium ${pathname.includes(item.route) ? 'is-active' : ''}`}
                         >
                             {item.name}
                         </Link>

@@ -1,7 +1,7 @@
 "use client";
 
 import "@/styles/pages/theme.scss";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -331,6 +331,10 @@ export default function ThemesDetailPage() {
     setSetTooltip(!setTooltip);
   };
 
+  const pathname = usePathname(); // 현재 경로 가져오기
+
+  const lastSegment = pathname.split("/").pop();
+
   const setTabChange = (data, e) => {
     e.preventDefault(); // 기본 링크 이동 방지
     
@@ -358,7 +362,7 @@ export default function ThemesDetailPage() {
         <h1 className="themes-title">{name}</h1>
         <ul className="themes-wrap">
           {region.map((item, index) => (
-            <li className={`themes-wrap-list ${item.id}`} key={index} onClick={(e) => setTabChange(item.id, e)}>
+            <li className={`themes-wrap-list ${item.id} ${lastSegment === item.id ? 'is-active' : ''}`} key={index} onClick={(e) => setTabChange(item.id, e)}>
               <Link
                 href={{
                   pathname: `/travel/themes/${item.id}`,

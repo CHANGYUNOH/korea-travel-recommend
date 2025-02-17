@@ -153,8 +153,13 @@
           }
         }
 
-        &:hover, &.is-active {
+        &.is-active {
           border: 1px solid #fff;
+
+          .themes-wrap-list-item {
+            color: #fff;
+            
+          }
 
           &.animal {
             background: #5295F1;
@@ -170,10 +175,6 @@
 
           &.leisure {
             background: #5068CE;
-          }
-
-          .themes-wrap-list-item {
-            color: #fff;
           }
         }
 
