@@ -5,8 +5,7 @@ import '@/styles/components/header.scss';
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-    const pathname = usePathname(); // 현재 경로 가져오기
-    const lastSegment = pathname.split("/").pop();
+    const pathname = usePathname(); // 현재 경로 가져오기 
 
     const menuList = [
         {

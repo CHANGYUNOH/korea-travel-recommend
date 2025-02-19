@@ -51,8 +51,8 @@ export default function ThemesDetailPage() {
 
   const difficulty = ["전체", "2시간 미만", "2~4시간", "4시간 초과"];
 
-  // 걷기여행
-  const detailList01 = [
+  // 걷기여행(해파랑길)
+  const detailList01_01 = [
     {
       title: "해파랑길 1코스",
       locale: "부산 남구",
@@ -96,6 +96,142 @@ export default function ThemesDetailPage() {
       difficulty: "보통",
     },
   ];
+
+  const detailList01_02 = [
+    {
+      title: "남파랑길 1코스",
+      locale: "부산 남구",
+      distance: "16.9km",
+      time: "6시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "남파랑길 2코스",
+      locale: "울산 남구",
+      distance: "15.9km",
+      time: "5시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "남파랑길 3코스",
+      locale: "마산산 남구",
+      distance: "14.9km",
+      time: "4시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "남파랑길 4코스",
+      locale: "서울 남구",
+      distance: "13.9km",
+      time: "3시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "남파랑길 5코스",
+      locale: "대구 남구",
+      distance: "12.9km",
+      time: "2시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "남파랑길 6코스",
+      locale: "파주 남구",
+      distance: "11.9km",
+      time: "1시간 30분",
+      difficulty: "보통",
+    },
+  ]
+
+  const detailList01_03 = [
+    {
+      title: "서해랑길 1코스",
+      locale: "부산 남구",
+      distance: "16.9km",
+      time: "6시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "서해랑길 2코스",
+      locale: "울산 남구",
+      distance: "15.9km",
+      time: "5시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "서해랑길 3코스",
+      locale: "마산산 남구",
+      distance: "14.9km",
+      time: "4시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "서해랑길 4코스",
+      locale: "서울 남구",
+      distance: "13.9km",
+      time: "3시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "서해랑길 5코스",
+      locale: "대구 남구",
+      distance: "12.9km",
+      time: "2시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "서해랑길 6코스",
+      locale: "파주 남구",
+      distance: "11.9km",
+      time: "1시간 30분",
+      difficulty: "보통",
+    },
+  ]
+
+  const detailList01_04 = [
+    {
+      title: "DMZ 평화의 길 1코스",
+      locale: "부산 남구",
+      distance: "16.9km",
+      time: "6시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "DMZ 평화의 길 2코스",
+      locale: "울산 남구",
+      distance: "15.9km",
+      time: "5시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "DMZ 평화의 길 3코스",
+      locale: "마산산 남구",
+      distance: "14.9km",
+      time: "4시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "DMZ 평화의 길 4코스",
+      locale: "서울 남구",
+      distance: "13.9km",
+      time: "3시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "DMZ 평화의 길 5코스",
+      locale: "대구 남구",
+      distance: "12.9km",
+      time: "2시간 30분",
+      difficulty: "보통",
+    },
+    {
+      title: "DMZ 평화의 길 6코스",
+      locale: "파주 남구",
+      distance: "11.9km",
+      time: "1시간 30분",
+      difficulty: "보통",
+    },
+  ]
+
 
   // 반려동물 동반여행
   const detailList02 = [
@@ -356,6 +492,21 @@ export default function ThemesDetailPage() {
     }
   }
 
+  const [currentTab, setCurrentTab] = useState("해파랑길");
+
+  const tabChange = (e) => {
+    document.querySelectorAll(".themes-detail-nav-list-item").forEach((item) => {
+      item.classList.remove("is-active");
+    });
+
+    const selectedTab = e.target.closest(".themes-detail-nav-list-item");
+
+    if (selectedTab) {
+      selectedTab.classList.add("is-active");
+      setCurrentTab(selectedTab.innerText); // 상태 업데이트
+    }
+  };
+
   return (
     <>
       <div className="themes">
@@ -487,8 +638,8 @@ export default function ThemesDetailPage() {
               <ul className="themes-detail-nav-wrap">
                 {navList.map((item, index) => (
                   <li key={index} className="themes-detail-nav-list">
-                    <a
-                      className="themes-detail-nav-list-item"
+                    <a onClick={(e) => tabChange(e)}
+                      className={`themes-detail-nav-list-item ${item.name === currentTab ? 'is-active' : ''}`}
                     >
                       <span>{item.name}</span>
                     </a>
@@ -551,52 +702,192 @@ export default function ThemesDetailPage() {
             </div>
             <div className="content-area">
               <p className="title">
-                총 <strong>{detailList01.length}</strong>건
+                총 <strong>{detailList01_01.length}
+                  </strong>건
               </p>
               <div className="cont">
                 <ul className="cont-wrap">
                   {name === "걷기여행" && (
                     <>
-                      {detailList01.map((item:any , index) => (
-                        <li className="cont-list" key={index}>
-                          <Link
-                            href={{
-                              pathname: `/travel/themes/${item.title}/walk`,
-                              query: {
-                                title: item.title,
-                                distance: item.distance,
-                                time: item.time,
-                                difficulty: item.difficulty,
-                              },
-                            }}
-                            className="cont-list-item"
-                          >
-                            <div
-                              className="img"
-                              style={{
-                                backgroundImage: `url(/images/list_sample_${
-                                  index + 1
-                                }.png)`,
-                              }}
-                            ></div>
-                            <div className="info">
-                              <p className="info-tit">{item.title}</p>
-                              <span className="info-sub">{item.locale}</span>
-                              <ul className="info-wrap">
-                                    <li className="info-wrap-list">
-                                      {item.distance}
-                                    </li>
-                                    <li className="info-wrap-list">
-                                      {item.time}
-                                    </li>
-                                    <li className="info-wrap-list">
-                                      {item.difficulty}
-                                    </li>
-                                  </ul>
-                            </div>
-                          </Link>
-                        </li>
-                      ))}
+                      {currentTab === '해파랑길' && (
+                        <>
+                          {detailList01_01.map((item, index) => (
+                            <li className="cont-list" key={index}>
+                              <Link
+                                href={{
+                                  pathname: `/travel/themes/${item.title}/walk`,
+                                  query: {
+                                    title: item.title,
+                                    distance: item.distance,
+                                    time: item.time,
+                                    difficulty: item.difficulty,
+                                  },
+                                }}
+                                className="cont-list-item"
+                              >
+                                <div
+                                  className="img"
+                                  style={{
+                                    backgroundImage: `url(/images/list_sample_${
+                                      index + 1
+                                    }.png)`,
+                                  }}
+                                ></div>
+                                <div className="info">
+                                  <p className="info-tit">{item.title}</p>
+                                  <span className="info-sub">{item.locale}</span>
+                                  <ul className="info-wrap">
+                                        <li className="info-wrap-list">
+                                          {item.distance}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.time}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.difficulty}
+                                        </li>
+                                      </ul>
+                                </div>
+                              </Link>
+                            </li>
+                          ))}
+                        </>
+                      )}
+
+                      {currentTab === '남파랑길' && (
+                        <>
+                          {detailList01_02.map((item, index) => (
+                            <li className="cont-list" key={index}>
+                              <Link
+                                href={{
+                                  pathname: `/travel/themes/${item.title}/walk`,
+                                  query: {
+                                    title: item.title,
+                                    distance: item.distance,
+                                    time: item.time,
+                                    difficulty: item.difficulty,
+                                  },
+                                }}
+                                className="cont-list-item"
+                              >
+                                <div
+                                  className="img"
+                                  style={{
+                                    backgroundImage: `url(/images/list_sample_${
+                                      index + 1
+                                    }.png)`,
+                                  }}
+                                ></div>
+                                <div className="info">
+                                  <p className="info-tit">{item.title}</p>
+                                  <span className="info-sub">{item.locale}</span>
+                                  <ul className="info-wrap">
+                                        <li className="info-wrap-list">
+                                          {item.distance}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.time}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.difficulty}
+                                        </li>
+                                      </ul>
+                                </div>
+                              </Link>
+                            </li>
+                          ))}
+                        </>
+                      )}
+
+                      {currentTab === '서해랑길' && (
+                        <>
+                          {detailList01_03.map((item, index) => (
+                            <li className="cont-list" key={index}>
+                              <Link
+                                href={{
+                                  pathname: `/travel/themes/${item.title}/walk`,
+                                  query: {
+                                    title: item.title,
+                                    distance: item.distance,
+                                    time: item.time,
+                                    difficulty: item.difficulty,
+                                  },
+                                }}
+                                className="cont-list-item"
+                              >
+                                <div
+                                  className="img"
+                                  style={{
+                                    backgroundImage: `url(/images/list_sample_${
+                                      index + 1
+                                    }.png)`,
+                                  }}
+                                ></div>
+                                <div className="info">
+                                  <p className="info-tit">{item.title}</p>
+                                  <span className="info-sub">{item.locale}</span>
+                                  <ul className="info-wrap">
+                                        <li className="info-wrap-list">
+                                          {item.distance}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.time}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.difficulty}
+                                        </li>
+                                      </ul>
+                                </div>
+                              </Link>
+                            </li>
+                          ))}
+                        </>
+                      )}
+
+                      {currentTab === 'DMZ 평화의 길' && (
+                        <>
+                          {detailList01_04.map((item, index) => (
+                            <li className="cont-list" key={index}>
+                              <Link
+                                href={{
+                                  pathname: `/travel/themes/${item.title}/walk`,
+                                  query: {
+                                    title: item.title,
+                                    distance: item.distance,
+                                    time: item.time,
+                                    difficulty: item.difficulty,
+                                  },
+                                }}
+                                className="cont-list-item"
+                              >
+                                <div
+                                  className="img"
+                                  style={{
+                                    backgroundImage: `url(/images/list_sample_${
+                                      index + 1
+                                    }.png)`,
+                                  }}
+                                ></div>
+                                <div className="info">
+                                  <p className="info-tit">{item.title}</p>
+                                  <span className="info-sub">{item.locale}</span>
+                                  <ul className="info-wrap">
+                                        <li className="info-wrap-list">
+                                          {item.distance}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.time}
+                                        </li>
+                                        <li className="info-wrap-list">
+                                          {item.difficulty}
+                                        </li>
+                                      </ul>
+                                </div>
+                              </Link>
+                            </li>
+                          ))}
+                        </>
+                      )}
                     </>
                   )}
 
@@ -760,6 +1051,20 @@ export default function ThemesDetailPage() {
                   )}
                 </ul>
               </div>
+
+              <div className="pagination">
+              <div className="pagination-wrap">
+                <div className="pagination-list">
+                  <div className="pagination-list-item">left</div>
+                  <div className="pagination-list-item">1</div>
+                  <div className="pagination-list-item">2</div>
+                  <div className="pagination-list-item">3</div>
+                  <div className="pagination-list-item">4</div>
+                  <div className="pagination-list-item">5</div>
+                  <div className="pagination-list-item">right</div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>

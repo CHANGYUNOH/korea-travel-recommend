@@ -153,6 +153,10 @@
           }
         }
 
+        &:hover {
+          background: #eaeaea;
+        }
+
         &.is-active {
           border: 1px solid #fff;
 
@@ -245,6 +249,7 @@
             height: 100%;
             width: 100%;
             cursor: pointer;
+            transition: all ease .2s;
 
             &:hover {
               color: #1556AA;
@@ -257,6 +262,7 @@
               color: #1556AA;
               text-decoration: underline;
               text-underline-offset: 4px;
+              background: #ccc;
             }
           }
         }
@@ -325,6 +331,11 @@
               border-radius: 30px;
               overflow: hidden;
               box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+              transition: all ease .2s;
+
+              &:hover {
+                box-shadow: 0 8px 24px rgba(149, 157, 165, 0.5);
+              }
 
               &-item {
                 display: block;
