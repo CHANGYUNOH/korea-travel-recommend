@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import React, {useEffect, useState, useRef} from "react";
 import Link from 'next/link';
-import MapSVG from '@/assets/svg/korean_map.svg';
+import MapSVG from '@/assets/svg/korean_map_02.svg';
 
 export default function Regions() {
 
@@ -217,17 +217,29 @@ export default function Regions() {
             <div className="map-container">
                 {/* 지도 */}
                 <div className="map-area">
-                    <MapSVG
-                        className="map-container-svg"
-                        onClick={(e: React.MouseEvent<SVGElement>) => {
-                            const target = e.target as SVGElement;
-                            if (target.tagName === "path" && target.id) {
-                                const regionId = target.id.replace("korean_map_svg__", "");
-                                handleRegionToggle(regionId);
-                            }
-                        }}
-                    />
-                </div>
+                <MapSVG
+    className="map-container-svg"
+    onClick={(e: React.MouseEvent<SVGElement>) => {
+        const target = e.target as SVGElement;
+        if (target.tagName === "path" && target.id) {
+            // 클릭된 path 요소의 id 가져오기
+            const regionId = target.id.replace("korean_map_svg__", "");
+
+            // 선택된 지역인지 확인
+            const isSelected = selectedItems.includes(regionId);
+
+            // 색상 변경 (기본 색상은 #fff, 선택되면 해당 지역의 색상 또는 파란색)
+            const newColor = isSelected ? "#fff" : (regions.find(region => region.id === regionId)?.color || "#007bff");
+            target.setAttribute("fill", newColor);
+
+            // 선택 상태 업데이트
+            handleRegionToggle(regionId);
+        }
+    }}
+/>
+
+                    </div>
+
 
                 {/* 버튼 리스트 */}
                 <div className="map-container-button-list">

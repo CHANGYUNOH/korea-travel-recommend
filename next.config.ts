@@ -9,10 +9,17 @@ const nextConfig: NextConfig = {
             },
         ];
     },
-    webpack(config){
+    webpack(config) {
         config.module.rules.push({
-            test : /\.svg$/, // 모든 .svg 파일 처리
-            use : ["@svgr/webpack"], // @svgr/webpack 로더 사용
+            test: /\.svg$/,
+            use: [
+                {
+                    loader: "@svgr/webpack",
+                    options: {
+                        svgo: false, // 🔴 SVGO 최적화 비활성화 (중요)
+                    },
+                },
+            ],
         });
 
         return config;

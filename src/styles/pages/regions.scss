@@ -19,10 +19,16 @@
         padding: 20px;
         flex: 2;
 
-        &-svg path:hover{
-          fill: #000000;
-          fill-opacity: 0.1;
+        &-svg {
+          path {
+            cursor: pointer;
+
+            &:hover {
+              stroke-width: 1px;
+            }
+          }
         }
+
         &-button{
           &-list {
             flex: 1;
