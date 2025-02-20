@@ -530,22 +530,13 @@
     padding: 50px 0;
 
     .list-card {
-      .swiper {
-        width: 100%;
-        margin: 0 auto;
-      }
-
       .swiper-slide {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center; /* 슬라이드 중앙 정렬 */
-        align-items: center;
-
         .list-card-item {
           width: 100%; /* 슬라이드에 맞게 너비 설정 */
           background: #fff;
           border-radius: 5px;
-          box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+          border: 1px solid;
+          // box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
           display: flex;
           flex-direction: column;
           text-align: center;
@@ -597,8 +588,10 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        color: #333; /* 네비게이션 버튼 색상 */
+        color: #000; /* 네비게이션 버튼 색상 */
+        z-index: 10;
       }
+
       .swiper-pagination {
         padding-top: 10px;
         position: absolute;
@@ -724,7 +717,14 @@
   }
 
   .slider-container {
-    margin-top: -125px;
+    margin-top: -76px;
+
+    .bg {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 100vh;
+    }
 
     img {
       margin: 0 auto;

@@ -120,7 +120,8 @@ export default function Main() {
                 >
                     {banner_images.map((src, index) => (
                         <SwiperSlide key={index}>
-                            <img src={src.img} alt={'Banner'} />
+                            <div className="bg" style={{backgroundImage: `url(${src.img})`}}></div>
+                            {/* <img src={src.img} alt={'Banner'} /> */}
                         </SwiperSlide>
                     ))}
 
@@ -140,7 +141,6 @@ export default function Main() {
                             delay: 3000,
                             disableOnInteraction: false,
                         }}
-                        loop={true}
                         breakpoints={{
                             1024: {slidesPerView: 3, spaceBetween: 20}, // 큰 화면
                             768: {slidesPerView: 2, spaceBetween: 15}, // 태블릿

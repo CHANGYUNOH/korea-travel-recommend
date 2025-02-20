@@ -65,7 +65,8 @@ export default function Regions() {
 
             // SVG 업데이트
             regions.forEach((region) => {
-                const targetPath = document.querySelector(`#korean_map_svg__${region.id}`);
+                const targetPath = document.querySelector(`#${region.id}`);
+
                 if (targetPath) {
                     (targetPath as SVGElement).setAttribute(
                         "fill",
@@ -77,8 +78,7 @@ export default function Regions() {
             return updatedItems;
         });
     };
-
-
+    
 
     // 여행지 리스트
     const tourList = [
@@ -217,28 +217,27 @@ export default function Regions() {
             <div className="map-container">
                 {/* 지도 */}
                 <div className="map-area">
-                <MapSVG
-    className="map-container-svg"
-    onClick={(e: React.MouseEvent<SVGElement>) => {
-        const target = e.target as SVGElement;
-        if (target.tagName === "path" && target.id) {
-            // 클릭된 path 요소의 id 가져오기
-            const regionId = target.id.replace("korean_map_svg__", "");
+                    <MapSVG
+                        className="map-container-svg"
+                        onClick={(e: React.MouseEvent<SVGElement>) => {
+                            const target = e.target as SVGElement;
+                            if (target.tagName === "path" && target.id) {
+                                // 클릭된 path 요소의 id 가져오기
+                                const regionId = target.id.replace("korean_map_svg__", "");
 
-            // 선택된 지역인지 확인
-            const isSelected = selectedItems.includes(regionId);
+                                // 선택된 지역인지 확인
+                                const isSelected = selectedItems.includes(regionId);
 
-            // 색상 변경 (기본 색상은 #fff, 선택되면 해당 지역의 색상 또는 파란색)
-            const newColor = isSelected ? "#fff" : (regions.find(region => region.id === regionId)?.color || "#007bff");
-            target.setAttribute("fill", newColor);
+                                // 색상 변경 (기본 색상은 #fff, 선택되면 해당 지역의 색상 또는 파란색)
+                                const newColor = isSelected ? "#fff" : (regions.find(region => region.id === regionId)?.color || "#007bff");
+                                target.setAttribute("fill", newColor);
 
-            // 선택 상태 업데이트
-            handleRegionToggle(regionId);
-        }
-    }}
-/>
-
-                    </div>
+                                // 선택 상태 업데이트
+                                handleRegionToggle(regionId);
+                            }
+                        }}
+                    />
+                </div>
 
 
                 {/* 버튼 리스트 */}

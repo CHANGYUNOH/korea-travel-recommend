@@ -1056,7 +1056,7 @@ export default function ThemesDetailPage() {
               <div className="pagination-wrap">
                 <div className="pagination-list">
                   <div className="pagination-list-item">left</div>
-                  <div className="pagination-list-item">1</div>
+                  <div className="pagination-list-item is-active">1</div>
                   <div className="pagination-list-item">2</div>
                   <div className="pagination-list-item">3</div>
                   <div className="pagination-list-item">4</div>
