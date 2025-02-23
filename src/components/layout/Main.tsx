@@ -70,22 +70,26 @@ export default function Main() {
         {
             title: '반려동물 동반여행',
             sub: '반려동물과 함께 할 여행지',
-            id: 'animal'
+            id: 'animal',
+            link: '/travel/themes/animal?name=반려동물+동반+여행'
         },
         {
             title: '친환경 여행',
             sub: '자연 친화적 관광지와 생태 관광지',
-            id: 'natural'
+            id: 'natural',
+            link: '/travel/themes/natural?name=친환경+관광'
         },
         {
             title: '캠핑장',
             sub: '전국 캠핑장 정보를 제공',
-            id: 'camping'
+            id: 'camping',
+            linK: '/travel/themes/camping?name=캠핑장'
         },
         {
             title: '레저여행',
             sub: '두루누비 서비스',
-            id: 'leisure'
+            id: 'leisure',
+            link: '/travel/themes/leisure?name=걷기여행'
         }
     ]
     const router = useRouter();
@@ -176,10 +180,10 @@ export default function Main() {
                                 <div className='info'>
                                     <div className='title'>{item.title}</div>
                                     <p className='sub'>{item.sub}</p>
-                                    <button className='btn-more'>
+                                    <a href={item.link} className='btn-more'>
                                         <span className='txt'>자세히 보기</span>
                                         <img src='/svg/chevron_right.svg' className="size-6" alt="자세히 보기"/>
-                                    </button>
+                                    </a>
                                 </div>
                                 {item.id === 'animal' ? (<div className='svg'>
                                     <img src="/svg/animal.svg" alt="animal"/>

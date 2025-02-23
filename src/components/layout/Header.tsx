@@ -50,14 +50,6 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* 액션 버튼 */}
-                <Link
-                    href="/login"
-                    className="hidden md:inline-block px-6 py-2 bg-blue-500 text-white font-medium rounded-full shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-105 dark:bg-blue-600 dark:hover:bg-blue-700"
-                >
-                    로그인
-                </Link>
-
                 {/* 모바일 메뉴 아이콘 */}
                 <button
                     className="md:hidden flex items-center text-gray-600 dark:text-gray-300"
