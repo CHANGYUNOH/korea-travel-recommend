@@ -12,12 +12,30 @@
     letter-spacing: -0.8px;
   }
 
+  .slider-container {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .slider-container .bg {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 가로 16:9 비율 유지 */
+    max-height: 540px; /* 최대 높이 제한 */
+    background-size: cover;
+    background-position: center;
+  }
+
+
+
   .locate {
     position: relative;
     max-width: 980px;
     margin: 0 auto;
 
     &-list {
+
       &-item {
         display: inline-flex;
         margin: 6px 5px 0 0;
@@ -53,7 +71,7 @@
     }
 
     .swiper-slide {
-      width: auto;
+      width: 980px;
     }
 
     .swiper-button {
@@ -86,449 +104,18 @@
     }
   }
 
-  .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
-    max-width: 980px;
-    margin: 0 auto;
 
-    .swiper {
-      padding: 0 30px;
-
-      &-list {
-        position: relative;
-
-        &-item {
-          height: 200px;
-          border-radius: 30px;
-          overflow: hidden;
-
-          .img {
-            background-color: #ccc;
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-
-            &-wrap {
-              position: absolute;
-              bottom: 20px;
-              left: 50%;
-              transform: translateX(-50%);
-
-              &-txt {
-                color: #fff;
-                font-size: 18px;
-                line-height: 1.2;
-                width: 200px;
-                display: -webkit-box;
-                word-wrap: break-word;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                text-align: center;
-                text-shadow: 1px 1px 1px #222;
-              }
-            }
-          }
-        }
-
-        .swiper-btn {
-          &-prev, &-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-
-            &.swiper-button-disabled {
-              display: none;
-            }
-
-            svg {
-              width: 40px;
-              height: 40px;
-
-              path {
-                color: #333;
-              }
-            }
-
-            &:after {
-              content: '';
-            }
-          }
-
-          &-prev {
-            left: -15px;
-          }
-
-          &-next {
-            right: -15px;
-          }
-        }
-      }
-    }
-
-    .map {
-      position: relative;
-
-      &-section {
-        height: 370px;
-        width: 268px;
-
-        &-item {
-          input[type=checkbox] {
-            height: 0;
-            opacity: 0;
-            position: absolute;
-            width: 0;
-
-            &:checked {
-              & + label {
-                svg {
-                  &.seoul {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.incheon {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.daejeon {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.daegu {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.gwangju {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.busan {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.ulsan {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.gyeonggi {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.gangwon {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.sejong {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.jeju {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.chungbook {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.chungnam {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.gyeongbook {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.gyeongnam {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.jyeonbook {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.jyeonnam {
-                    path {
-                      display: block;
-                    }
-                  }
-
-                  &.dokdo {
-                    path {
-                      display: block;
-                    }
-                  }
-                }
-              }
-            }
-
-            & + label {
-              svg {
-                position: absolute;
-                z-index: -1;
-                pointer-events: none;
-
-                path {
-                  cursor: pointer;
-                  pointer-events: visibleFill;
-                }
-
-                &.all {
-                  path {
-                    display: block;
-                  }
-                }
-
-                &.seoul {
-                  top: 61px;
-                  left: 64px;
-                  z-index: 2;
-
-                  path {
-                    width: 27px;
-                    height: 22px;
-                  }
-                }
-
-                &.incheon {
-                  top: 63px;
-                  left: 53px;
-                  z-index: 2;
-
-                  path {
-                    width: 13px;
-                    height: 20px;
-                  }
-                }
-
-                &.daejeon {
-                  top: 151px;
-                  left: 85px;
-                  z-index: 2;
-
-                  path {
-                    width: 21px;
-                    height: 24px;
-                  }
-                }
-
-                &.daegu {
-                  top: 193px;
-                  left: 152px;
-                  z-index: 2;
-
-                  path {
-                    width: 28px;
-                    height: 30px;
-                  }
-                }
-
-                &.gwangju {
-                  top: 241px;
-                  left: 40px;
-                  z-index: 2;
-
-                  path {
-                    width: 25px;
-                    height: 16px;
-                  }
-                }
-
-                &.busan {
-                  top: 241px;
-                  left: 177px;
-                  z-index: 2;
-
-                  path {
-                    width: 35px;
-                    height: 28px;
-                  }
-                }
-
-                &.ulsan {
-                  top: 217px;
-                  left: 191px;
-                  z-index: 1;
-
-                  path {
-                    width: 34px;
-                    height: 33px;
-                  }
-                }
-
-                &.gyeonggi {
-                  top: 18px;
-                  left: 42px;
-                  z-index: 1;
-
-                  path {
-                    width: 89px;
-                    height: 104px;
-                  }
-                }
-
-                &.gangwon {
-                  top: 0;
-                  left: 88px;
-                  z-index: 1;
-
-                  path {
-                    width: 136px;
-                    height: 121px;
-                  }
-                }
-
-                &.sejong {
-                  top: 134px;
-                  left: 80px;
-                  z-index: 2;
-
-                  path {
-                    width: 18px;
-                    height: 23px;
-                  }
-                }
-
-                &.jeju {
-                  left: 1px;
-                  top: 344px;
-                  z-index: 1;
-
-                  path {
-                    width: 50px;
-                    height: 25px;
-                  }
-                }
-
-                &.chungbook {
-                  top: 98px;
-                  left: 91px;
-                  z-index: 1;
-
-                  path {
-                    width: 90px;
-                    height: 92px;
-                  }
-                }
-
-                &.chungnam {
-                  top: 105px;
-                  left: 18px;
-                  z-index: 1;
-
-                  path {
-                    width: 92px;
-                    height: 86px;
-                  }
-                }
-
-                &.gyeongbook {
-                  top: 112px;
-                  left: 122px;
-                  z-index: 1;
-
-                  path {
-                    width: 111px;
-                    height: 116px;
-                  }
-                }
-
-                &.gyeongnam {
-                  top: 197px;
-                  left: 100px;
-                  z-index: 1;
-
-                  path {
-                    width: 107px;
-                    height: 83px;
-                  }
-                }
-
-                &.jyeonbook {
-                  top: 175px;
-                  left: 29px;
-                  z-index: 1;
-
-                  path {
-                    width: 97px;
-                    height: 67px;
-                  }
-                }
-
-                &.jyeonnam {
-                  top: 223px;
-                  left: 2px;
-                  z-index: 1;
-
-                  path {
-                    width: 112px;
-                    height: 88px;
-                  }
-                }
-
-                &.dokdo {
-                  top: 84px;
-                  left: 255px;
-                  z-index: 1;
-
-                  path {
-                    width: 14px;
-                    height: 16px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 
   // 리스트
   .list {
     max-width: 980px;
     margin: 0 auto;
     padding: 50px 0;
-
+    &-title {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
     .list-card {
       .swiper-slide {
         .list-card-item {
@@ -578,38 +165,6 @@
         }
       }
 
-      .swiper-pagination-bullet {
-        background: #666;
-
-        &-active {
-          background: #333;
-        }
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: #000; /* 네비게이션 버튼 색상 */
-        z-index: 10;
-      }
-
-      .swiper-pagination {
-        padding-top: 10px;
-        position: absolute;
-        bottom: 0px; /* 페이지네이션 위치 */
-        width: 100%;
-        text-align: center;
-      }
-
-      .swiper-pagination-bullet {
-        background: #666;
-        opacity: 0.6;
-        transition: opacity 0.2s;
-      }
-
-      .swiper-pagination-bullet-active {
-        background: #333;
-        opacity: 1;
-      }
     }
   }
 
@@ -620,8 +175,7 @@
 
     &-title {
       font-weight: 600;
-      font-size: 32px;
-      text-align: center;
+      font-size: 20px;
       margin-bottom: 20px;
     }
 
@@ -716,21 +270,5 @@
     }
   }
 
-  .slider-container {
-    margin-top: -76px;
 
-    .bg {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      height: 100vh;
-    }
-
-    img {
-      margin: 0 auto;
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-    }
-  }
 }

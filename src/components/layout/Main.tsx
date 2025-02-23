@@ -61,25 +61,7 @@ export default function Main() {
             locale: '전남 담양군',
             tag: ['2024_여행가는달과함께하는_발도장여행지', '반려동물동반여행지'],
             image: '/images/list_sample_3.png'
-        },
-        {
-            title: '속초해수욕장',
-            locale: '강원 속초시',
-            tag: ['일출일몰명소', '속초해변'],
-            image: '/images/list_sample_4.png'
-        },
-        {
-            title: '여수 해상케이블카',
-            locale: '전남 여수시',
-            tag: ['2024_여행가는달과함께하는_발도장여행지', '반려동물동반여행지'],
-            image: '/images/list_sample_5.png'
-        },
-        {
-            title: '간월암(서산)',
-            locale: '충남 서산시',
-            tag: ['2024_여행가는달과함께하는_발도장여행지', '충청권'],
-            image: '/images/list_sample_6.png'
-        },
+        }
     ];
 
 
@@ -135,6 +117,7 @@ export default function Main() {
 
 
             <div className="list">
+                <div className='list-title'> 🔥 어디 갈지 고민된다면? 추천 여행지 BEST 3 </div>
                 <div className="list-card">
                     <Swiper
                         spaceBetween={20} // 각 슬라이드 간 간격
@@ -185,7 +168,7 @@ export default function Main() {
                 </div>
             </div>
             <div className='theme'>
-                <div className='theme-title'>테마별 여행</div>
+                <div className='theme-title'>🎯 내 취향에 딱 맞는 맞춤형 여행 추천</div>
                 <ul className='theme-cont'>
                     {themeList.map((item, index) => (
                         <li className='theme-cont-list' key={index}>
