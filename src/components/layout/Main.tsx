@@ -36,7 +36,7 @@ export default function Main() {
         { id : "Jeju", img: '/images/main_jeju.png' },
         { id : "North_Chungcheong,Sejong", img : '/images/main_north_Chungcheong.png' },
         { id : "North_Jeolla",img: '/images/main_north_Jeolla.png' },
-        { id : "South_Chungcheong",img: '/images/main_south_chungcheong.png' },
+        { id : "South_Chungcheong,Daejeon",img: '/images/main_south_chungcheong.png' },
         { id : "South_Jeolla",img: '/images/main_south_Jeolla.png' },
 
     ]
