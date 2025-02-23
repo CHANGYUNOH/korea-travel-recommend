@@ -11,6 +11,7 @@ import axios from 'axios';
 import Link from "next/link";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation, Pagination} from "swiper/modules";
+import {useRouter} from "next/navigation";
 
 export default function Main() {
 
@@ -105,6 +106,11 @@ export default function Main() {
             id: 'leisure'
         }
     ]
+    const router = useRouter();
+
+    const handleClick = (id: string) => {
+        router.push(`/travel/regions?region=${encodeURIComponent(id)}`);
+    };
 
     return (
         <div className='container'>
@@ -119,9 +125,8 @@ export default function Main() {
                     loop={true}
                 >
                     {banner_images.map((src, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="bg" style={{backgroundImage: `url(${src.img})`}}></div>
-                            {/* <img src={src.img} alt={'Banner'} /> */}
+                        <SwiperSlide key={index} onClick={() => handleClick(src.id)}>
+                            <div className="bg" style={{ backgroundImage: `url(${src.img})`, cursor: 'pointer' }}></div>
                         </SwiperSlide>
                     ))}
 

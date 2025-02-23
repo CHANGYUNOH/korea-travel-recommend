@@ -9,6 +9,8 @@ import { Pagination, Navigation } from 'swiper/modules';
 import React, {useEffect, useState, useRef} from "react";
 import Link from 'next/link';
 import MapSVG from '@/assets/svg/korean_map_02.svg';
+import {useRouter, useSearchParams} from "next/navigation";
+import {update} from "immutable";
 
 export default function Regions() {
 
@@ -34,7 +36,27 @@ export default function Regions() {
     ];
 
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
+    const searchParams = useSearchParams();
+    const region = searchParams.get('region'); // URL에서 `region` 값 가져오기
 
+    useEffect(() => {
+        if (typeof region === 'string') {
+            const selectedRegions = region.split(','); // URL의 "Seoul,Gyeonggi"를 ["Seoul", "Gyeonggi"]로 변환
+            setSelectedItems(selectedRegions);
+            updateSVGColors(selectedRegions)
+        }
+    }, [region]);
+    const updateSVGColors = (updatedItems: string[]) => {
+        regions.forEach((region) => {
+            const targetPath = document.querySelector(`#${region.id}`);
+            if (targetPath) {
+                (targetPath as SVGElement).setAttribute(
+                    "fill",
+                    updatedItems.includes(region.id) ? region.color || "#fff" : "#fff"
+                );
+            }
+        });
+    };
     const handleRegionToggle = (regionId: string) => {
         setSelectedItems((prev) => {
             let updatedItems: string[] = [];
@@ -62,22 +84,11 @@ export default function Regions() {
                     updatedItems = updatedItems.filter((id) => id !== "All"); // 하나라도 선택 해제되면 "전국" 제거
                 }
             }
-
-            // SVG 업데이트
-            regions.forEach((region) => {
-                const targetPath = document.querySelector(`#${region.id}`);
-
-                if (targetPath) {
-                    (targetPath as SVGElement).setAttribute(
-                        "fill",
-                        updatedItems.includes(region.id) ? region.color || "#fff" : "#fff"
-                    );
-                }
-            });
-
+            updateSVGColors(updatedItems)
             return updatedItems;
         });
     };
+
     
 
     // 여행지 리스트
