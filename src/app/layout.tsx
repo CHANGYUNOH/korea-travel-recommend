@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import '@/styles/base/global.scss'
 import '@/styles/base/layout.scss'
 import '@/styles/base/reset.scss'
+import '@/styles/base/common.scss'
 
 const pretendardTitle = localFont({
 	src : './fonts/pretendard-ExtraBold.woff',

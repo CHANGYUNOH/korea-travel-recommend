@@ -64,26 +64,36 @@ export default function Nearby() {
             <div className='search-area'>
                 <dl>
                     <dt>거리반경</dt>
-                    <dd>
+                    <dd className="check-list">
                         {distance.map((item, index) => (
-                            <div className='radio-list' key={index}>
-                                <input type="radio" name="distance"/>
-                                <label htmlFor="">
-                                    <span>{item}</span>
-                                </label>
+                            <div className="check-list-item" key={index}>
+                                <div className="check-box">
+                                    <input type="radio" id={`distance-${index}`} name="distance" defaultChecked={index === 0} />
+                                    <label htmlFor={`distance-${index}`}>
+                                        <span className="check-box-item">
+                                            <span className="item-blur" />
+                                        </span>
+                                        <span className="check-box-txt">{item}</span>
+                                    </label>
+                                </div>
                             </div>
                         ))}
                     </dd>
                 </dl>
                 <dl>
                     <dt>관광타입</dt>
-                    <dd>
+                    <dd className="check-list">
                     {tourType.map((item, index) => (
-                        <div className='radio-list' key={index}>
-                            <input type="radio" name="distance"/>
-                            <label htmlFor="">
-                                <span>{item}</span>
-                            </label>
+                        <div className="check-list-item" key={index}>
+                            <div className="check-box">
+                                <input type="radio" id={`tourType-${index}`} name="tourType" defaultChecked={index === 0} />
+                                <label htmlFor={`tourType-${index}`}>
+                                    <span className="check-box-item">
+                                        <span className="item-blur" />
+                                    </span>
+                                    <span className="check-box-txt">{item}</span>
+                                </label>
+                            </div>
                         </div>
                     ))}
                     </dd>

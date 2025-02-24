@@ -365,7 +365,7 @@ export default function ThemesDetailPage() {
       }
     }
   };
-  
+
 
   return (
     <>
@@ -522,39 +522,54 @@ export default function ThemesDetailPage() {
               </dl>
               <dl className="radio-default">
                 <dt>거리</dt>
-                <dd>
+                <dd className="check-list">
                   {distance.map((item, index) => (
-                    <div className="radio-list" key={index}>
-                      <input type="radio" name="distance" />
+                    <div className="check-list-item" key={index}>
+                      <div className="check-box">
+                      <input type="radio" id={`distance-${index}`} name="distance" defaultChecked={index === 0} />
                       <label htmlFor={`distance-${index}`}>
-                        <span>{item}</span>
+                          <span className="check-box-item">
+                              <span className="item-blur" />
+                          </span>
+                          <span className="check-box-txt">{item}</span>
                       </label>
                     </div>
+                  </div>
                   ))}
                 </dd>
               </dl>
               <dl className="radio-default">
                 <dt>소요시간</dt>
-                <dd>
+                <dd className="check-list">
                   {time.map((item, index) => (
-                    <div className="radio-list" key={index}>
-                      <input type="radio" name="time" />
-                      <label htmlFor={`time-${index}`}>
-                        <span>{item}</span>
-                      </label>
+                    <div className="check-list-item" key={index}>
+                      <div className="check-box">
+                        <input type="radio" id={`time-${index}`} name="time" defaultChecked={index === 0} />
+                        <label htmlFor={`time-${index}`}>
+                            <span className="check-box-item">
+                                <span className="item-blur" />
+                            </span>
+                            <span className="check-box-txt">{item}</span>
+                        </label>
+                      </div>
                     </div>
                   ))}
                 </dd>
               </dl>
               <dl className="radio-default">
                 <dt>난이도</dt>
-                <dd>
+                <dd className="check-list">
                   {difficulty.map((item, index) => (
-                    <div className="radio-list" key={index}>
-                      <input type="radio" name="difficulty" />
-                      <label htmlFor={`difficulty-${index}`}>
-                        <span>{item}</span>
-                      </label>
+                    <div className="check-list-item" key={index}>
+                      <div className="check-box">
+                        <input type="radio" id={`difficulty-${index}`} name="difficulty" defaultChecked={index === 0} />
+                        <label htmlFor={`difficulty-${index}`}>
+                            <span className="check-box-item">
+                                <span className="item-blur" />
+                            </span>
+                            <span className="check-box-txt">{item}</span>
+                        </label>
+                      </div>
                     </div>
                   ))}
                 </dd>
