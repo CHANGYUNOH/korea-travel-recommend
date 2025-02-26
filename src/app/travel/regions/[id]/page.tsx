@@ -133,7 +133,7 @@ export default function RegionDetailPage() {
                         <div className='top-area'>
                             <div className='tit'>상세정보</div>
                         </div>
-                        <div className='cont-area'>a
+                        <div className='cont-area'>
                             <div className={`text ${showMore ? 'is-active' : ''}`}>
                                 1976년 처음 개장한 속초해수욕장은 국내 대표적인 해수욕장 가운데 하나다. 속초 시내와 가깝고 고속버스터미널이 도보 거리에 있어 교통이 편리한 것이
                                 장점이다. 속초해수욕장은 바닷물이 맑고 깨끗한 데다 수심이 얕고 경사가 완만해 매년 여름철이면 전국에서 모여든 피서객들로 북적 해진다. 특히 성수기인
@@ -197,7 +197,7 @@ export default function RegionDetailPage() {
                             </li>
                         </ul>
                         <div className='recommend-area'>
-                            <div className='title'>‘{title}’ 와(과) 유사한 여행지 추천👍</div>
+                            <div className='title'>‘<strong>{title}</strong>’ 와(과) 유사한 여행지 추천👍</div>
                             <div className='cont'>
                                 <ul className='cont-wrap'>
                                     {recommendList.map((item, index) => (

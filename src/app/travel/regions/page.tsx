@@ -362,7 +362,7 @@ export default function Regions() {
 
             {/* 슬라이더 */}
             <div className='card-slider'>
-                <Swiper slidesPerView={1.9}
+                <Swiper slidesPerView={3}
                         spaceBetween={30}
                         centeredSlides={true}
                         navigation={{

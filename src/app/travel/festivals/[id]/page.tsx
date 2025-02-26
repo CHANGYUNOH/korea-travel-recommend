@@ -171,7 +171,7 @@ export default function RegionDetailPage() {
                             </li>
                         </ul>
                         <div className='recommend-area'>
-                            <div className='title'>‘{title}’ 와(과) 유사한 여행지 추천👍</div>
+                            <div className='title'>‘<strong>{title}</strong>’ 와(과) 유사한 여행지 추천👍</div>
                             <div className='cont'>
                                 <ul className='cont-wrap'>
                                     {recommendList.map((item, index) => (

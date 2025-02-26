@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import '@/styles/components/header.scss';
+import '@/styles/components/footer.scss';
 import { usePathname } from "next/navigation";
 
 export default function Header() {

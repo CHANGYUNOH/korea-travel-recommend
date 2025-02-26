@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
 
 type ValuePiece = Date | null;
 
@@ -89,15 +91,14 @@ export default function FestivalPage() {
     setTabShow(index);
   };
 
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+
   return (
     <div className="nearby">
-
-      <ul className="tab">
+      <ul className="tab type01">
         {tabList.map((item, index) => (
-          <li key={index}>
-            <button className={`tab-list-item ${tabShow === index ? 'is-active' : ''}`} onClick={() => handleTabShow(index)}>
-              {item}
-            </button>
+          <li className={`tab-list ${tabShow === index ? 'is-active' : ''}`} key={index} onClick={() => handleTabShow(index)}>
+            {item}
           </li>
         ))}
       </ul>
@@ -106,6 +107,7 @@ export default function FestivalPage() {
         <>
           <div className="search-box">
             <input type="text" placeholder="검색어를 입력하세요." />
+            <button type="button"><img src="/icons/ic_search.png" /></button>
           </div>
 
           <div className="search-area">
@@ -126,7 +128,13 @@ export default function FestivalPage() {
             <dl>
               <dt>시기</dt>
               <dd>
-                <div className="date-picker">날짜를 선택하세요.</div>
+              <DatePicker className="react-datepicker"
+                          dateFormat='yyyy.MM.dd' // 날짜 형태
+                          shouldCloseOnSelect // 날짜를 선택하면 datepicker가 자동으로 닫힘
+                          minDate={new Date('2000-01-01')} // minDate 이전 날짜 선택 불가
+                          maxDate={new Date()} // maxDate 이후 날짜 선택 불가
+                          selected={selectedDate}
+                          onChange={(date) => setSelectedDate(date)}/>
               </dd>
             </dl>
 
@@ -202,7 +210,9 @@ export default function FestivalPage() {
       {tabShow === 1 && (
         <>
           <div className="calendar">
-          <Calendar onChange={onChange} value={value} />
+            <Calendar 
+                onChange={onChange} 
+                value={value} formatDay={(locale, date) => date.getDate().toString()}/>
           </div>
           <div className="search-area">
             <dl>
@@ -252,13 +262,27 @@ export default function FestivalPage() {
             <div className="pagination">
               <div className="pagination-wrap">
                 <div className="pagination-list">
-                  <div className="pagination-list-item">left</div>
-                  <div className="pagination-list-item">1</div>
-                  <div className="pagination-list-item">2</div>
-                  <div className="pagination-list-item">3</div>
-                  <div className="pagination-list-item">4</div>
-                  <div className="pagination-list-item">5</div>
-                  <div className="pagination-list-item">right</div>
+                <nav className="isolate inline-flex -space-x-px rounded-md shadow-xs" aria-label="Pagination">
+                  <a href="#" className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                    <span className="sr-only">Previous</span>
+                    <svg className="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path fillRule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
+                    </svg>
+                  </a>
+                  <a href="#" aria-current="page" className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
+                  <a href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                  <a href="#" className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                  <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-300 ring-inset focus:outline-offset-0">...</span>
+                  <a href="#" className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">8</a>
+                  <a href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0">9</a>
+                  <a href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0">10</a>
+                  <a href="#" className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                    <span className="sr-only">Next</span>
+                    <svg className="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <path fillRule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                    </svg>
+                  </a>
+                </nav>
                 </div>
               </div>
             </div>

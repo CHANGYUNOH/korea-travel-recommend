@@ -272,3 +272,19 @@
 
 
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .theme-cont-list {
+      width: 100%;
+    }
+
+    .list {
+      padding: 50px 20px;
+    }
+
+    .theme {
+      padding: 0 20px;
+    }
+  }
+}
