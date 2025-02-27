@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import '@/styles/components/header.scss';
 import '@/styles/components/footer.scss';
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from 'react';
 
 export default function Header() {
     const pathname = usePathname(); // 현재 경로 가져오기 
@@ -26,6 +27,19 @@ export default function Header() {
             route: 'festivals'
         }
     ]
+
+    const [mobMenu, setMobMenu] = useState(false);
+
+    const btnClose = () => {
+        setMobMenu(false);
+    }
+
+    const router = useRouter();
+
+    const moveRoute = (item: any) => {
+        router.push(`/travel/${item.route}`);
+        setMobMenu(false);
+    }
 
     return (
         <>
@@ -54,7 +68,8 @@ export default function Header() {
 
                     {/* 모바일 메뉴 아이콘 */}
                     <button
-                        className="md:hidden flex items-center text-gray-600 dark:text-gray-300"
+                        className="md:hidden flex items-center text-gray-600 dark:text-gray-300 btn-menu"
+                        onClick={() => setMobMenu(!mobMenu)}
                         aria-label="Open menu"
                     >
                         <svg
@@ -74,17 +89,26 @@ export default function Header() {
                     </button>
                 </div>
             </header>
-            <nav className='mob-menu'>
-                <div>
-                    <Link href='/'>대표 로고 이미지</Link>
-                    <button>X</button>
+            <div className={`mob-menu ${mobMenu ? 'is-active' : ''}`}>
+                <div className="mob-menu-header">
+                    <a
+                        href="#top"
+                        data-section-id="top"
+                        className="logo">
+                        <span>대표 로고 이미지</span>
+                    </a>
+                    <button type="button" className="btn-close" onClick={() => btnClose()}>
+                        X
+                    </button>
                 </div>
-                <ul>
-                    <li>
-                        <Link href='/'>지역별 여행지</Link>
-                    </li>
+                <ul className="mob-menu-cont">
+                    {menuList.map((item, index) => (
+                        <li className="mob-menu-cont-list" key={index}>
+                            <button onClick={() => moveRoute(item)} className="mob-menu-cont-list-link">{item.name}</button>
+                        </li>
+                    ))}
                 </ul>
-            </nav>
+            </div>
         </>
     );
 }
