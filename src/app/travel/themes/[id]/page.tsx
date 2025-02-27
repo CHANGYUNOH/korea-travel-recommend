@@ -51,6 +51,12 @@ export default function ThemesDetailPage() {
 
   const difficulty = ["전체", "2시간 미만", "2~4시간", "4시간 초과"];
 
+  const season = ['전체', '봄', '여름', '가을', '겨울'];
+
+  const location = ['전체', '해변', '섬', '산', '숲', '계곡', '강', '호수', '도심'];
+
+  const petStatus = ['전체' , '가능', '불가능']
+
   const detailLists = {
     "해파랑길": [
       { title: "해파랑길 1코스", locale: "부산 남구", distance: "16.9km", time: "6시간 30분", difficulty: "보통" },
@@ -519,6 +525,13 @@ export default function ThemesDetailPage() {
                     </select>
                   </div>
                 </dd>
+                <dd>
+                  <div className="select-default">
+                    <select>
+                      <option>시/군 전체</option>
+                    </select>
+                  </div>
+                </dd>
               </dl>
               <dl className="radio-default">
                 <dt>거리</dt>
@@ -573,6 +586,54 @@ export default function ThemesDetailPage() {
                     </div>
                   ))}
                 </dd>
+              </dl>
+              <dl className="radio-default">
+                  <dt>계절</dt>
+                  {season.map((item, index) => (
+                    <dd className="check-list-item" key={index}>
+                    <div className="check-box">
+                      <input type="radio" id={`season-${index}`} name="season" defaultChecked={index === 0} />
+                      <label htmlFor={`season-${index}`}>
+                        <span className="check-box-item">
+                          <span className="item-blur" />
+                        </span>
+                        <span className="check-box-txt">{item}</span>
+                      </label>
+                    </div>
+                  </dd>
+                  ))}
+              </dl>
+              <dl className="radio-default">
+                  <dt>입지구분</dt>
+                  {location.map((item, index) => (
+                    <dd className="check-list-item" key={index}>
+                    <div className="check-box">
+                      <input type="radio" id={`location-${index}`} name="location" defaultChecked={index === 0} />
+                      <label htmlFor={`location-${index}`}>
+                        <span className="check-box-item">
+                          <span className="item-blur" />
+                        </span>
+                        <span className="check-box-txt">{item}</span>
+                      </label>
+                    </div>
+                  </dd>
+                  ))}
+              </dl>
+              <dl className="radio-default">
+                  <dt>반려동물여부</dt>
+                  {petStatus.map((item, index) => (
+                    <dd className="check-list-item" key={index}>
+                    <div className="check-box">
+                      <input type="radio" id={`petStatus-${index}`} name="petStatus" defaultChecked={index === 0} />
+                      <label htmlFor={`petStatus-${index}`}>
+                        <span className="check-box-item">
+                          <span className="item-blur" />
+                        </span>
+                        <span className="check-box-txt">{item}</span>
+                      </label>
+                    </div>
+                  </dd>
+                  ))}
               </dl>
             </div>
             <div className="content-area">

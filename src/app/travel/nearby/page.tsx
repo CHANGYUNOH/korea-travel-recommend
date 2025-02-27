@@ -107,7 +107,7 @@ export default function Nearby() {
                 <div className='nearby-cont-list'>
                      <ul className='item'>
                         {itemList.map((item, index) => (
-                            <li className={`item-list ${showMore[index] ? 'is-active' : ''}`}
+                            <li className={`item-list ${showMore === index ? 'is-active' : ''}`}
                                 key={index}>
                             <div className='item-list-top' onClick={() => handleBtnMore(index)}>
                                 <img src={item.image}/>
@@ -116,8 +116,7 @@ export default function Nearby() {
                                     <p className='sub'>{item.locale}</p>
                                 </div>
                             </div>
-                            {showMore === index && (
-                                <div className='item-list-content'>
+                            <div className={`item-list-content ${showMore === index ? 'is-show' : ''}`}>
                                     <ul className='nearby-top'>
                                         <li className='nearby-top-list'>
                                             <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +155,7 @@ export default function Nearby() {
                                     </ul>
                                     <div className='detail-info'>
                                             <h3 className='title'>상세정보</h3>
-                                            <p className={`desc ${showBtnMore ? 'is-active' : ''}`}>
+                                            <p className={`desc ${showBtnMore ? 'is-active' : ''}`} onClick={() => btnMoreHandle()}>
                                                 {item.desc}
                                             </p>
                                             <div className='btn-area'>
@@ -179,7 +178,6 @@ export default function Nearby() {
                                             </div>
                                         </div>
                                 </div>
-                            )}
                         </li>
                         ))}
                      </ul>
