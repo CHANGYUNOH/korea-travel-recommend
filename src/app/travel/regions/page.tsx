@@ -362,7 +362,7 @@ export default function Regions() {
 
             {/* 슬라이더 */}
             <div className='card-slider'>
-                <Swiper slidesPerView={3}
+                <Swiper slidesPerView={1}
                         spaceBetween={30}
                         centeredSlides={true}
                         navigation={{
@@ -374,6 +374,10 @@ export default function Regions() {
                             clickable: true,
                             bulletClass: 'custom-pagination-bullet', // 사용자 정의 클래스 지정
                             bulletActiveClass: 'custom-pagination-bullet-active', // 활성화 클래스 지정
+                        }}
+                        breakpoints={{
+                            1024: {slidesPerView: 1.6, spaceBetween: 20}, // 큰 화면
+                            768: {slidesPerView: 1.2, spaceBetween: 15}, // 태블릿
                         }}
                         modules={[Pagination, Navigation]}>
                     {cardList.map((item, index) => (

@@ -336,8 +336,6 @@
         .info {
           margin-left: 30px;
           padding: 0 0 0 30px;
-          min-width: 390px;
-          width: 390px;
           position: relative;
 
           &:before {
@@ -948,6 +946,59 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .region-list {
+      padding: 0 20px;
+
+      .map-container {
+        flex-direction: column;
+        padding: 0;
+        max-width: 100%;
+
+        .map-area {
+          svg {
+            margin: 0 auto;
+          }
+        }
+      }
+
+      .list-card {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card-slider {
+        padding: 50px 20px;
+
+        .page-btn {
+          width: 100%;
+          height: auto;
+
+          &-inner {
+            display: block;
+            width: 100%;
+          }
+
+          &-more {
+            position: initial;
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .region-list {
+      .list-card {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }
