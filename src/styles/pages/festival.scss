@@ -1,5 +1,5 @@
 .container {
-    .nearby {
+    .festival {
         padding: 50px 0 100px 0;
         max-width: 1200px;
         margin: 0 auto;
@@ -176,7 +176,7 @@
             line-height: 38px;
             margin: 0 auto 50px;
             padding: 0 40px 0 15px;
-            border-radius: 0;
+            border-radius: 5px;
             position: relative;
 
             input {
@@ -548,4 +548,43 @@
             }
           }
     }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .festival {
+      .tab {
+        margin-bottom: 20px;
+
+        &.type01 {
+          
+        }
+      }
+
+      .search-box {
+        max-width: 100%;
+        margin: 0 auto 25px;
+      }
+
+      .cont {
+        &-wrap {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .festival {
+      padding: 25px 0;
+
+      .cont {
+        &-wrap {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    }
+  }
 }

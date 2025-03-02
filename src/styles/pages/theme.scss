@@ -3,7 +3,7 @@
 
   /* 테마별 여행지 */
   .themes {
-    padding: 0 0 100px 0;
+    padding: 0 20px 100px;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -455,4 +455,76 @@
     }
   }
   /* EOD : 테마별 여행지 */
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .themes {
+      &-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+      }
+
+      &-detail-cont {
+        .content-area {
+          .cont-wrap {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .themes-detail {
+      flex-direction: column;
+    }
+    .themes-detail-cont {
+      .search-area {
+        dl {
+          display: block;
+
+          dt {
+            margin-bottom: 10px;
+          }
+
+          dd {
+            display: inline-block;
+
+            &.check-list {
+              .check-list-item {
+                display: inline-block;
+                margin: 10px 0 0 10px;
+              }
+            }
+
+            & + dd {
+              margin: 5px 0 0 5px;
+            }
+
+            .select-default {
+              width: 100%;
+            }
+
+            select {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .themes-detail-nav {
+      width: 100%;
+      border: 0;
+      padding: 0;
+
+      &-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+      }
+    }
+  }
 }

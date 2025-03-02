@@ -1,6 +1,6 @@
 .container {
     .nearby {
-        padding: 50px 0 100px 0;
+        padding: 50px 20px 100px;
         max-width: 1200px;
         margin: 0 auto;
 
@@ -307,4 +307,52 @@
             }
           }
     }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .nearby {
+      &-cont {
+        &-map {
+          flex: 1;
+
+          #map {
+            width: 100%!important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .nearby {
+      .search-area {
+        dl {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+
+          dd {
+            display: inline-block;
+
+
+            .check-list-item {
+              display: inline-block;
+              margin: 10px 0 0 10px;
+            }
+          }
+        }
+      }
+
+      &-cont {
+        display: block;
+        
+        &-map {
+          margin-bottom: 30px;
+        }
+      }
+    }
+}
 }

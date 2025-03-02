@@ -2,6 +2,7 @@
 
 import '@/styles/pages/theme.scss';
 import {useSearchParams} from "next/navigation";
+import { useEffect } from "react";
 
 export default function ThemesDetailPage() {
 

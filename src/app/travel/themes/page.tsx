@@ -36,12 +36,14 @@ export default function Themes() {
                 <ul className='themes-wrap'>
                     {region.map((item, index) => (
                         <li className={`themes-wrap-list ${item.id}`} key={index}>
+                            <div className='themes-wrap-list-cover'>
                             <Link href={{
                                 pathname: `/travel/themes/${item.id}`,
                                 query: {
                                     name: item.name,
                                 },
-                            }} className='themes-wrap-list-item'>
+                            }} 
+                             className='themes-wrap-list-item'>
                                 <p className='title'>{item.name}</p>
                                 <div className='img'>
                                     {item.id === 'animal' ? (<div className='svg'>
@@ -64,6 +66,7 @@ export default function Themes() {
                                     ) : null}
                                 </div>
                             </Link>
+                            </div>
                         </li>
                     ))}
                 </ul>

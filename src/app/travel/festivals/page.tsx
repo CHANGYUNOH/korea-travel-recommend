@@ -94,7 +94,7 @@ export default function FestivalPage() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
   return (
-    <div className="nearby">
+    <div className="festival">
       <ul className="tab type01">
         {tabList.map((item, index) => (
           <li className={`tab-list ${tabShow === index ? 'is-active' : ''}`} key={index} onClick={() => handleTabShow(index)}>

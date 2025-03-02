@@ -778,8 +778,7 @@
             &-list {
               display: inline-flex;
               align-items: flex-start;
-              gap: 10px;
-              float: left;
+              gap: 20px;
               width: 50%;
               margin: 0 0 15px 0;
 
@@ -991,6 +990,22 @@
         }
       }
     }
+
+    .region-detail {
+      padding: 0 20px;
+
+      .cont-area {
+        .gallery {
+          .detail-view {
+            .recommend-area {
+              .cont-wrap-list {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -999,6 +1014,28 @@
     .region-list {
       .list-card {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .region-detail {
+      max-width: 100%;
+
+      .cont-area {
+        .gallery {
+          .detail-view {
+            .info-area {
+              &-list {
+                width: 100%;
+              }
+            }
+
+            .recommend-area {
+              .cont-wrap-list {
+                width: 100%;
+              }
+            }
+          }
+        }
       }
     }
   }
