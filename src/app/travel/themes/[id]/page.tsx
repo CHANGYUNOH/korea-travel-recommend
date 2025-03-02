@@ -596,7 +596,10 @@ export default function ThemesDetailPage() {
 
               {(name === '반려동물 동반 여행' || name === '친환경 관광') && (
                 <>
-                  <input type="input" placeholder="검색어를 입력하세요." />
+                            <div className="search-box">
+            <input type="text" placeholder="검색어를 입력하세요." />
+            <button type="button"><img src="/icons/ic_search.png" /></button>
+          </div>
                   <dl>
                     <dt>지역</dt>
                     <dd>

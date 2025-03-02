@@ -279,6 +279,34 @@
           border-radius: 30px;
           padding: 30px;
 
+          .search-box {
+            border: 1px solid;
+            max-width: 100%;
+            height: 40px;
+            line-height: 38px;
+            margin: 0 auto 50px;
+            padding: 0 40px 0 15px;
+            border-radius: 5px;
+            position: relative;
+
+            input {
+              width: 100%;
+              height: 100%;
+              border: 0;
+            }
+
+            button {
+              position: absolute;
+              right: 15px;
+              top: 50%;
+              transform: translateY(-50%);
+
+              img {
+                height: 25px;
+              }
+            }
+          }
+
           dl {
             display: inline-flex;
             align-items: center;
