@@ -4,24 +4,6 @@
         max-width: 1200px;
         margin: 0 auto;
 
-        .tab {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 50px;
-
-            &-list {
-                &-item {
-                    font-size: 26px;
-                    font-weight: 600;
-                    color: #777;
-
-                    &.is-active {
-                        color: #333;
-                    }
-                }
-            }
-        }
-
         .search-box {
             border: 1px solid;
             max-width: 300px;
@@ -243,7 +225,7 @@
                           transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
 
                           &.is-show {
-                            max-height: 200px; /* 적절한 최대 높이 지정 */
+                            max-height: 250px; /* 적절한 최대 높이 지정 */
                             opacity: 1;
                             padding-top: 20px;
                             margin-top: 20px;

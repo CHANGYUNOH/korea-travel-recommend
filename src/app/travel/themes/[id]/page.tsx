@@ -351,6 +351,7 @@ export default function ThemesDetailPage() {
     }
   }
 
+  type CourseType = keyof typeof detailLists;
   
   const [currentTab, setCurrentTab] = useState<CourseType>("해파랑길");
 
@@ -516,125 +517,184 @@ export default function ThemesDetailPage() {
           )}
           <div className="themes-detail-cont">
             <div className="search-area">
-              <dl>
-                <dt>지역</dt>
-                <dd>
-                  <div className="select-default">
-                    <select>
-                      <option>도/시 전체</option>
-                    </select>
-                  </div>
-                </dd>
-                <dd>
-                  <div className="select-default">
-                    <select>
-                      <option>시/군 전체</option>
-                    </select>
-                  </div>
-                </dd>
-              </dl>
-              <dl className="radio-default">
-                <dt>거리</dt>
-                <dd className="check-list">
-                  {distance.map((item, index) => (
-                    <div className="check-list-item" key={index}>
+
+              {name === '걷기여행' && (
+                <>
+                  <dl>
+                    <dt>지역</dt>
+                    <dd>
+                      <div className="select-default">
+                        <select>
+                          <option>도/시 전체</option>
+                        </select>
+                      </div>
+                    </dd>
+                    <dd>
+                      <div className="select-default">
+                        <select>
+                          <option>시/군 전체</option>
+                        </select>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl className="radio-default">
+                    <dt>거리</dt>
+                    <dd className="check-list">
+                      {distance.map((item, index) => (
+                        <div className="check-list-item" key={index}>
+                          <div className="check-box">
+                          <input type="radio" id={`distance-${index}`} name="distance" defaultChecked={index === 0} />
+                          <label htmlFor={`distance-${index}`}>
+                              <span className="check-box-item">
+                                  <span className="item-blur" />
+                              </span>
+                              <span className="check-box-txt">{item}</span>
+                          </label>
+                        </div>
+                      </div>
+                      ))}
+                    </dd>
+                  </dl>
+                  <dl className="radio-default">
+                    <dt>소요시간</dt>
+                    <dd className="check-list">
+                      {time.map((item, index) => (
+                        <div className="check-list-item" key={index}>
+                          <div className="check-box">
+                            <input type="radio" id={`time-${index}`} name="time" defaultChecked={index === 0} />
+                            <label htmlFor={`time-${index}`}>
+                                <span className="check-box-item">
+                                    <span className="item-blur" />
+                                </span>
+                                <span className="check-box-txt">{item}</span>
+                            </label>
+                          </div>
+                        </div>
+                      ))}
+                    </dd>
+                  </dl>
+                  <dl className="radio-default">
+                    <dt>난이도</dt>
+                    <dd className="check-list">
+                      {difficulty.map((item, index) => (
+                        <div className="check-list-item" key={index}>
+                          <div className="check-box">
+                            <input type="radio" id={`difficulty-${index}`} name="difficulty" defaultChecked={index === 0} />
+                            <label htmlFor={`difficulty-${index}`}>
+                                <span className="check-box-item">
+                                    <span className="item-blur" />
+                                </span>
+                                <span className="check-box-txt">{item}</span>
+                            </label>
+                          </div>
+                        </div>
+                      ))}
+                    </dd>
+                  </dl>
+                </>
+              )}
+
+              {(name === '반려동물 동반 여행' || name === '친환경 관광') && (
+                <>
+                  <input type="input" placeholder="검색어를 입력하세요." />
+                  <dl>
+                    <dt>지역</dt>
+                    <dd>
+                      <div className="select-default">
+                        <select>
+                          <option>도/시 전체</option>
+                        </select>
+                      </div>
+                    </dd>
+                    <dd>
+                      <div className="select-default">
+                        <select>
+                          <option>시/군 전체</option>
+                        </select>
+                      </div>
+                    </dd>
+                  </dl>
+                </>
+              )}
+
+              {name === '캠핑장' && (
+                <>
+                  <input type="input" placeholder="검색어를 입력하세요." />
+                  <dl>
+                    <dt>지역</dt>
+                    <dd>
+                      <div className="select-default">
+                        <select>
+                          <option>도/시 전체</option>
+                        </select>
+                      </div>
+                    </dd>
+                    <dd>
+                      <div className="select-default">
+                        <select>
+                          <option>시/군 전체</option>
+                        </select>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl className="radio-default">
+                    <dt>계절</dt>
+                    {season.map((item, index) => (
+                      <dd className="check-list-item" key={index}>
                       <div className="check-box">
-                      <input type="radio" id={`distance-${index}`} name="distance" defaultChecked={index === 0} />
-                      <label htmlFor={`distance-${index}`}>
+                        <input type="radio" id={`season-${index}`} name="season" defaultChecked={index === 0} />
+                        <label htmlFor={`season-${index}`}>
                           <span className="check-box-item">
-                              <span className="item-blur" />
+                            <span className="item-blur" />
                           </span>
                           <span className="check-box-txt">{item}</span>
-                      </label>
-                    </div>
-                  </div>
-                  ))}
-                </dd>
-              </dl>
-              <dl className="radio-default">
-                <dt>소요시간</dt>
-                <dd className="check-list">
-                  {time.map((item, index) => (
-                    <div className="check-list-item" key={index}>
-                      <div className="check-box">
-                        <input type="radio" id={`time-${index}`} name="time" defaultChecked={index === 0} />
-                        <label htmlFor={`time-${index}`}>
-                            <span className="check-box-item">
-                                <span className="item-blur" />
-                            </span>
-                            <span className="check-box-txt">{item}</span>
                         </label>
                       </div>
-                    </div>
-                  ))}
-                </dd>
-              </dl>
-              <dl className="radio-default">
-                <dt>난이도</dt>
-                <dd className="check-list">
-                  {difficulty.map((item, index) => (
-                    <div className="check-list-item" key={index}>
-                      <div className="check-box">
-                        <input type="radio" id={`difficulty-${index}`} name="difficulty" defaultChecked={index === 0} />
-                        <label htmlFor={`difficulty-${index}`}>
+                    </dd>
+                    ))}
+                  </dl>
+                  <dl className="radio-default">
+                      <dt>입지구분</dt>
+                      {location.map((item, index) => (
+                        <dd className="check-list-item" key={index}>
+                        <div className="check-box">
+                          <input type="radio" id={`location-${index}`} name="location" defaultChecked={index === 0} />
+                          <label htmlFor={`location-${index}`}>
                             <span className="check-box-item">
-                                <span className="item-blur" />
+                              <span className="item-blur" />
                             </span>
                             <span className="check-box-txt">{item}</span>
-                        </label>
-                      </div>
-                    </div>
-                  ))}
-                </dd>
-              </dl>
-              <dl className="radio-default">
-                  <dt>계절</dt>
-                  {season.map((item, index) => (
-                    <dd className="check-list-item" key={index}>
-                    <div className="check-box">
-                      <input type="radio" id={`season-${index}`} name="season" defaultChecked={index === 0} />
-                      <label htmlFor={`season-${index}`}>
-                        <span className="check-box-item">
-                          <span className="item-blur" />
-                        </span>
-                        <span className="check-box-txt">{item}</span>
-                      </label>
-                    </div>
-                  </dd>
-                  ))}
-              </dl>
-              <dl className="radio-default">
-                  <dt>입지구분</dt>
-                  {location.map((item, index) => (
-                    <dd className="check-list-item" key={index}>
-                    <div className="check-box">
-                      <input type="radio" id={`location-${index}`} name="location" defaultChecked={index === 0} />
-                      <label htmlFor={`location-${index}`}>
-                        <span className="check-box-item">
-                          <span className="item-blur" />
-                        </span>
-                        <span className="check-box-txt">{item}</span>
-                      </label>
-                    </div>
-                  </dd>
-                  ))}
-              </dl>
-              <dl className="radio-default">
-                  <dt>반려동물여부</dt>
-                  {petStatus.map((item, index) => (
-                    <dd className="check-list-item" key={index}>
-                    <div className="check-box">
-                      <input type="radio" id={`petStatus-${index}`} name="petStatus" defaultChecked={index === 0} />
-                      <label htmlFor={`petStatus-${index}`}>
-                        <span className="check-box-item">
-                          <span className="item-blur" />
-                        </span>
-                        <span className="check-box-txt">{item}</span>
-                      </label>
-                    </div>
-                  </dd>
-                  ))}
-              </dl>
+                          </label>
+                        </div>
+                      </dd>
+                      ))}
+                  </dl>
+                  <dl className="radio-default">
+                      <dt>반려동물여부</dt>
+                      {petStatus.map((item, index) => (
+                        <dd className="check-list-item" key={index}>
+                        <div className="check-box">
+                          <input type="radio" id={`petStatus-${index}`} name="petStatus" defaultChecked={index === 0} />
+                          <label htmlFor={`petStatus-${index}`}>
+                            <span className="check-box-item">
+                              <span className="item-blur" />
+                            </span>
+                            <span className="check-box-txt">{item}</span>
+                          </label>
+                        </div>
+                      </dd>
+                      ))}
+                  </dl>
+                </>
+              )}
+
+            <div className="btn-area">
+              <div className="btn-wrap">
+                <button className="btn-search">검색</button>
+                <button className="btn-reset">초기화</button>
+              </div>
+            </div>
+
             </div>
             <div className="content-area">
               <p className="title">

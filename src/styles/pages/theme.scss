@@ -304,6 +304,26 @@
               }
             }
           }
+
+          .btn-area {
+            margin-left: auto;
+
+            .btn-wrap {
+                display: inline-flex;
+                gap: 10px;
+
+                button {
+                    border: 1px solid;
+                    padding: 10px;
+                    border-radius: 5px;
+
+                    &.btn-search {
+                        background: #36A142;
+                        color: #fff;
+                    }
+                }
+            }
+        }
         }
 
         .content-area {
