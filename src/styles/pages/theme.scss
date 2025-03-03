@@ -494,6 +494,38 @@
       }
 
       &-detail-cont {
+        .search-area {
+          dl {
+            display: block;
+  
+            dt {
+              margin-bottom: 10px;
+            }
+  
+            dd {
+              display: inline-block;
+  
+              &.check-list {
+                .check-list-item {
+                  display: inline-block;
+                  margin: 10px 0 0 10px;
+                }
+              }
+  
+              & + dd {
+                margin: 5px 0 0 5px;
+              }
+  
+              .select-default {
+                width: 100%;
+              }
+  
+              select {
+                width: 100%;
+              }
+            }
+          }
+        }
         .content-area {
           .cont-wrap {
             grid-template-columns: repeat(2, 1fr);
@@ -508,40 +540,6 @@
   .container {
     .themes-detail {
       flex-direction: column;
-    }
-    .themes-detail-cont {
-      .search-area {
-        dl {
-          display: block;
-
-          dt {
-            margin-bottom: 10px;
-          }
-
-          dd {
-            display: inline-block;
-
-            &.check-list {
-              .check-list-item {
-                display: inline-block;
-                margin: 10px 0 0 10px;
-              }
-            }
-
-            & + dd {
-              margin: 5px 0 0 5px;
-            }
-
-            .select-default {
-              width: 100%;
-            }
-
-            select {
-              width: 100%;
-            }
-          }
-        }
-      }
     }
 
     .themes-detail-nav {

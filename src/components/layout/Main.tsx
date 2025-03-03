@@ -125,7 +125,7 @@ export default function Main() {
                 <div className="list-card">
                     <Swiper
                         spaceBetween={20} // 각 슬라이드 간 간격
-                        slidesPerView={3} // 한 번에 표시할 슬라이드 수
+                        slidesPerView={1} // 한 번에 표시할 슬라이드 수
                         modules={[Pagination, Autoplay, Navigation]} // Pagination 모듈 추가
                         pagination={{clickable: true}} // 페이지네이션 활성화
                         navigation // 네비게이션 버튼 활성화

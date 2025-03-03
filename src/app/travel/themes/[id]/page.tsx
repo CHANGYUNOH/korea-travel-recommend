@@ -385,7 +385,7 @@ export default function ThemesDetailPage() {
                 href={{
                   pathname: `/travel/themes/${item.id}`,
                   query: {
-                    name: item.name,
+                    name: item.name
                   },
                 }}
                 className="themes-wrap-list-item"
@@ -499,7 +499,7 @@ export default function ThemesDetailPage() {
             )}
           </button>
         </div>
-        <div className="themes-detail">
+        <div className="themes-detail" id="targetSection">
           {name === "걷기여행" && (
             <nav className="themes-detail-nav">
               <ul className="themes-detail-nav-wrap">
@@ -596,10 +596,10 @@ export default function ThemesDetailPage() {
 
               {(name === '반려동물 동반 여행' || name === '친환경 관광') && (
                 <>
-                            <div className="search-box">
-            <input type="text" placeholder="검색어를 입력하세요." />
-            <button type="button"><img src="/icons/ic_search.png" /></button>
-          </div>
+                  <div className="search-box">
+                    <input type="text" placeholder="검색어를 입력하세요." />
+                    <button type="button"><img src="/icons/ic_search.png" /></button>
+                  </div>
                   <dl>
                     <dt>지역</dt>
                     <dd>

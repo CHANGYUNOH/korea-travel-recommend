@@ -50,7 +50,7 @@ export default function Header() {
                         href="/"
                         className="text-3xl font-extrabold text-gray-800 dark:text-white tracking-tight"
                     >
-                        대표 로고 이미지
+                        KRT
                     </Link>
 
                     {/* 네비게이션 */}
