@@ -221,6 +221,7 @@ export default function Regions() {
 
     return (
         <div className="region-list">
+            <div className='region-list-wrap'>
             {/* 제목 */}
             <div className="title">
                 지도로 찾아보는 <strong>지역별 여행지</strong>
@@ -277,8 +278,6 @@ export default function Regions() {
                     </ul>
                 </div>
             </div>
-
-
 
             {/* 리스트 */}
             <div className='list'>
@@ -357,10 +356,9 @@ export default function Regions() {
                 </div>
             </div>
             {/* EOD : 리스트 */}
+            </div>
 
-
-
-            {/* 슬라이더 */}
+                        {/* 슬라이더 */}
             <div className='card-slider'>
                 <Swiper slidesPerView={1}
                         spaceBetween={30}

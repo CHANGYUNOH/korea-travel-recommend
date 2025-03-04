@@ -1,6 +1,6 @@
 .container {
   max-width: 100%;
-  padding: 0;
+  margin-top: 30px;
 
   .title {
     max-width: 980px;
@@ -110,11 +110,14 @@
     max-width: 980px;
     margin: 0 auto;
     padding: 50px 0;
+
     &-title {
       font-weight: 600;
       font-size: 20px;
       margin-bottom: 20px;
+      line-height: 1.2;
     }
+
     .list-card {
       .swiper-slide {
         .list-card-item {
@@ -292,7 +295,7 @@
 @media screen and (max-width: 768px) {
   .container {
     .list {
-      padding: 30px 20px;
+      padding: 30px 0;
       
       &-title {
         font-size: 16px;
@@ -310,6 +313,8 @@
     }
 
     .theme {
+      padding: 0;
+
       &-title {
         font-size: 16px;
       }
@@ -321,6 +326,7 @@
           &-item {
             padding: 25px;
             height: auto;
+            gap: 20px;
 
             .info {
               .title {
@@ -346,6 +352,7 @@
             .svg {
               width: 90px;
               height: 90px;
+              aspect-ratio: 165/128;
             }
           }
         }

@@ -83,7 +83,7 @@ export default function Main() {
             title: '캠핑장',
             sub: '전국 캠핑장 정보를 제공',
             id: 'camping',
-            linK: '/travel/themes/camping?name=캠핑장'
+            link: '/travel/themes/camping?name=캠핑장'
         },
         {
             title: '레저여행',

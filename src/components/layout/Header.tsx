@@ -43,23 +43,23 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-md shadow-md z-50 dark:bg-gray-900/70">
-                <div className="container mx-auto flex items-center justify-between px-6 py-4">
+            <header className="header">
+                <div className="header-wrap">
                     {/* 로고 */}
                     <Link
                         href="/"
-                        className="text-3xl font-extrabold text-gray-800 dark:text-white tracking-tight"
+                        className="header-wrap-link"
                     >
-                        KRT
+                        <strong>KTR</strong>
                     </Link>
 
                     {/* 네비게이션 */}
-                    <nav className="hidden md:flex space-x-8">
+                    <nav className="header-wrap-nav">
                         {menuList.map((item, index) => (
                             <Link
                                 key={index}
                                 href={`/travel/${item.route}`}
-                                className={`text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors font-medium ${pathname.includes(item.route) ? 'is-active' : ''}`}
+                                className={`${pathname.includes(item.route) ? 'is-active' : ''}`}
                             >
                                 {item.name}
                             </Link>
@@ -68,7 +68,7 @@ export default function Header() {
 
                     {/* 모바일 메뉴 아이콘 */}
                     <button
-                        className="md:hidden flex items-center text-gray-600 dark:text-gray-300 btn-menu"
+                        className="btn-mob"
                         onClick={() => setMobMenu(!mobMenu)}
                         aria-label="Open menu"
                     >
@@ -95,7 +95,7 @@ export default function Header() {
                         href="#top"
                         data-section-id="top"
                         className="logo">
-                        <span>대표 로고 이미지</span>
+                        <span>KTR</span>
                     </a>
                     <button type="button" className="btn-close" onClick={() => btnClose()}>
                         X

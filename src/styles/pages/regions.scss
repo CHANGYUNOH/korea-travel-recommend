@@ -20,6 +20,8 @@
         flex: 2;
 
         &-svg {
+          aspect-ratio: 1 / 1.5;
+
           path {
             cursor: pointer;
 
@@ -953,7 +955,9 @@
 @media screen and (max-width: 1024px) {
   .container {
     .region-list {
-      padding: 0 20px;
+      &-wrap {
+        padding: 0 20px;
+      }
 
       .map-container {
         flex-direction: column;
@@ -973,6 +977,7 @@
 
       .card-slider {
         padding: 50px 20px;
+        height: auto;
 
         .page-btn {
           width: 100%;
@@ -1015,6 +1020,57 @@
       .list-card {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .card-slider {
+        padding: 25px 20px;
+
+        .card {
+          flex-direction: column;
+          padding: 20px;
+
+          &:before, &:after {
+            display: none;
+          }
+
+          .img {
+            width: 100%;
+            min-width: 100%;
+          }
+
+          .info {
+            margin: 0;
+            padding: 0;
+
+            &:before {
+              display: none;
+            }
+
+            &-content {
+              margin: 20px 0 0;
+
+              &-period {
+                width: auto;
+
+                .cont {
+                  height: auto;
+                }
+              }
+            }
+
+            &-btn {
+              a {
+                flex: 1;
+              }
+            }
+          }
+        }
+      }
+
+      .map-container {
+        .map-area {
+
+        }
+      }
     }
 
     .region-detail {
@@ -1036,6 +1092,16 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    .region-list {
+      .list-card {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   }

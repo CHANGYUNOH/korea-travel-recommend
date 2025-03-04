@@ -27,7 +27,7 @@ export default function Footer() {
                 <div className="footer-info">
                     {/* 브랜드 소개 */}
                     <div className='footer-info-list'>
-                        <h2 className="title">대표 로고 이미지</h2>
+                        <h2 className="title">KTR</h2>
                         <p className="cont">
                             국내 여행지 정보 플랫폼에 기반한 랜덤으로 여행지 추천 기능을 포함한 사이트입니다..
                         </p>

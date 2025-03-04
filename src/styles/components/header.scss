@@ -1,7 +1,39 @@
-header {
-  .container {
-    padding: 20px 0;
+.header {
+  box-shadow: 0 8px 24px rgba(149, 157, 165, 0.5);
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 76px;
+  z-index: 99;
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 20px;
+
+    &-link {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      strong {
+        font-size: 40px;
+      }
+    }
+
+    &-nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .btn-mob {
+      display: none;
+    }
   }
 
   nav {
@@ -47,7 +79,7 @@ header {
   width: 50%;
   height: 100%;
   background: #fff;
-  border-left: 1px solid;
+  box-shadow: 0 8px 24px rgba(149, 157, 165, 0.5);
   padding: 28px 20px;
   z-index: 99;
   transition: all .2s ease;
@@ -62,6 +94,11 @@ header {
       justify-content: space-between;
       width: 100%;
 
+      .logo {
+        font-weight: 600;
+        font-size: 20px;
+      }
+
       .btn-close {
           cursor: pointer;
 
@@ -75,7 +112,7 @@ header {
       margin-top: 46px;
       font-family: "Pretendard";
       text-transform: uppercase;
-      padding: 0 10px;
+      padding: 0;
 
       &-list {
           text-align: left;
@@ -111,5 +148,21 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-  
+  .header {
+    &-wrap {
+      &-link {
+        strong {
+          font-size: 30px;
+        }
+      }
+      
+      &-nav {
+        display: none;
+      }
+
+      .btn-mob {
+        display: block;
+      }
+    }
+  }
 }

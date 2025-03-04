@@ -21,6 +21,8 @@
             }
 
             .cont {
+                line-height: 1.2;
+                
                 &-list {
                     margin-bottom: 10px;
 
@@ -33,12 +35,12 @@
     }
 }
 
+@media screen and (max-width: 1024px) {
+
+}
+
 @media screen and (max-width: 768px) {
     .footer {
-        &-wrap {
-
-        }
-
         &-info {
             display: block;
 
@@ -54,9 +56,10 @@
                 }
 
                 .cont {
-                    display: inline-flex;
+                    display: block
 
                     &-list {
+                        display: block;
                         margin-right: 10px;
                     }
                 }
