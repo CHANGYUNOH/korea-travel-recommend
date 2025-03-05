@@ -1016,9 +1016,47 @@
 
 @media screen and (max-width: 768px) {
   .container {
+    padding: 35px 0 0;
+
     .region-list {
+      .list {
+        padding: 30px 0;
+
+        .btn-area {
+          .btn-more {
+            height: 35px;
+            font-size: 14px;
+
+            svg {
+              height: 16px;
+            }
+          }
+        }
+      }
+
+      .list-head {
+        font-size: 20px;
+      }
+
+      .list-title {
+        &-text {
+          font-size: 20px;
+
+          select {
+            padding: 0 35px 0 5px;
+            font-size: 20px;
+          }
+        }
+      }
+
       .list-card {
         grid-template-columns: repeat(2, 1fr);
+
+        &-item-link {
+          .img {
+            height: 150px;
+          }
+        }
       }
 
       .card-slider {
@@ -1035,21 +1073,40 @@
           .img {
             width: 100%;
             min-width: 100%;
+            height: 200px;
           }
 
           .info {
             margin: 0;
             padding: 0;
 
+            &-title {
+              font-size: 20px;
+            }
+
+            &-locate {
+              font-size: 14px;
+            }
+
             &:before {
               display: none;
             }
 
             &-content {
-              margin: 20px 0 0;
+              margin: 20px 0;
+              display: block;
+
+              &-place {
+                width: 100%;
+
+                .cont {
+                  height: auto;
+                }
+              }
 
               &-period {
                 width: auto;
+                margin-bottom: 20px;
 
                 .cont {
                   height: auto;
@@ -1082,15 +1139,62 @@
             .info-area {
               &-list {
                 width: 100%;
+
+                .tit {
+                  font-size: 14px;
+                }
+
+                .cont {
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .top-area {
+              .tit {
+                font-size: 20px;
+              }
+            }
+
+            .cont-area {
+              padding: 0;
+              
+              .text {
+                font-size: 14px;
+              }
+
+              .btn-area {
+                .btn-more {
+                  font-size: 14px;
+                }
               }
             }
 
             .recommend-area {
+              .title {
+                font-size: 20px;
+              }
+
               .cont-wrap-list {
                 width: 100%;
+                height: 250px;
               }
             }
           }
+
+          .img-area {
+            height: 350px;
+          }
+        }
+      }
+
+      .title-area {
+        .tit {
+          font-size: 28px;
+        }
+
+        .title {
+          font-size: 22px;
         }
       }
     }
@@ -1102,6 +1206,24 @@
     .region-list {
       .list-card {
         grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .region-detail {
+      .cont-area {
+        .gallery {
+          .img-area {
+            height: 200px;
+          }
+
+          .detail-view {
+            .recommend-area {
+              .cont-wrap-list {
+                height: 200px;
+              }
+            }
+          }
+        }
       }
     }
   }

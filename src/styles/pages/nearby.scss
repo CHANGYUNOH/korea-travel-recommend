@@ -1,8 +1,15 @@
 .container {
+  padding: 50px 0;
+
     .nearby {
-        padding: 50px 20px 100px;
         max-width: 1200px;
         margin: 0 auto;
+
+        h1 {
+          font-size: 28px;
+          margin-bottom: 30px;
+          font-weight: 600;
+        }
 
         .search-box {
             border: 1px solid;
@@ -311,6 +318,8 @@
 
 @media screen and (max-width: 1024px) {
   .container {
+    padding: 25px 0;
+
     .nearby {
       &-cont {
         &-map {
@@ -328,7 +337,17 @@
 @media screen and (max-width: 768px) {
   .container {
     .nearby {
+      padding: 0 20px;
+
+      h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
       .search-area {
+        padding: 20px;
+        border-radius: 15px;
+
         dl {
           flex-direction: column;
           align-items: flex-start;
@@ -346,11 +365,36 @@
         }
       }
 
+      .cont {
+        padding: 20px 0;
+      }
+
       &-cont {
         display: block;
+        margin-top: 20px;
         
         &-map {
           margin-bottom: 30px;
+
+          #map {
+            height: 250px!important;
+          }
+        }
+
+        &-list {
+          max-height: initial;
+
+          .item {
+            &-list {
+              &-top {
+                gap: 20px;
+
+                img {
+                  height: 120px;
+                }
+              }
+            }
+          }
         }
       }
     }

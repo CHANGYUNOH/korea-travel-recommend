@@ -557,18 +557,71 @@
         margin-bottom: 20px;
 
         &.type01 {
-          
+          height: 40px;
+          font-size: 14px;
+        }
+      }
+
+      .search-area {
+        border-radius: 15px;
+        padding: 20px;
+
+        dt {
+          margin-bottom: 10px;
+        }
+
+        dl {
+          display: block;
+
+          dd {
+            display: inline-block;
+
+            & + dd {
+              margin-left: 5px;
+            }
+          }
         }
       }
 
       .search-box {
         max-width: 100%;
-        margin: 0 auto 25px;
+        margin: 0 auto 20px;
       }
 
       .cont {
         &-wrap {
           grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        &-list {
+          border-radius: 15px;
+
+          &-item {
+            .img {
+              height: 120px;
+            }
+
+            .info {
+              padding: 15px;
+
+              &-label {
+                font-size: 14px;
+              }
+
+              &-tit {
+                font-size: 16px;
+              }
+
+              &-sub {
+                font-size: 14px;
+              }
+
+              &-date {
+                font-size: 14px;
+              }
+            }
+          }
         }
       }
     }

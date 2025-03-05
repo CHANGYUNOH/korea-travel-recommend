@@ -60,7 +60,7 @@ export default function Nearby() {
 
     return (
         <div className='nearby'>
-            <h1 className="text-4xl font-bold mb-10">내 위치를 중심으로 여행지 찾기</h1>
+            <h1>내 위치를 중심으로 여행지 찾기</h1>
             <div className='search-area'>
                 <dl>
                     <dt>거리반경</dt>

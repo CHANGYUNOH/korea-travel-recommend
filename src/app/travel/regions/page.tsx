@@ -9,8 +9,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import React, {useEffect, useState, useRef} from "react";
 import Link from 'next/link';
 import MapSVG from '@/assets/svg/korean_map_02.svg';
-import {useRouter, useSearchParams} from "next/navigation";
-import {update} from "immutable";
+import {useSearchParams} from "next/navigation";
 
 export default function Regions() {
 
