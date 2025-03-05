@@ -109,6 +109,7 @@ export default function Header() {
                     ))}
                 </ul>
             </div>
+            <div className={`mob-bg ${mobMenu ? 'is-active' : ''}`}></div>
         </>
     );
 }

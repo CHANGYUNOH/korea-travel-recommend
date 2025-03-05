@@ -373,7 +373,7 @@ export default function Regions() {
                             bulletActiveClass: 'custom-pagination-bullet-active', // 활성화 클래스 지정
                         }}
                         breakpoints={{
-                            1024: {slidesPerView: 1.6, spaceBetween: 20}, // 큰 화면
+                            1300: {slidesPerView: 2, spaceBetween: 20}, // 큰 화면
                             768: {slidesPerView: 1.2, spaceBetween: 15}, // 태블릿
                         }}
                         modules={[Pagination, Navigation]}>

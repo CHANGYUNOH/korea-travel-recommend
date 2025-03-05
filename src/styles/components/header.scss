@@ -81,11 +81,19 @@
   background: #fff;
   box-shadow: 0 8px 24px rgba(149, 157, 165, 0.5);
   padding: 28px 20px;
-  z-index: 99;
+  z-index: 100;
   transition: all .2s ease;
 
   &.is-active {
       left: 50%;
+
+      &:before {
+        display: block;
+      }
+
+      & + .bg {
+        display: block;
+      }
   }
 
   &-header {
@@ -136,6 +144,21 @@
           }
       }
   }
+}
+
+.mob-bg {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+
+    &.is-active {
+      display: block;
+    }
 }
 
 @media screen and (max-width: 1200px) {

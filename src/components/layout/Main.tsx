@@ -107,7 +107,6 @@ export default function Main() {
                     slidesPerView={1}
                     navigation
                     pagination={{clickable: true}}
-                    autoplay={{delay: 3000}}
                     loop={true}
                 >
                     {banner_images.map((src, index) => (
