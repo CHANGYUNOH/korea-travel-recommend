@@ -1,9 +1,8 @@
 .container {
   max-width: 100%;
-  margin-top: 30px;
 
   .title {
-    max-width: 980px;
+    max-width: 1200px;
     padding: 0 0 20px;
     font-weight: 400;
     font-size: 22px;
@@ -13,7 +12,7 @@
 
   .slider-container {
     position: relative;
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -132,7 +131,7 @@
 
   .locate {
     position: relative;
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
 
     &-list {
@@ -172,7 +171,7 @@
     }
 
     .swiper-slide {
-      width: 980px;
+      width: 1200px;
     }
 
     .swiper-button {
@@ -209,7 +208,7 @@
 
   // 리스트
   .list {
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 50px 0;
 
@@ -276,7 +275,7 @@
 
   .theme {
     padding-top: 50px;
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
 
     &-title {

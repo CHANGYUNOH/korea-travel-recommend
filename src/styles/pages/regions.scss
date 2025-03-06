@@ -8,11 +8,11 @@
 
     // 지도
     .map {
-      max-width: 980px;
+      max-width: 1200px;
       display: flex;
 
       &-container{
-        max-width: 980px;
+        max-width: 1200px;
         margin: 0 auto;
         display: flex;
         flex-direction: row; /* 지도와 버튼 리스트를 가로로 배치 */
@@ -83,7 +83,7 @@
 
     // 리스트
     .list {
-      max-width: 980px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 50px 0;
 
@@ -270,7 +270,7 @@
 
     // 타이틀
     .title {
-      max-width: 980px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 0 40px;
       font-weight: 400;
@@ -551,7 +551,7 @@
 
   // 상세
   .region-detail {
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
 
     .title-area {
