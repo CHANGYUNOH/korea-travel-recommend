@@ -1,15 +1,17 @@
 "use client"
 
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import '@/styles/pages/main.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
+import { Swiper as SwiperType, SwiperInstance } from "swiper"
 
 import axios from 'axios';
 import Link from "next/link";
 import {Swiper, SwiperSlide} from "swiper/react";
+
 import {Autoplay, Navigation, Pagination} from "swiper/modules";
 import {useRouter} from "next/navigation";
 
@@ -27,6 +29,24 @@ export default function Main() {
         };
         fetchData();
     }, []);
+
+    const swiperRef = useRef<SwiperInstance | null>(null);
+    const swiperRef2 = useRef(null); // 두 번째 Swiper 참조
+
+        // 이전 버튼 클릭
+        const handlePrevClick = () => {
+            if (swiperRef.current) {
+                swiperRef.current.swiper.slidePrev();
+            }
+        };
+    
+        // 다음 버튼 클릭
+        const handleNextClick = () => {
+            if (swiperRef.current) {
+                swiperRef.current.swiper.slideNext();
+            }
+        };
+    
 
     const banner_images = [
         { id: "Seoul,Gyeonggi" , img : '/images/main_seoul.png' },
@@ -101,73 +121,108 @@ export default function Main() {
     return (
         <div className='container'>
             <div className="slider-container">
-                <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    navigation
-                    pagination={{clickable: true}}
-                    loop={true}
-                >
-                    {banner_images.map((src, index) => (
-                        <SwiperSlide key={index} onClick={() => handleClick(src.id)}>
-                            <div className="bg" style={{ backgroundImage: `url(${src.img})`, cursor: 'pointer' }}></div>
-                        </SwiperSlide>
-                    ))}
+            <Swiper
+    modules={[Navigation, Pagination, Autoplay]}
+    spaceBetween={50}
+    slidesPerView={1}
+    navigation={{
+        prevEl: ".custom-prev",
+        nextEl: ".custom-next",
+    }}
+    pagination={{ 
+        el: ".custom-pagination", 
+        clickable: true 
+    }}
+    loop={true}
+>
+    {banner_images.map((src, index) => (
+        <SwiperSlide key={src.id} onClick={() => handleClick(src.id)}>
+            <div className="bg" style={{ backgroundImage: `url(${src.img})`, cursor: 'pointer' }}></div>
+        </SwiperSlide>
+    ))}
+</Swiper>
 
-                </Swiper>
+                {/* 네비게이션 버튼 */}
+                <div className="custom-navigation">
+                    <button className="custom-prev" onClick={handlePrevClick}>〈</button>
+                    <button className="custom-next" onClick={handleNextClick}>〉</button>
+                </div>
+
+                {/* 페이지네이션 */}
+                <div className="custom-pagination"></div>
+
             </div>
 
 
             <div className="list">
                 <div className='list-title'> 🔥 어디 갈지 고민된다면? 추천 여행지 BEST 3 </div>
                 <div className="list-card">
-                    <Swiper
-                        spaceBetween={20} // 각 슬라이드 간 간격
-                        slidesPerView={1} // 한 번에 표시할 슬라이드 수
-                        modules={[Pagination, Autoplay, Navigation]} // Pagination 모듈 추가
-                        pagination={{clickable: true}} // 페이지네이션 활성화
-                        navigation // 네비게이션 버튼 활성화
-                        autoplay={{
-                            delay: 3000,
-                            disableOnInteraction: false,
-                        }}
-                        breakpoints={{
-                            1024: {slidesPerView: 3, spaceBetween: 20}, // 큰 화면
-                            768: {slidesPerView: 2, spaceBetween: 15}, // 태블릿
-                            480: {slidesPerView: 1, spaceBetween: 10}, // 모바일
-                        }}
-                    >
-                        {tourList.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <li className="list-card-item">
-                                    <Link
-                                        href={{
-                                            pathname: `/travel/regions/${index + 1}`,
-                                            query: {
-                                                title: item.title,
-                                                locale: item.locale,
-                                                tag: JSON.stringify(item.tag),
-                                                image: item.image,
-                                            },
-                                        }}
-                                        className="list-card-item-link"
-                                    >
-                                        <div className="img">
-                                            <img
-                                                src={`/images/list_sample_${index + 1}.png`}
-                                                alt={item.title}
-                                            />
-                                        </div>
-                                        <div className="info">
-                                            <div className="info-title">{item.title}</div>
-                                            <p className="info-locale">{item.locale}</p>
-                                        </div>
-                                    </Link>
-                                </li>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                <Swiper
+    ref={swiperRef2}
+    spaceBetween={20}
+    slidesPerView={1}
+    modules={[Pagination, Autoplay, Navigation]}
+    pagination={{
+        el: ".custom-pagination-2", // 두 번째 페이지네이션 클래스
+        clickable: true,
+    }}
+    navigation={{
+        prevEl: ".custom-prev-2", // 두 번째 네비게이션 이전 버튼
+        nextEl: ".custom-next-2", // 두 번째 네비게이션 다음 버튼
+    }}
+    autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+    }}
+    breakpoints={{
+        1024: { slidesPerView: 3, spaceBetween: 20 },
+        768: { slidesPerView: 2, spaceBetween: 15 },
+        480: { slidesPerView: 1, spaceBetween: 10 },
+    }}
+>
+    {tourList.map((item, index) => (
+        <SwiperSlide key={index}>
+            <li className="list-card-item">
+                <Link
+                    href={{
+                        pathname: `/travel/regions/${index + 1}`,
+                        query: {
+                            title: item.title,
+                            locale: item.locale,
+                            tag: JSON.stringify(item.tag),
+                            image: item.image,
+                        },
+                    }}
+                    className="list-card-item-link"
+                >
+                    <div className="img">
+                        <img
+                            src={`/images/list_sample_${index + 1}.png`}
+                            alt={item.title}
+                        />
+                    </div>
+                    <div className="info">
+                        <div className="info-title">{item.title}</div>
+                        <p className="info-locale">{item.locale}</p>
+                    </div>
+                </Link>
+            </li>
+        </SwiperSlide>
+    ))}
+</Swiper>
+
+{/* 두 번째 스와이퍼의 커스텀 네비게이션 버튼 */}
+<div className="custom-navigation-2">
+    <button className="custom-prev-2" onClick={() => handlePrevClick(swiperRef2)}>
+        &lt;
+    </button>
+    <button className="custom-next-2" onClick={() => handleNextClick(swiperRef2)}>
+        &gt;
+    </button>
+</div>
+
+{/* 두 번째 스와이퍼의 커스텀 페이지네이션 */}
+<div className="custom-pagination-2"></div>
                 </div>
             </div>
             <div className='theme'>
