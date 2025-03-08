@@ -33,11 +33,44 @@ const itemList = [
         locale: '내 위치로부터 1km',
         desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
         image: '/images/list_sample_4.png'
+    },
+    {
+        title: '봉은사',
+        locale: '내 위치로부터 10m',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_1.png'
+    },
+    {
+        title: '해파랑길 3코스',
+        locale: '내 위치로부터 100m',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_2.png'
+    },
+    {
+        title: '해파랑길 2코스',
+        locale: '내 위치로부터 500m',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_3.png'
+    },
+    {
+        title: '해파랑길 1코스',
+        locale: '내 위치로부터 1km',
+        desc: '봉은사는 서울의 중심지인 강남구 삼성동에 자리 잡은 천년고찰이다. 794년 연화국사가 창건하였고 처음엔 견성사라고 하였다. 이후 1498년 성종의 계비 정현왕후가 성종의 능(선릉)동편에 있던 절을 크게 중창하고 절 이름을 성종의 계비 정현왕후가 성종의 능(선릉) 동편에 있던 이 절을 크게 중창하고 절 이름을 봉은사로 바꿨다.',
+        image: '/images/list_sample_4.png'
     }
 ]
 
 // 근처 여행지 찾기
 export default function Nearby() {
+    const [visibleCount, setVisibleCount] = useState(4);
+
+    // 더보기 버튼을 보여줄지 여부 결정
+    const shouldShowMoreButton = visibleCount < itemList.length;
+
+    const handleMoreClick = () => {
+        setVisibleCount(prevCount => prevCount + 4); // 4개씩 추가로 보여줌
+      };
+
     const [showBtnMore, setShowBtnMore] = useState(-1);
 
     const btnMoreHandle = (index: number) => {
@@ -106,7 +139,7 @@ export default function Nearby() {
                 </div>
                 <div className='nearby-cont-list'>
                      <ul className='item'>
-                        {itemList.map((item, index) => (
+                        {itemList.slice(0, visibleCount).map((item, index) => (
                             <li className={`item-list ${showMore === index ? 'is-active' : ''}`}
                                 key={index}>
                             <div className='item-list-top' onClick={() => handleBtnMore(index)}>
@@ -181,11 +214,13 @@ export default function Nearby() {
                         </li>
                         ))}
                      </ul>
-                     <div className='btn-area'> 
-                        <button className='btn-more'>
-                            <span className='txt'>더보기</span>
-                        </button>
-                     </div>
+      {shouldShowMoreButton && (
+        <div className="btn-area">
+          <button className="btn-more" onClick={handleMoreClick}>
+            <span className="txt">더보기</span>
+          </button>
+        </div>
+      )}
                 </div>
             </div>
         </div>
