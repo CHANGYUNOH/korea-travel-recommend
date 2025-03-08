@@ -290,14 +290,21 @@ export default function Regions() {
         alert(`좋아요가 ${likedItems[index] ? '취소' : '추가'}되었습니다.`);
     };
 
-    const [visibleCount, setVisibleCount] = useState(8); // 처음에 8개의 데이터만 보여줌
+    const itemsPerPage = 4; // 한 번에 보여줄 항목 수
+  const [visibleCount, setVisibleCount] = useState(8); // 처음에 8개의 데이터만 보여줌
 
-    // 더보기 버튼을 보여줄주 여부 결정
-    const shouldShowMoreButton = visibleCount < tourList.length;
+  const totalPages = Math.ceil(tourList.length / itemsPerPage); // 전체 페이지 수
+  const currentPage = Math.ceil(visibleCount / itemsPerPage); // 현재 페이지 번호 계산
 
-    const handleMoreClick = () => {
-        setVisibleCount(prevCount => prevCount + 4); // 4개씩 추가로 보여줌
-    }
+  // 더보기 버튼을 보여줄지 여부 결정
+  const shouldShowMoreButton = visibleCount < tourList.length;
+
+  const handleMoreClick = () => {
+    setVisibleCount(prevCount => prevCount + 4); // 4개씩 추가로 보여줌
+  };
+
+  // 현재 페이지에 해당하는 항목들
+  const visibleItems = tourList.slice(0, visibleCount);
 
     return (
         <div className="region-list">
@@ -425,17 +432,13 @@ export default function Regions() {
                         </li>
                     ))}
                 </div>
-                    {shouldShowMoreButton && (
-                                        <div className='btn-area'>
-                                        <button className='btn-more' onClick={handleMoreClick}>
-                                            <span>더보기</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                                                 stroke="currentColor" className="size-6">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                    )}
+                {shouldShowMoreButton && (
+                    <div className="btn-area">
+                    <button className="btn-more" onClick={handleMoreClick}>
+                        <span>더보기({currentPage}/{totalPages})</span>
+                    </button>
+                    </div>
+                )}
 
             </div>
             {/* EOD : 리스트 */}
